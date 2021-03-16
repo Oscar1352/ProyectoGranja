@@ -14,7 +14,7 @@ public class Plantas {
     }
     public void MostrarPlanta(){
         Plantas(TiposDePlanta, TiempoDeVida, PrecioDeSemillas);
-        System.out.println(" ");
+        System.out.println("Prueba ");
     }
 
     public void CrearPlanta(String TiposDePlanta, String TiempoDeVida, int PrecioDeSemillas){
