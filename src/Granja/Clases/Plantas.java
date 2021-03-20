@@ -1,5 +1,8 @@
 package Granja.Clases;
 
+import Granja.Plantas.Maiz;
+import Granja.Plantas.Manzano;
+
 public abstract class Plantas extends SerVivo{
 
     private String TipoDePlanta;
@@ -10,6 +13,7 @@ public abstract class Plantas extends SerVivo{
         this.TipoDePlanta=TipoDePlanta;
         this.PrecioDeSemillas=PrecioDeSemillas;
     }
+    Manzano manzano = new Manzano("Manzano", "De Frutos", 20, 10);
 
     public String getTipoDePlanta() {
         return TipoDePlanta;
