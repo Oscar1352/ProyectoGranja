@@ -1,12 +1,12 @@
 package Granja.Clases;
 
-abstract class Animal extends SerVivo{
+public abstract class Animales extends SerVivo{
 
     private String TipoDeAnimal;
     private String Producto;
     private boolean Destazable;
 
-    public Animal(String TipoDeAnimal, String nombre,Integer edad,String Producto,boolean Destazable) {
+    public Animales(String TipoDeAnimal, String nombre,Integer edad,String Producto,boolean Destazable) {
         super(nombre, edad);
         this.TipoDeAnimal = TipoDeAnimal;
         this.Producto = Producto;
@@ -46,4 +46,3 @@ abstract class Animal extends SerVivo{
                 '}';
     }
 }
-
