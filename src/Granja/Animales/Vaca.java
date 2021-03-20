@@ -1,9 +1,10 @@
 package Granja.Animales;
 
 import Granja.Clases.Animales;
+import Granja.Interfaces.TiposDeAnimal.Destazable;
 import Granja.Interfaces.TiposDeAnimal.Herviboro;
 
-public class Vaca extends Animales implements Herviboro {
+public class Vaca extends Animales implements Herviboro, Granja.Interfaces.TiposDeAnimal.Destazable {
 
     public Vaca(String TipoDeAnimal, String nombre, Integer edad, String Producto, boolean Destazable) {
         super(TipoDeAnimal, nombre, edad, Producto, Destazable);
@@ -11,6 +12,16 @@ public class Vaca extends Animales implements Herviboro {
 
     @Override
     public void ComerHierbas() {
+
+    }
+
+    @Override
+    public void ProduceCuero() {
+
+    }
+
+    @Override
+    public void ProduceCarne() {
 
     }
 }
