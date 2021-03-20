@@ -1,9 +1,9 @@
 package Granja.Animales;
 
-import Granja.Clases.Animal;
+import Granja.Clases.Animales;
 import Granja.Interfaces.TiposDeAnimal.Herviboro;
 
-public class Gallina extends Animal implements Herviboro {
+public class Gallina extends Animales implements Herviboro {
 
     public Gallina(String TipoDeAnimal, String nombre, Integer edad, String Producto, boolean Destazable) {
         super(TipoDeAnimal, nombre, edad, Producto, Destazable);
@@ -12,5 +12,9 @@ public class Gallina extends Animal implements Herviboro {
     @Override
     public void ComerHierbas() {
 
+    }
+
+    public void ComerSemillas() {
+        System.out.println("Mi amo me dio unas Semillas para comer");
     }
 }

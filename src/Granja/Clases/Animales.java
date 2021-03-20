@@ -45,4 +45,5 @@ public abstract class Animales extends SerVivo{
                 ", Destazable=" + Destazable +
                 '}';
     }
+
 }
