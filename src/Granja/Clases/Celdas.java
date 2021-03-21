@@ -4,11 +4,20 @@ public abstract class Celdas {
     private String TipoDeSuelo;
     private String ActividadQuePermite;
     private Integer PorcentajeDeDistribucion;
+    private Integer Precio;
 
-    public Celdas(String TipoDeSuelo,String ActividadQuePermite, Integer PorcentajeDeDistribucion) {
+    public Celdas(String TipoDeSuelo,String ActividadQuePermite, Integer PorcentajeDeDistribucion, Integer Precio) {
         this.TipoDeSuelo = TipoDeSuelo;
         this.ActividadQuePermite = ActividadQuePermite;
         this.PorcentajeDeDistribucion=PorcentajeDeDistribucion;
+        this.Precio=Precio;
+    }
+    public Integer getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(Integer precio) {
+        Precio = precio;
     }
 
     public String getTipoDeSuelo() {
@@ -41,6 +50,7 @@ public abstract class Celdas {
                 "TipoDeSuelo='" + TipoDeSuelo + '\'' +
                 ", ActividadQuePermite='" + ActividadQuePermite + '\'' +
                 ", PorcentajeDeDistribucion=" + PorcentajeDeDistribucion +
+                ", Precio=" + Precio +
                 '}';
     }
 }

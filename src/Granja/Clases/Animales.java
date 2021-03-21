@@ -3,12 +3,14 @@ package Granja.Clases;
 public abstract class Animales extends SerVivo{
 
     private String TipoDeAnimal;
+    private double Tamaño;
     private String Producto;
     private boolean Destazable;
 
-    public Animales(String TipoDeAnimal, String nombre,Integer edad,String Producto,boolean Destazable) {
+    public Animales(String TipoDeAnimal, double Tamaño, String nombre,Integer edad,String Producto,boolean Destazable) {
         super(nombre, edad);
         this.TipoDeAnimal = TipoDeAnimal;
+        this.Tamaño=Tamaño;
         this.Producto = Producto;
         this.Destazable = Destazable;
     }
@@ -37,10 +39,19 @@ public abstract class Animales extends SerVivo{
         Destazable = destazable;
     }
 
+    public double getTamaño() {
+        return Tamaño;
+    }
+
+    public void setTamaño(double tamaño) {
+        Tamaño = tamaño;
+    }
+
     @Override
     public String toString() {
-        return "Animal{" +
+        return "Animales{" +
                 "TipoDeAnimal='" + TipoDeAnimal + '\'' +
+                ", Tamaño='" + Tamaño + '\'' +
                 ", Producto='" + Producto + '\'' +
                 ", Destazable=" + Destazable +
                 '}';
