@@ -11,8 +11,6 @@ public class Vaca extends Animales implements Herviboro, Granja.Interfaces.Tipos
         super(TipoDeAnimal, Tamaño, nombre, edad, Producto, Destazable);
     }
 
-    Vaca vaca = new Vaca("Vaca",2, "Herviboro", 30,"Cuero y Carne",true);
-
     @Override
     public void ComerHierbas() {
 
@@ -26,5 +24,8 @@ public class Vaca extends Animales implements Herviboro, Granja.Interfaces.Tipos
     @Override
     public void ProduceCarne() {
 
+    }
+    public void presentarse(){
+        System.out.println("");
     }
 }

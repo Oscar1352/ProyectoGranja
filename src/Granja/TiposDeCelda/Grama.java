@@ -1,10 +1,11 @@
 package Granja.TiposDeCelda;
 
 import Granja.Clases.Celdas;
+import Granja.Interfaces.ActividadesEnLasCeldas.Cosecha;
 import Granja.Interfaces.ActividadesEnLasCeldas.Crianza;
 import Granja.Interfaces.ActividadesEnLasCeldas.Siembra;
 
-public class Grama extends Celdas implements Siembra, Crianza {
+public class Grama extends Celdas implements Siembra, Crianza, Cosecha {
     public Grama(String TipoDeSuelo, String ActividadQuePermite, Integer PorcentajeDeDistribucion, Integer Precio) {
         super(TipoDeSuelo, ActividadQuePermite, PorcentajeDeDistribucion, Precio);
 
@@ -22,17 +23,32 @@ public class Grama extends Celdas implements Siembra, Crianza {
     }
 
     @Override
-    public void Cosechar() {
-
-    }
-
-    @Override
     public void CriarAnimales() {
 
     }
 
     @Override
     public void ComprarAnimales() {
+
+    }
+
+    @Override
+    public void AlimentarAnimal() {
+
+    }
+
+    @Override
+    public void LimpiarAnimalMuerto() {
+
+    }
+
+    @Override
+    public void Cosechar() {
+
+    }
+
+    @Override
+    public void VencimientoDePlanta() {
 
     }
 }
