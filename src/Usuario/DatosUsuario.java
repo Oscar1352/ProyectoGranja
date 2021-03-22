@@ -5,8 +5,8 @@ public class DatosUsuario {
     //Declaro mis varibales para datos generales
     private String Nombre;
     private String Nickname;
-    private int Oro;
     private int PuntosDeVida;
+    private int AlimentoConsumido;
 
     //Declaro mis getters y setters
     public String getNombre() {
@@ -23,11 +23,12 @@ public class DatosUsuario {
         Nickname = nickname;
     }
 
-    public int getOro() {
-        return Oro;
+    public int getAlimentoConsumido() {
+        return AlimentoConsumido;
     }
-    public void setOro(int oro) {
-        Oro = oro;
+
+    public void setAlimentoConsumido(int alimentoConsumido) {
+        AlimentoConsumido = alimentoConsumido;
     }
 
     public int getPuntosDeVida() {
