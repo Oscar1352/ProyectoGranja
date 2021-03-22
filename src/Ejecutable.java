@@ -1,7 +1,9 @@
 import Granja.Animales.Gallina;
 import Granja.Animales.Perro;
 import Granja.Animales.Vaca;
+import Granja.Clases.Celdas;
 import Granja.Interfaces.TiposDeAnimal.Herviboro;
+import Granja.TiposDeCelda.Grama;
 
 public class Ejecutable {
     public static void main(String[] args) {
@@ -12,15 +14,13 @@ public class Ejecutable {
         Herviboro herviboro[]= new Herviboro[2];
         herviboro[0]= vaca;
         herviboro[1]= gallina;
-        System.out.println(mostrarAnimalesherviboro(herviboro));
+        mostrarAnimalesherviboro(herviboro);
     }
-    public static boolean mostrarAnimalesherviboro(Herviboro[] herviboro){
+    public static void mostrarAnimalesherviboro(Herviboro herviboro[]){
 
         for (int i = 0; i < herviboro.length; i++) {
             Herviboro animal = herviboro[i];
             System.out.println(i+" El animal es "+herviboro[i]);;
-
         }
-        return false;
     }
 }

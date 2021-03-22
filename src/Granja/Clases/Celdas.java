@@ -12,6 +12,8 @@ public abstract class Celdas {
         this.PorcentajeDeDistribucion=PorcentajeDeDistribucion;
         this.Precio=Precio;
     }
+
+    Celdas celdas[][]= new Celdas[5][5];
     public Integer getPrecio() {
         return Precio;
     }
