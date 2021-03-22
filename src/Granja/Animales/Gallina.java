@@ -11,7 +11,6 @@ public class Gallina extends Animales implements Herviboro, Huevos {
     }
     @Override
     public void ComerHierbas() {
-
     }
 
 

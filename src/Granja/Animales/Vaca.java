@@ -13,7 +13,6 @@ public class Vaca extends Animales implements Herviboro, Granja.Interfaces.Tipos
 
     @Override
     public void ComerHierbas() {
-
     }
 
     @Override
