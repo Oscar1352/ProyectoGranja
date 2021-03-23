@@ -13,7 +13,7 @@ public abstract class Celdas {
         this.Precio=Precio;
     }
 
-    Celdas celdas[][]= new Celdas[5][5];
+
     public Integer getPrecio() {
         return Precio;
     }

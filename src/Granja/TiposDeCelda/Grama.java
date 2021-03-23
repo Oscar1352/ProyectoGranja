@@ -8,8 +8,6 @@ import Granja.Interfaces.ActividadesEnLasCeldas.Siembra;
 public class Grama extends Celdas implements Siembra, Crianza, Cosecha {
     public Grama(String TipoDeSuelo, String ActividadQuePermite, Integer PorcentajeDeDistribucion, Integer Precio) {
         super(TipoDeSuelo, ActividadQuePermite, PorcentajeDeDistribucion, Precio);
-        Grama grama= new Grama("Grama", "Siembra y Crianza de Animales", 40,30);
-
     }
 
     @Override
