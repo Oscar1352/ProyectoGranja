@@ -1,6 +1,5 @@
 package Granja.Animales;
 
-import java.time.LocalTime;
 
 public class Animales {
     private int CriasCompradas;
@@ -10,9 +9,6 @@ public class Animales {
         return CriasCompradas;
     }
 
-    public static void main(String[] args) {
-        System.out.println("La hora de este momento es: "+ LocalTime.now());
-    }
 
     public void setCriasCompradas(int criasCompradas) {
         CriasCompradas = criasCompradas;

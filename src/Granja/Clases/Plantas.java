@@ -8,8 +8,8 @@ public abstract class Plantas extends SerVivo{
     private String TipoDePlanta;
     private Integer PrecioDeSemillas;
 
-    public Plantas(String nombre,String TipoDePlanta, Integer TiempoDeVida, Integer PrecioDeSemillas) {
-        super(nombre, TiempoDeVida);
+    public Plantas(String nombre,String TipoDePlanta, Integer Edad, Integer PrecioDeSemillas) {
+        super(nombre, Edad);
         this.TipoDePlanta=TipoDePlanta;
         this.PrecioDeSemillas=PrecioDeSemillas;
     }

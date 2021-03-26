@@ -3,11 +3,11 @@ package Granja.Clases;
     public abstract class SerVivo {
 
         private String nombre;
-        private Integer TiempoDeVida;
+        private Integer Edad;
 
-        public SerVivo(String nombre, Integer TiempoDeVida) {
+        public SerVivo(String nombre, Integer Edad) {
             this.nombre = nombre;
-            this.TiempoDeVida = TiempoDeVida;
+            this.Edad = Edad;
         }
         public String getNombre() {
             return nombre;
@@ -17,17 +17,9 @@ package Granja.Clases;
             this.nombre = nombre;
         }
 
-        public Integer getTiempoDeVida() {
-            return TiempoDeVida;
-        }
-
-        public void setTiempoDeVida(Integer TiempoDeVida) {
-            this.TiempoDeVida = TiempoDeVida;
-        }
-
         @Override
         public String toString() {
-            return "SerVivo{" + "nombre=" + nombre + ", edad=" + TiempoDeVida + '}';
+            return "SerVivo{" + "nombre=" + nombre + ", edad=" + Edad + '}';
         }
 
 

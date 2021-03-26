@@ -5,12 +5,14 @@ public abstract class Animales extends SerVivo{
     private String TipoDeAnimal;
     private double Tamaño;
     private String Producto;
+    private int ComidaConsumida;
     private boolean Destazable;
 
-    public Animales(String TipoDeAnimal, double Tamaño, String nombre,Integer edad,String Producto,boolean Destazable) {
+    public Animales(String TipoDeAnimal, String nombre, double Tamaño, int ComidaConsumida,Integer edad,String Producto,boolean Destazable) {
         super(nombre, edad);
         this.TipoDeAnimal = TipoDeAnimal;
         this.Tamaño=Tamaño;
+        this.ComidaConsumida=ComidaConsumida;
         this.Producto = Producto;
         this.Destazable = Destazable;
     }
@@ -45,6 +47,14 @@ public abstract class Animales extends SerVivo{
 
     public void setTamaño(double tamaño) {
         Tamaño = tamaño;
+    }
+
+    public int getComidaConsumida() {
+        return ComidaConsumida;
+    }
+
+    public void setComidaConsumida(int comidaConsumida) {
+        ComidaConsumida = comidaConsumida;
     }
 
     @Override

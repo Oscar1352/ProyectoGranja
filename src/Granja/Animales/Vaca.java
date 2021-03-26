@@ -4,16 +4,13 @@ import Granja.Clases.Animales;
 import Granja.Interfaces.TiposDeAnimal.Destazable;
 import Granja.Interfaces.TiposDeAnimal.Herviboro;
 
-public class Vaca extends Animales implements Herviboro, Granja.Interfaces.TiposDeAnimal.Destazable {
+public class Vaca extends Animales implements Herviboro, Destazable{
 
 
-    public Vaca(String TipoDeAnimal, double Tamaño, String nombre, Integer edad, String Producto, boolean Destazable) {
-        super(TipoDeAnimal, Tamaño, nombre, edad, Producto, Destazable);
+    public Vaca(String TipoDeAnimal, String nombre, double Tamaño, int ComidaConsumida, Integer edad, String Producto, boolean Destazable) {
+        super(TipoDeAnimal, nombre, Tamaño, ComidaConsumida, edad, Producto, Destazable);
     }
 
-    @Override
-    public void ComerHierbas() {
-    }
 
     @Override
     public void ProduceCuero() {
@@ -24,7 +21,19 @@ public class Vaca extends Animales implements Herviboro, Granja.Interfaces.Tipos
     public void ProduceCarne() {
 
     }
-    public void presentarse(){
-        System.out.println("");
+
+    @Override
+    public void ComerPasto() {
+
+    }
+
+    @Override
+    public void ComerHuevos() {
+
+    }
+
+    @Override
+    public void ComerVegetales() {
+
     }
 }
