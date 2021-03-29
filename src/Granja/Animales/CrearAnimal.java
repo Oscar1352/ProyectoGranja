@@ -1,4 +1,4 @@
-package Granja.Animales;
+/*package Granja.Animales;
 import  Granja.Clases.Animales;
 import java.util.Scanner;
 
@@ -31,15 +31,16 @@ public class CrearAnimal {
 
         // verificar el lugar del array
         int posicion = 0;
-        while ((posicion < animalesExistentes.length) && (animalesExistentes[posicion] != null)) {
+        while ((posicion < animalesExistentes.length)) {
             posicion++;
-        }
-        if (posicion < animalesExistentes.length) {
-            System.out.println("Se guardará en posición: " + posicion);
-            System.out.print("Ingrese las caracteristicas del animal: ");
-            String nombre = scanner.nextLine();
-        } else {
-            System.out.println("No se pueden crear más entrenadores\n");
+
+            if (posicion < animalesExistentes.length) {
+                System.out.println("Se guardará en posición: " + posicion);
+                System.out.print("Ingrese las caracteristicas del animal: ");
+                String nombre = scanner.nextLine();
+            } else {
+                System.out.println("No se pueden crear más entrenadores\n");
+            }
         }
     }
-}
+}*/

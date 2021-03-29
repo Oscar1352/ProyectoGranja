@@ -1,6 +1,11 @@
 package Granja.TiposDeAlimento.Omnivoros;
 
-import Granja.Interfaces.TiposDeAnimal.Omnivoro;
+import Granja.Clases.AlimentosOmnivoro;
 
-public interface Aves extends Omnivoro {
+
+public class Aves extends AlimentosOmnivoro  {
+    public Aves(String tipo, String nombre, int precio) {
+        super(tipo, nombre, precio);
+    }
 }
+

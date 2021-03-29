@@ -1,16 +1,30 @@
 package Usuario;
 
 
-import Granja.Interfaces.TiposDeAnimal.Herviboro;
-import Granja.TiposDeAlimento.Herviboros.Huevos;
-import Granja.TiposDeAlimento.Herviboros.Pasto;
+import Granja.Clases.AlimentosHerviboros;
+import Granja.Clases.AlimentosOmnivoro;
+import Granja.TiposDeAlimento.Herviboros.Chipilin;
+import Granja.TiposDeAlimento.Omnivoros.Insectos;
 
 public class Bodega  {
+
     public static void main(String[] args) {
-        AlimentoHerviboros();
-        AlimentoOmnivoros();
+        AlimentoHerviboro();
+        AlimentoOmnivoro();
     }
-    public static void AlimentoHerviboros(){
+
+    public void Prueba(){
+        Chipilin chipilin= new Chipilin("Herviboros", "Chipilin",6);
+        Insectos insectos= new Insectos("Herviboros", "Chipilin",6);
+
+        AlimentosHerviboros alimentosHerviboros[]= new AlimentosHerviboros[3];
+        alimentosHerviboros[0]= chipilin;
+
+        AlimentosOmnivoro alimentosOmnivoros[]= new AlimentosOmnivoro[3];
+        alimentosOmnivoros[0]= insectos;
+
+    }
+    public static void AlimentoHerviboro(){
         String[] Alimento;
         Alimento= new String[3];
 
@@ -25,10 +39,11 @@ public class Bodega  {
 
 
     }
-    public static void AlimentoOmnivoros(){
+    public static void AlimentoOmnivoro(){
         String[] Alimento;
         Alimento= new String[3];
 
+        System.out.println("El alimento de los Omnivoros es: ");
         Alimento[0]= "Aves";
         Alimento[1]= "Frutas";
         Alimento[2]= "Insectos";

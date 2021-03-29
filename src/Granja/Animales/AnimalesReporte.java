@@ -1,9 +1,12 @@
 package Granja.Animales;
 
 
-public class Animales {
+import Granja.Enum.EstadoAnimal;
+
+public class AnimalesReporte {
     private int CriasCompradas;
     private int UnidadesDestazadas;
+
 
     public int getCriasCompradas() {
         return CriasCompradas;

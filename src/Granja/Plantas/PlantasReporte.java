@@ -1,6 +1,6 @@
 package Granja.Plantas;
 
-public class Plantas {
+public class PlantasReporte {
     private int CantidadDeSemillasCompradas;
     private int CantidadDeCeldasSembradas;
 

@@ -1,5 +1,7 @@
 package Granja.Clases;
 
+import Granja.Enum.EstadoAnimal;
+
 public abstract class Animales extends SerVivo{
 
     private String TipoDeAnimal;
@@ -7,14 +9,16 @@ public abstract class Animales extends SerVivo{
     private String Producto;
     private int ComidaConsumida;
     private boolean Destazable;
+    private EstadoAnimal estado;
 
-    public Animales(String TipoDeAnimal, String nombre, double Tamaño, int ComidaConsumida,Integer edad,String Producto,boolean Destazable) {
-        super(nombre, edad);
-        this.TipoDeAnimal = TipoDeAnimal;
-        this.Tamaño=Tamaño;
-        this.ComidaConsumida=ComidaConsumida;
-        this.Producto = Producto;
-        this.Destazable = Destazable;
+    public Animales(String nombre, Integer Edad, String tipoDeAnimal, double tamaño, String producto, int comidaConsumida, boolean destazable, EstadoAnimal estado) {
+        super(nombre, Edad);
+        this.TipoDeAnimal = tipoDeAnimal;
+        this.Tamaño = tamaño;
+        this.Producto = producto;
+        this.ComidaConsumida = comidaConsumida;
+        this.Destazable = destazable;
+        this.estado = estado;
     }
 
     public String getTipoDeAnimal() {
@@ -57,6 +61,14 @@ public abstract class Animales extends SerVivo{
         ComidaConsumida = comidaConsumida;
     }
 
+    public EstadoAnimal getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoAnimal estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString() {
         return "Animales{" +
@@ -65,6 +77,18 @@ public abstract class Animales extends SerVivo{
                 ", Producto='" + Producto + '\'' +
                 ", Destazable=" + Destazable +
                 '}';
+    }
+    public void LISTOPARACOSECHA(){
+        setEstado(EstadoAnimal.LISTOPARACOSECHA);
+        System.out.println("El estado de "+this.getNombre()+ " es: "+getEstado());
+    }
+    public void MUERTO(){
+        setEstado(EstadoAnimal.MUERTO);
+        System.out.println("El estado de "+this.getNombre()+ " es: "+getEstado());
+    }
+    public void VIVO(){
+        setEstado(EstadoAnimal.VIVO);
+        System.out.println("El estado de "+this.getNombre()+ " es: "+getEstado());
     }
 
 }

@@ -1,8 +1,8 @@
 package Usuario;
 
-import Granja.Animales.Animales;
+import Granja.Animales.AnimalesReporte;
 import Granja.CaracteristicasDeLaGranja;
-import Granja.Plantas.Plantas;
+import Granja.Plantas.PlantasReporte;
 
 public class Reportes {
 
@@ -27,13 +27,13 @@ public class Reportes {
     }
 
     public static void ReporteDeAnimales(){
-        Animales animales= new Animales();
-        System.out.println("La cantidad de crías compradas es de: "+animales.getCriasCompradas());
-        System.out.println("La cantidad de animales destazados es de: "+animales.getUnidadesDestazadas());
+        AnimalesReporte animalesReporte= new AnimalesReporte();
+        System.out.println("La cantidad de crías compradas es de: "+animalesReporte.getCriasCompradas());
+        System.out.println("La cantidad de animales destazados es de: "+animalesReporte.getUnidadesDestazadas());
     }
 
     public static void ReporteDePlantas() {
-        Plantas plantas= new Plantas();
+        PlantasReporte plantas= new PlantasReporte();
         System.out.println("La cantidad de semillas compradas es de: "+plantas.getCantidadDeSemillasCompradas());
         System.out.println("La cantidad de celdas compradas es de: "+plantas.getCantidadDeCeldasSembradas());
 
