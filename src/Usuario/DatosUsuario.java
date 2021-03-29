@@ -8,7 +8,19 @@ public class DatosUsuario {
     private int PuntosDeVida;
     private int AlimentoConsumido;
 
+    //Variables de Actividades
+    private int PecesPescados=0;
+
     //Declaro mis getters y setters
+
+    public int getPecesPescados() {
+        return PecesPescados;
+    }
+
+    public void setPecesPescados(int pecesPescados) {
+        PecesPescados = pecesPescados;
+    }
+
     public String getNombre() {
         return Nombre;
     }

@@ -2,11 +2,11 @@ package Granja.TiposDeCelda;
 
 import Granja.Clases.Celdas;
 import Granja.Enum.EstadoAgua;
-import Granja.Enum.EstadoAnimal;
 import Granja.Interfaces.ActividadesEnLasCeldas.Pesca;
 
 public class Agua extends Celdas implements Pesca {
     private EstadoAgua estado;
+    private int CantidadDePeces;
     public Agua(String TipoDeSuelo, String ActividadQuePermite, Integer PorcentajeDeDistribucion, Integer Precio, EstadoAgua estado) {
         super(TipoDeSuelo, ActividadQuePermite, PorcentajeDeDistribucion, Precio);
     }
@@ -26,6 +26,14 @@ public class Agua extends Celdas implements Pesca {
     public void SINPECES(){
         setEstado(EstadoAgua.SINPECES);
         System.out.println("El estado del agua es: "+getEstado());
+    }
+
+    public int getCantidadDePeces() {
+        return CantidadDePeces;
+    }
+
+    public void setCantidadDePeces(int cantidadDePeces) {
+        CantidadDePeces = cantidadDePeces;
     }
 
     @Override

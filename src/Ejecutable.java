@@ -12,13 +12,14 @@ import Granja.Plantas.Maiz;
 import Granja.Plantas.Manzano;
 import Granja.TiposDeCelda.Agua;
 import Granja.TiposDeCelda.Grama;
+import Usuario.Actividades.Pesca;
 
 public class Ejecutable {
     private Animales animales;
     Vaca vaca = new Vaca("Vaca",50,"Hervibvoro",2,"Carne y Leche",30 ,true,EstadoAnimal.MUERTO);
     Grama grama= new Grama("grama", "Siembra", 25,2, FertibilidadSuelo.ALTA);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //PRUEBA OBJETOS DECLARADOS
         Vaca vaca = new Vaca("Vaca",50,"Hervibvoro",2,"Carne y Leche",30 ,true,EstadoAnimal.MUERTO);
         Gallina gallina= new Gallina("Gallina",2,"Omnivoro",50,"Carne",50 ,true, EstadoAnimal.VIVO);
@@ -67,6 +68,8 @@ public class Ejecutable {
         agua.SINPECES();
 
         PruebaFertibilidadSuelo();
+        PruebaPesca();
+        PruebaLlenado();
     }
     public static void mostrarAnimalesherviboro(Herviboro herviboro[]){
 
@@ -86,7 +89,6 @@ public class Ejecutable {
             }
         }
     }
-
     public static void PruebaFertibilidadSuelo(){
         Grama grama= new Grama("grama", "Siembra", 25,2, FertibilidadSuelo.BASICA);
 
@@ -103,6 +105,14 @@ public class Ejecutable {
             x=3;
             System.out.println("El valor de x cambió, es "+x);
         }
+    }
+    public static void PruebaPesca() throws InterruptedException {
+        Pesca pesca= new Pesca();
+        pesca.Pesca();
+    }
+    public static void PruebaLlenado() throws InterruptedException {
+        Pesca pesca= new Pesca();
+        pesca.LlenarDePeces();
     }
 
 }
