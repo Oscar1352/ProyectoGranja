@@ -1,12 +1,31 @@
 package Granja.TiposDeCelda;
 
 import Granja.Clases.Celdas;
+import Granja.Enum.EstadoAgua;
+import Granja.Enum.EstadoAnimal;
 import Granja.Interfaces.ActividadesEnLasCeldas.Pesca;
 
 public class Agua extends Celdas implements Pesca {
-    public Agua(String TipoDeSuelo, String ActividadQuePermite, Integer PorcentajeDeDistribucion, Integer Precio) {
+    private EstadoAgua estado;
+    public Agua(String TipoDeSuelo, String ActividadQuePermite, Integer PorcentajeDeDistribucion, Integer Precio, EstadoAgua estado) {
         super(TipoDeSuelo, ActividadQuePermite, PorcentajeDeDistribucion, Precio);
-    Agua agua= new Agua("Agua", "Pesca", 35, 20);
+    }
+
+    public EstadoAgua getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoAgua estado) {
+        this.estado = estado;
+    }
+
+    public void CONPECES(){
+        setEstado(EstadoAgua.CONPECES);
+        System.out.println("El estado del agua es: "+getEstado());
+    }
+    public void SINPECES(){
+        setEstado(EstadoAgua.SINPECES);
+        System.out.println("El estado del agua es: "+getEstado());
     }
 
     @Override

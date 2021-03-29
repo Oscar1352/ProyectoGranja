@@ -3,23 +3,31 @@ import Granja.Animales.Vaca;
 import Granja.Clases.Animales;
 import Granja.Clases.Celdas;
 import Granja.Clases.Plantas;
+import Granja.Enum.EstadoAgua;
 import Granja.Enum.EstadoAnimal;
 import Granja.Enum.EstadoPlanta;
+import Granja.Enum.FertibilidadSuelo;
 import Granja.Interfaces.TiposDeAnimal.Herviboro;
 import Granja.Plantas.Maiz;
 import Granja.Plantas.Manzano;
+import Granja.TiposDeCelda.Agua;
 import Granja.TiposDeCelda.Grama;
 
 public class Ejecutable {
     private Animales animales;
     Vaca vaca = new Vaca("Vaca",50,"Hervibvoro",2,"Carne y Leche",30 ,true,EstadoAnimal.MUERTO);
+    Grama grama= new Grama("grama", "Siembra", 25,2, FertibilidadSuelo.ALTA);
 
     public static void main(String[] args) {
+        //PRUEBA OBJETOS DECLARADOS
         Vaca vaca = new Vaca("Vaca",50,"Hervibvoro",2,"Carne y Leche",30 ,true,EstadoAnimal.MUERTO);
         Gallina gallina= new Gallina("Gallina",2,"Omnivoro",50,"Carne",50 ,true, EstadoAnimal.VIVO);
-        Grama grama= new Grama("grama", "Siembra", 25,2);
+        Grama grama= new Grama("grama", "Siembra", 25,2, FertibilidadSuelo.ALTA);
         Maiz maiz =new Maiz("Maiz", 2,"Granos",5, EstadoPlanta.JOVEN);
         Manzano manzano =new Manzano("Manzano", 2,"Frutos",5, EstadoPlanta.JOVEN);
+        Agua agua= new Agua("Agua", "Pesca", 35, 20, EstadoAgua.CONPECES);
+
+        //PRUEBA ARREGLO
         Celdas celdas[][]= new Celdas[5][5];
         celdas[0][0] = grama;
         celdas[0][1] = grama;
@@ -54,6 +62,11 @@ public class Ejecutable {
         mostrarPlantas(plantas);
         maiz.JOVEN();
         manzano.COSECHAPODRIDA();
+
+        agua.CONPECES();
+        agua.SINPECES();
+
+        PruebaFertibilidadSuelo();
     }
     public static void mostrarAnimalesherviboro(Herviboro herviboro[]){
 
@@ -71,6 +84,24 @@ public class Ejecutable {
             Plantas planta = plantas[i];
             System.out.println(i+" La Planta es "+plantas[i].getTipoDePlanta());
             }
+        }
+    }
+
+    public static void PruebaFertibilidadSuelo(){
+        Grama grama= new Grama("grama", "Siembra", 25,2, FertibilidadSuelo.BASICA);
+
+        int x=0;
+        if(grama.getFertibilidadSuelo() == FertibilidadSuelo.BASICA){
+            x=1;
+            System.out.println("El valor de x cambió, es "+x);
+        }
+        else if(grama.getFertibilidadSuelo() == FertibilidadSuelo.MEDIA){
+            x=2;
+            System.out.println("El valor de x cambió, es "+x);
+        }
+        else if(grama.getFertibilidadSuelo() == FertibilidadSuelo.ALTA){
+            x=3;
+            System.out.println("El valor de x cambió, es "+x);
         }
     }
 

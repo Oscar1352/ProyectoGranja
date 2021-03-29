@@ -4,6 +4,7 @@ package Usuario;
 import Granja.Clases.AlimentosHerviboros;
 import Granja.Clases.AlimentosOmnivoro;
 import Granja.TiposDeAlimento.Herviboros.Chipilin;
+import Granja.TiposDeAlimento.Herviboros.Pasto;
 import Granja.TiposDeAlimento.Omnivoros.Insectos;
 
 public class Bodega  {
@@ -25,15 +26,14 @@ public class Bodega  {
 
     }
     public static void AlimentoHerviboro(){
-        String[] Alimento;
-        Alimento= new String[3];
-
-        Alimento[0]= "Pasto";
-        Alimento[1]= "Huevos";
-        Alimento[2]= "Vegetales";
-        for (int i=0;i< Alimento.length; i++){
-            if (Alimento[i]!=null){
-                System.out.println(i+" "+Alimento[i]);
+        Chipilin chipilin= new Chipilin("Herviboros", "Chipilin",6);
+        Pasto pasto= new Pasto("Herviboros", "Chipilin",6);
+        AlimentosHerviboros alimentosHerviboros[]= new AlimentosHerviboros[3];
+        alimentosHerviboros[0]= chipilin;
+        alimentosHerviboros[1]= pasto;
+        for (int i=0;i< alimentosHerviboros.length; i++){
+            if (alimentosHerviboros[i]!=null){
+                System.out.println(i+" "+alimentosHerviboros[i].getNombre());
             }
         }
 
@@ -52,7 +52,5 @@ public class Bodega  {
                 System.out.println(i+" "+Alimento[i]);
             }
         }
-
     }
-
 }
