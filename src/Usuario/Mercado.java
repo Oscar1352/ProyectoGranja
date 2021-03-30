@@ -2,7 +2,12 @@ package Usuario;
 
 import Granja.Clases.AlimentosHerviboros;
 import Granja.Clases.AlimentosOmnivoro;
+import Granja.Clases.Fertilizantes;
 import Granja.Clases.Producto;
+import Granja.Enum.FertibilidadSuelo;
+import Granja.Fertilizantes.Alta;
+import Granja.Fertilizantes.Basica;
+import Granja.Fertilizantes.Media;
 import Granja.ProductosAnimales.Carne;
 import Granja.ProductosAnimales.Cuero;
 import Granja.ProductosAnimales.Huevos;
@@ -19,6 +24,7 @@ import java.util.Scanner;
 public class Mercado {
 
     public static void main(String[] args) {
+        Fertilizante();
         AlimentoHerviboro();
         AlimentoOmnivoro();
         ProductosAnimales();
@@ -316,6 +322,25 @@ public class Mercado {
             case 2:
                 System.out.println("Adiós");
                 break;
+        }
+    }
+    public static void Fertilizante(){
+        //Declaro mis variables
+        Basica basica= new Basica(FertibilidadSuelo.BASICA,1,0);
+        Media media= new Media(FertibilidadSuelo.MEDIA,2,0);
+        Alta alta= new Alta(FertibilidadSuelo.ALTA,3,0);
+
+        //Muestro mi arreglo
+        System.out.println("\t\tLos Fertilizantes son: ");
+        Fertilizantes Fertilizante[]=new Fertilizantes[3];
+        Fertilizante[0]=basica;
+        Fertilizante[1]=media;
+        Fertilizante[2]=alta;
+        for (int i=0;i<Fertilizante.length;i++){
+            if(Fertilizante[i]!=null){
+                System.out.println(i+".  "+Fertilizante[i].getFertibilidadSuelo()+" y tiene una cantidad de: "+
+                        Fertilizante[i].getCantidad());
+            }
         }
     }
 }
