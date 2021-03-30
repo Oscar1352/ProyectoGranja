@@ -1,6 +1,4 @@
 package Usuario;
-
-
 import Granja.Clases.AlimentosHerviboros;
 import Granja.Clases.AlimentosOmnivoro;
 import Granja.Clases.Producto;

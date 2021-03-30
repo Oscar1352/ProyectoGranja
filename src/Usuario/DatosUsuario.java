@@ -11,6 +11,7 @@ public class DatosUsuario {
     private int PuntosDeVida=50;
     private int AlimentoConsumido;
     private EstadoUsuario estadoUsuario;
+    private int Oro;
 
     //Variables de Actividades
     private int PecesPescados=0;
@@ -45,10 +46,17 @@ public class DatosUsuario {
         Nickname = nickname;
     }
 
+    public int getOro() {
+        return Oro;
+    }
+
+    public void setOro(int oro) {
+        Oro = oro;
+    }
+
     public int getAlimentoConsumido() {
         return AlimentoConsumido;
     }
-
     public void setAlimentoConsumido(int alimentoConsumido) {
         AlimentoConsumido = alimentoConsumido;
     }
