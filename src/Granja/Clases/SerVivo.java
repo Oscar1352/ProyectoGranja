@@ -9,6 +9,15 @@ package Granja.Clases;
             this.nombre = nombre;
             this.Edad = Edad;
         }
+
+        public Integer getEdad() {
+            return Edad;
+        }
+
+        public void setEdad(Integer edad) {
+            Edad = edad;
+        }
+
         public String getNombre() {
             return nombre;
         }

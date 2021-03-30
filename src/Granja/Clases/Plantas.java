@@ -65,4 +65,8 @@ public abstract class Plantas extends SerVivo{
         setEstadoPlanta(estadoPlanta.COSECHAPODRIDA);
         System.out.println("El estado de "+this.getNombre()+ " es: "+getEstadoPlanta());
     }
+    public void MUERTA(){
+        setEstadoPlanta(estadoPlanta.MUERTA);
+        System.out.println("El estado de "+this.getNombre()+ " es: "+getEstadoPlanta());
+    }
 }

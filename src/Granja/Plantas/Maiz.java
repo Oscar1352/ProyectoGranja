@@ -11,6 +11,21 @@ public class Maiz extends Plantas implements DeGranos {
     }
 
     @Override
+    public String getTipoDePlanta() {
+        return super.getTipoDePlanta();
+    }
+
+    @Override
+    public Integer getEdad() {
+        return super.getEdad();
+    }
+
+    @Override
+    public void setEdad(Integer edad) {
+        super.setEdad(edad);
+    }
+
+    @Override
     public void JOVEN() {
         super.JOVEN();
     }
@@ -28,6 +43,11 @@ public class Maiz extends Plantas implements DeGranos {
     @Override
     public void COSECHAPODRIDA() {
         super.COSECHAPODRIDA();
+    }
+
+    @Override
+    public void MUERTA() {
+        super.MUERTA();
     }
 
     @Override

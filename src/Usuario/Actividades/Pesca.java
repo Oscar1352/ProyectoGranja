@@ -6,7 +6,7 @@ import Usuario.DatosUsuario;
 
 import java.util.Scanner;
 
-public class Pesca extends Thread{
+public class Pesca extends Thread {
     private EstadoAgua estadoAgua;
     Agua agua = new Agua("Agua", "Pesca", 35, 20, EstadoAgua.CONPECES);
     DatosUsuario datosUsuario = new DatosUsuario();
