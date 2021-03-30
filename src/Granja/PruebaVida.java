@@ -4,6 +4,7 @@ import Granja.Animales.Vaca;
 import Granja.Enum.EstadoAgua;
 import Granja.Enum.EstadoAnimal;
 import Granja.Enum.EstadoPlanta;
+import Granja.Enum.EstadoUsuario;
 import Granja.Plantas.Maiz;
 import Granja.TiposDeCelda.Agua;
 import Usuario.DatosUsuario;
@@ -11,7 +12,7 @@ import Usuario.DatosUsuario;
 public class PruebaVida extends Thread{
     private EstadoAgua estadoAgua;
     public static void main(String[] args) throws InterruptedException {
-        PruebaAnimal();
+        PruebaVida();
     }
 
     public  void  Prueba() throws InterruptedException {
@@ -76,6 +77,26 @@ public class PruebaVida extends Thread{
         }
         }while(vaca.getComidaConsumida()!=-10);
         System.out.println("El Estado del animal es: "+vaca.getEstado());
+
+    }
+    public static void PruebaVida() throws InterruptedException {
+        DatosUsuario datosUsuario= new DatosUsuario();
+
+        datosUsuario.VIVO();
+        do{
+            int VidaPerdida= datosUsuario.getPuntosDeVida()-10;
+            System.out.println("\nLa cantidad de vida del usuario es de: "+datosUsuario.getPuntosDeVida());
+            System.out.println("El usuario ha perdido vida, vida actual: "+VidaPerdida);
+            datosUsuario.setPuntosDeVida(VidaPerdida);
+            datosUsuario.setEstadoUsuario(EstadoUsuario.HAMBRIENTO);
+            datosUsuario.HAMBRIENTO();
+            Thread.sleep(10000);
+            if (datosUsuario.getPuntosDeVida()==0){
+                System.out.println("El usuario morirá");
+                datosUsuario.MUERTO();
+                datosUsuario.setEstadoUsuario(EstadoUsuario.MUERTO);
+            }
+        }while(datosUsuario.getPuntosDeVida()!=0);
 
     }
 }

@@ -1,21 +1,31 @@
 package Granja.Clases;
 
-public abstract class Producto {
+public class Producto {
 
-    private String Tipo;
+    private String Nombre;
     private double Precio;
+    private int Cantidad;
 
-    public Producto(String Tipo, double Precio){
-        this.Tipo=Tipo;
+    public Producto(String Nombre,int Cantidad, double Precio){
+        this.Nombre=Nombre;
+        this.Cantidad=Cantidad;
         this.Precio=Precio;
     }
 
-    public String getTipo() {
-        return Tipo;
+    public String getNombre() {
+        return Nombre;
     }
 
-    public void setTipo(String tipo) {
-        Tipo = tipo;
+    public void setNombre(String nombre) {
+        Nombre = nombre;
+    }
+
+    public int getCantidad() {
+        return Cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        Cantidad = cantidad;
     }
 
     public double getPrecio() {
@@ -29,7 +39,7 @@ public abstract class Producto {
     @Override
     public String toString() {
         return "Producto{" +
-                "Tipo='" + Tipo + '\'' +
+                "Nombre='" + Nombre + '\'' +
                 ", Precio=" + Precio +
                 '}';
     }

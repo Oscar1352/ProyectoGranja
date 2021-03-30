@@ -3,12 +3,24 @@ package Granja.Clases;
 
 public abstract class AlimentosOmnivoro extends AlimentoAnimales {
 
-    public AlimentosOmnivoro(String tipo, String nombre, int precio) {
-        super(tipo, nombre, precio);
+
+    public AlimentosOmnivoro(String tipo, String nombre, int Cantidad, int precio) {
+        super(tipo, nombre, Cantidad, precio);
     }
+
     @Override
     public String getTipo() {
         return super.getTipo();
+    }
+
+    @Override
+    public int getCantidad() {
+        return super.getCantidad();
+    }
+
+    @Override
+    public void setCantidad(int cantidad) {
+        super.setCantidad(cantidad);
     }
 
     @Override

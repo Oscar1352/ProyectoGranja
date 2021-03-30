@@ -3,8 +3,16 @@ package Usuario;
 
 import Granja.Clases.AlimentosHerviboros;
 import Granja.Clases.AlimentosOmnivoro;
+import Granja.Clases.Producto;
+import Granja.ProductosAnimales.Carne;
+import Granja.ProductosAnimales.Cuero;
+import Granja.ProductosAnimales.Huevos;
+import Granja.ProductosAnimales.Lana;
 import Granja.TiposDeAlimento.Herviboros.Chipilin;
 import Granja.TiposDeAlimento.Herviboros.Pasto;
+import Granja.TiposDeAlimento.Herviboros.Vegetales;
+import Granja.TiposDeAlimento.Omnivoros.Aves;
+import Granja.TiposDeAlimento.Omnivoros.Frutas;
 import Granja.TiposDeAlimento.Omnivoros.Insectos;
 
 public class Bodega  {
@@ -12,11 +20,12 @@ public class Bodega  {
     public static void main(String[] args) {
         AlimentoHerviboro();
         AlimentoOmnivoro();
+        ProductosAnimales();
     }
 
     public void Prueba(){
-        Chipilin chipilin= new Chipilin("Herviboros", "Chipilin",6);
-        Insectos insectos= new Insectos("Herviboros", "Chipilin",6);
+        Chipilin chipilin= new Chipilin("Herviboros", "Chipilin",6, 5);
+        Insectos insectos= new Insectos("Herviboros", "Chipilin",6,2);
 
         AlimentosHerviboros alimentosHerviboros[]= new AlimentosHerviboros[3];
         alimentosHerviboros[0]= chipilin;
@@ -26,30 +35,69 @@ public class Bodega  {
 
     }
     public static void AlimentoHerviboro(){
-        Chipilin chipilin= new Chipilin("Herviboros", "Chipilin",6);
-        Pasto pasto= new Pasto("Herviboros", "Chipilin",6);
+        //Declaro mis tipos de comida
+        Chipilin chipilin= new Chipilin("Herviboros", "Chipilin",5, 5);
+        Pasto pasto= new Pasto("Herviboros", "Chipilin",5,1);
+        Vegetales vegetales= new Vegetales("Herviboros","Vegetales",5,5);
+
+        //Declaro miarreglo
         AlimentosHerviboros alimentosHerviboros[]= new AlimentosHerviboros[3];
         alimentosHerviboros[0]= chipilin;
         alimentosHerviboros[1]= pasto;
+        alimentosHerviboros[2]= vegetales;
+
+        //Mostrar mi arreglo
+        System.out.println("\n\t\tComida de Herviboros");
         for (int i=0;i< alimentosHerviboros.length; i++){
             if (alimentosHerviboros[i]!=null){
-                System.out.println(i+" "+alimentosHerviboros[i].getNombre());
+                System.out.println(i+". "+alimentosHerviboros[i].getNombre()+
+                        " "+ alimentosHerviboros[i].getCantidad()+" unidades");
             }
         }
-
-
     }
     public static void AlimentoOmnivoro(){
-        String[] Alimento;
-        Alimento= new String[3];
+        //Declaro mis tipos de comida
+        Aves aves= new Aves("Omnivoros", "Aves",5, 5);
+        Frutas frutas= new Frutas("Omnivoros", "Frutas",5,1);
+        Insectos insectos= new Insectos("Omnivoros","Insectos",5,5);
 
-        System.out.println("El alimento de los Omnivoros es: ");
-        Alimento[0]= "Aves";
-        Alimento[1]= "Frutas";
-        Alimento[2]= "Insectos";
-        for (int i=0;i< Alimento.length; i++){
-            if (Alimento[i]!=null){
-                System.out.println(i+" "+Alimento[i]);
+        //Declaro mi arreglo
+        AlimentosOmnivoro alimentosOmnivoros[]= new AlimentosOmnivoro[3];
+        alimentosOmnivoros[0]= aves;
+        alimentosOmnivoros[1]= frutas;
+        alimentosOmnivoros[2]= insectos;
+
+        //Mostrar mi arreglo
+        System.out.println("\n\t\tComida de Omnivoros");
+        for (int i=0;i< alimentosOmnivoros.length; i++){
+            if (alimentosOmnivoros[i]!=null){
+                System.out.println(i+". "+alimentosOmnivoros[i].getNombre()+
+                        " "+ alimentosOmnivoros[i].getCantidad()+" unidades");
+            }
+        }
+    }
+    public static void ProductosAnimales(){
+
+        //Declaro mis variables
+        Cuero cuero = new Cuero("Cuero",0,25);
+        Carne carne = new Carne("Carne",0,30);
+        Huevos huevos = new Huevos("Huevos",0, 20);
+        Lana lana = new Lana("Lana",0,15);
+
+
+        //Declaro mi arreglo
+        Producto producto[]= new Producto[4];
+        producto[0]= cuero;
+        producto[1]= carne;
+        producto[2]= huevos;
+        producto[3]= lana;
+
+        //Mostrar mi arreglo
+        System.out.println("\n\t\tProductos Animales");
+        for (int i=0;i< producto.length; i++){
+            if (producto[i]!=null){
+                System.out.println(i+". "+producto[i].getNombre()+
+                        " "+ producto[i].getCantidad()+" unidades");
             }
         }
     }
