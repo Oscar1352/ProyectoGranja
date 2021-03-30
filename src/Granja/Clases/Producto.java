@@ -3,10 +3,10 @@ package Granja.Clases;
 public class Producto {
 
     private String Nombre;
-    private double Precio;
+    private int Precio;
     private int Cantidad;
 
-    public Producto(String Nombre,int Cantidad, double Precio){
+    public Producto(String Nombre,int Cantidad, int Precio){
         this.Nombre=Nombre;
         this.Cantidad=Cantidad;
         this.Precio=Precio;
@@ -32,7 +32,7 @@ public class Producto {
         return Precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         Precio = precio;
     }
 

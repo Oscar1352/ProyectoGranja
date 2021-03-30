@@ -3,7 +3,7 @@ package Granja.ProductosAnimales;
 import Granja.Clases.Producto;
 
 public class Cuero extends Producto {
-    public Cuero(String Tipo, int Cantidad, double Precio) {
-        super(Tipo, Cantidad, Precio);
+    public Cuero(String Nombre, int Cantidad, int Precio) {
+        super(Nombre, Cantidad, Precio);
     }
 }

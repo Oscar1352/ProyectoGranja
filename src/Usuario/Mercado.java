@@ -21,11 +21,9 @@ public class Mercado {
     public static void main(String[] args) {
         AlimentoHerviboro();
         AlimentoOmnivoro();
+        ProductosAnimales();
     }
 
-    public static void CompraAlimentosHerviboros(){
-
-    }
     public static void AlimentoHerviboro(){
 
         //Declaro Variables
@@ -67,6 +65,7 @@ public class Mercado {
                                 " "+ alimentosHerviboros[i].getCantidad()+" unidades");
                     }
                 }
+                System.out.println("INGRESE SU ELECCIÓN: ");
                 Scanner Compra = new Scanner(System.in);
                 int compra = Compra.nextInt();
                 switch (compra){
@@ -159,6 +158,7 @@ public class Mercado {
                                 " "+ alimentosOmnivoros[i].getCantidad()+" unidades");
                     }
                 }
+                System.out.println("INGRESE SU ELECCIÓN: ");
                 Scanner Compra = new Scanner(System.in);
                 int compra = Compra.nextInt();
                 switch (compra){
@@ -219,6 +219,7 @@ public class Mercado {
         Carne carne = new Carne("Carne",0,30);
         Huevos huevos = new Huevos("Huevos",0, 20);
         Lana lana = new Lana("Lana",0,15);
+        DatosUsuario datosUsuario= new DatosUsuario();
 
 
         //Declaro mi arreglo
@@ -229,12 +230,92 @@ public class Mercado {
         producto[3]= lana;
 
         //Mostrar mi arreglo
-        System.out.println("\n\t\tProductos Animales");
+        System.out.println("\n\t\tActualmente posee:");
+        System.out.println("\t\tComida de Omnivoros");
         for (int i=0;i< producto.length; i++){
             if (producto[i]!=null){
                 System.out.println(i+". "+producto[i].getNombre()+
                         " "+ producto[i].getCantidad()+" unidades");
             }
+        }
+        System.out.println("Comprar más comida?");
+        System.out.println("1. SI");
+        System.out.println("2.NO");
+        System.out.println("INGRESE SU ELECCIÓN: ");
+        Scanner comida = new Scanner(System.in);
+        int Comida = comida.nextInt();
+        switch (Comida){
+            case 1:
+                System.out.println("Qué producto desea comprar: ");
+                for (int i=0;i< producto.length; i++){
+                    if (producto[i]!=null){
+                        System.out.println(i+". "+producto[i].getNombre()+
+                                " "+ producto[i].getCantidad()+" unidades");
+                    }
+                }
+                System.out.println("INGRESE SU ELECCIÓN: ");
+                Scanner Compra = new Scanner(System.in);
+                int compra = Compra.nextInt();
+                switch (compra){
+                    case 0:
+                        System.out.println("Actualmente tiene "+cuero.getCantidad()+" unidades de aves");
+                        System.out.println("Cuantas desea comprar, a un costo de: "+cuero.getPrecio());
+                        Scanner cueroCompra = new Scanner(System.in);
+                        int compracuero = cueroCompra.nextInt();
+                        double Total=compracuero*cuero.getPrecio();
+                        datosUsuario.setOro((int) (datosUsuario.getOro()-Total));
+                        System.out.println("Usted ha comprado "+compracuero+" unidades "+
+                                " y ha gastado "+Total+" de oro");
+                        cuero.setCantidad(cuero.getCantidad()+compracuero);
+                        break;
+                    case 1:
+                        System.out.println("Actualmente tiene "+carne.getCantidad()+" unidades de carne");
+                        System.out.println("Cuantas desea comprar, a un costo de: "+carne.getPrecio());
+                        Scanner carneCompra = new Scanner(System.in);
+                        int compracarne = carneCompra.nextInt();
+                        double x1= carne.getPrecio();
+                        double Total1=compracarne*x1;
+                        datosUsuario.setOro((int) (datosUsuario.getOro()-Total1));
+                        System.out.println("Usted ha comprado "+compracarne+" unidades "+
+                                " y ha gastado "+Total1+" de oro");
+                        carne.setCantidad(carne.getCantidad()+compracarne);
+
+                        break;
+                    case 2:
+                        System.out.println("Actualmente tiene "+huevos.getCantidad()+" unidades de huevos");
+                        System.out.println("Cuantas desea comprar, a un costo de: "+huevos.getPrecio());
+                        Scanner huevosCompra = new Scanner(System.in);
+                        int comprahuevos = huevosCompra.nextInt();
+                        double x2= huevos.getPrecio();
+                        double Total2=comprahuevos*x2;
+                        datosUsuario.setOro((int) (datosUsuario.getOro()-Total2));
+                        System.out.println("Usted ha comprado "+comprahuevos+" unidades "+
+                                " y ha gastado "+Total2+" de oro");
+                        huevos.setCantidad(huevos.getCantidad()+comprahuevos);
+                        break;
+                    case 3:
+                        System.out.println("Actualmente tiene "+lana.getCantidad()+" unidades de lana");
+                        System.out.println("Cuantas desea comprar, a un costo de: "+lana.getPrecio());
+                        Scanner lanaCompra = new Scanner(System.in);
+                        int compralana = lanaCompra.nextInt();
+                        double x3= lana.getPrecio();
+                        double Total3=compralana*x3;
+                        datosUsuario.setOro((int) (datosUsuario.getOro()-Total3));
+                        System.out.println("Usted ha comprado "+compralana+" unidades "+
+                                " y ha gastado "+Total3+" de oro");
+                        lana.setCantidad(lana.getCantidad()+compralana);
+                        break;
+                }
+                for (int i=0;i< producto.length; i++){
+                    if (producto[i]!=null){
+                        System.out.println(i+". "+producto[i].getNombre()+
+                                " "+ producto[i].getCantidad()+" unidades");
+                    }
+                }
+                break;
+            case 2:
+                System.out.println("Adiós");
+                break;
         }
     }
 }
