@@ -24,7 +24,7 @@ import java.util.Scanner;
 public class Mercado {
 
     public static void main(String[] args) {
-        Fertilizante();
+        AlimentoHerviboro();
     }
 
     public static void AlimentoHerviboro(){
@@ -53,9 +53,9 @@ public class Mercado {
                         " "+ alimentosHerviboros[i].getCantidad()+" unidades");
             }
         }
-        System.out.println("Comprar más comida?");
-        System.out.println("1. SI");
-        System.out.println("2.NO");
+        System.out.println("Comprar o vender comida?");
+        System.out.println("1. COMPRAR");
+        System.out.println("2.VENDER");
         System.out.println("INGRESE SU ELECCIÓN: ");
         Scanner comida = new Scanner(System.in);
         Comida = comida.nextInt();
@@ -118,7 +118,71 @@ public class Mercado {
                 }
                 break;
             case 2:
-                System.out.println("Adiós");
+                for (int i=0;i< alimentosHerviboros.length; i++){
+                    if (alimentosHerviboros[i]!=null){
+                        System.out.println(i+". "+alimentosHerviboros[i].getNombre()+
+                                " "+ alimentosHerviboros[i].getCantidad()+" unidades");
+                    }
+                }
+                System.out.println("Qué producto desea vender: ");
+                Scanner venta = new Scanner(System.in);
+                int Venta = venta.nextInt();
+                switch (Venta){
+                    case 0:
+                        System.out.println("El producto elegido es el: "+alimentosHerviboros[0].getNombre()+
+                                " y tiene "+alimentosHerviboros[0].getCantidad()+" unidades");
+                        System.out.println("Cuantas unidades desea vender:");
+                        Scanner venta1 = new Scanner(System.in);
+                        int Venta1 = venta1.nextInt();
+                        int a= alimentosHerviboros[0].getCantidad();
+                        int b= alimentosHerviboros[0].getPrecio();
+                        int Total1= Venta1*b;
+                        if(Venta1>a){
+                            System.out.println("Su venta no puede ser realizada no posee el inventario suficiente");
+                        }else{
+                            System.out.println("Fueron vendidas las "+Venta1+" unidades a un precio de "+Total1+" en Total");
+                            int c= datosUsuario.getOro();
+                            datosUsuario.setOro(c+Total1);
+                            System.out.println("La nueva cantidad de oro es:"+datosUsuario.getOro());
+                        }
+                        break;
+                    case 1:
+                        System.out.println("El producto elegido es el: "+alimentosHerviboros[1].getNombre()+
+                                " y tiene "+alimentosHerviboros[1].getCantidad()+" unidades");
+                        System.out.println("Cuantas unidades desea vender:");
+                        Scanner venta2 = new Scanner(System.in);
+                        int Venta2 = venta2.nextInt();
+                        int d= alimentosHerviboros[1].getCantidad();
+                        int e= alimentosHerviboros[1].getPrecio();
+                        int Total2= Venta2*e;
+                        if(Venta2>d){
+                            System.out.println("Su venta no puede ser realizada no posee el inventario suficiente");
+                        }else{
+                            System.out.println("Fueron vendidas las "+Venta2+" unidades a un precio de "+Total2+" en Total");
+                            int c= datosUsuario.getOro();
+                            datosUsuario.setOro(c+Total2);
+                            System.out.println("La nueva cantidad de oro es:"+datosUsuario.getOro());
+                        }
+                        break;
+                    case 2:
+                        System.out.println("El producto elegido es el: "+alimentosHerviboros[2].getNombre()+
+                                " y tiene "+alimentosHerviboros[2].getCantidad()+" unidades");
+                        System.out.println("Cuantas unidades desea vender:");
+                        Scanner venta3 = new Scanner(System.in);
+                        int Venta3 = venta3.nextInt();
+                        int f= alimentosHerviboros[2].getCantidad();
+                        int g= alimentosHerviboros[2].getPrecio();
+                        int Total3= Venta3*g;
+                        if(Venta3>f){
+                            System.out.println("Su venta no puede ser realizada no posee el inventario suficiente");
+                        }else{
+                            System.out.println("Fueron vendidas las "+Venta3+" unidades a un precio de "+Total3+" en Total");
+                            int c= datosUsuario.getOro();
+                            datosUsuario.setOro(c+Total3);
+                            System.out.println("La nueva cantidad de oro es:"+datosUsuario.getOro());
+                        }
+                        break;
+                }
                 break;
         }
     }

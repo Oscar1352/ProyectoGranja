@@ -13,6 +13,8 @@ import Usuario.Mercado;
 import java.util.Scanner;
 
 public class PruebaVida extends Thread{
+
+    //Declaro mis variables
     private EstadoAgua estadoAgua;
 
     //HILOS
@@ -21,9 +23,8 @@ public class PruebaVida extends Thread{
     }
 
     public static void main(String[] args) throws InterruptedException {
-        PruebaIniciarVida();
-    }
 
+    }
     public  void  Prueba() throws InterruptedException {
         Agua agua = new Agua("Agua", "Pesca", 35, 20, EstadoAgua.CONPECES);
         DatosUsuario datosUsuario = new DatosUsuario();
@@ -143,8 +144,4 @@ public class PruebaVida extends Thread{
         Thread.sleep(z);
         maiz.MUERTA();
     }
-    public static   void PruebaIniciarVida() throws InterruptedException {
-        Vida1.start();
-    }
-
 }
