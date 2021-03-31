@@ -8,11 +8,20 @@ import Granja.Enum.EstadoUsuario;
 import Granja.Plantas.Maiz;
 import Granja.TiposDeCelda.Agua;
 import Usuario.DatosUsuario;
+import Usuario.Mercado;
+
+import java.util.Scanner;
 
 public class PruebaVida extends Thread{
     private EstadoAgua estadoAgua;
+
+    //HILOS
+    
+    public PruebaVida() throws InterruptedException {
+    }
+
     public static void main(String[] args) throws InterruptedException {
-        PruebaVida();
+        PruebaIniciarVida();
     }
 
     public  void  Prueba() throws InterruptedException {
@@ -45,7 +54,6 @@ public class PruebaVida extends Thread{
     }
     public static void PruebaPlantas() throws InterruptedException {
         Maiz maiz =new Maiz("Maiz", 2,"Granos",5, EstadoPlanta.JOVEN);
-
         System.out.println("El tiempo de vida de la Planta es: "+maiz.getEdad()+" minutos");
 
         //Declaro mis variables de tiempo, x es igual a la cantidad de minutos
@@ -80,8 +88,8 @@ public class PruebaVida extends Thread{
 
     }
     public static void PruebaVida() throws InterruptedException {
+        //Declaro mis variables
         DatosUsuario datosUsuario= new DatosUsuario();
-
         datosUsuario.VIVO();
         do{
             int VidaPerdida= datosUsuario.getPuntosDeVida()-10;
@@ -89,14 +97,54 @@ public class PruebaVida extends Thread{
             System.out.println("El usuario ha perdido vida, vida actual: "+VidaPerdida);
             datosUsuario.setPuntosDeVida(VidaPerdida);
             datosUsuario.setEstadoUsuario(EstadoUsuario.HAMBRIENTO);
-            datosUsuario.HAMBRIENTO();
-            Thread.sleep(10000);
+            Thread.sleep(100000);
             if (datosUsuario.getPuntosDeVida()==0){
                 System.out.println("El usuario morirá");
                 datosUsuario.MUERTO();
                 datosUsuario.setEstadoUsuario(EstadoUsuario.MUERTO);
-            }
+            }else{
+                    datosUsuario.HAMBRIENTO();
+                }
         }while(datosUsuario.getPuntosDeVida()!=0);
 
     }
+    public static void PruebaComer() throws InterruptedException {
+        PruebaVida();
+        System.out.println("Comer algo?");
+        Scanner comida = new Scanner(System.in);
+        int Unidades = comida.nextInt();
+        switch (Unidades){
+            case 1:
+                Mercado mercado= new Mercado();
+                mercado.AlimentoHerviboro();
+                mercado.AlimentoOmnivoro();
+                break;
+            case 2:
+                break;
+        }
+
+    }
+    public static void PruebaHilos() throws InterruptedException {
+        Maiz maiz = new Maiz("Maiz", 2, "Granos", 5, EstadoPlanta.JOVEN);
+        Maiz maiz1 = new Maiz("Maiz", 2, "Granos", 5, EstadoPlanta.JOVEN);
+        Maiz maiz2 = new Maiz("Maiz", 2, "Granos", 5, EstadoPlanta.JOVEN);
+
+        int x = maiz.getEdad() * 10000;
+        int z = (maiz.getEdad() * 2) * 10000;
+        maiz.JOVEN();
+        Thread.sleep(x);
+        maiz1.setEstadoPlanta(EstadoPlanta.MUERTA);
+        System.out.println("El estado del maiz 1 es: "+maiz1.getEstadoPlanta());
+        Thread.sleep(x);
+        maiz.PENDIENTEDECOSECHA();
+        System.out.println("El estado del maiz 1 es: "+maiz.getEstadoPlanta());
+        Thread.sleep(x);
+        maiz2.COSECHAPODRIDA();
+        Thread.sleep(z);
+        maiz.MUERTA();
+    }
+    public static   void PruebaIniciarVida() throws InterruptedException {
+        Vida1.start();
+    }
+
 }

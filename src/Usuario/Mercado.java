@@ -25,9 +25,6 @@ public class Mercado {
 
     public static void main(String[] args) {
         Fertilizante();
-        AlimentoHerviboro();
-        AlimentoOmnivoro();
-        ProductosAnimales();
     }
 
     public static void AlimentoHerviboro(){
@@ -326,12 +323,12 @@ public class Mercado {
     }
     public static void Fertilizante(){
         //Declaro mis variables
-        Basica basica= new Basica(FertibilidadSuelo.BASICA,1,0);
-        Media media= new Media(FertibilidadSuelo.MEDIA,2,0);
-        Alta alta= new Alta(FertibilidadSuelo.ALTA,3,0);
+        Basica basica= new Basica(FertibilidadSuelo.BASICA,1,0,25);
+        Media media= new Media(FertibilidadSuelo.MEDIA,2,0,25);
+        Alta alta= new Alta(FertibilidadSuelo.ALTA,3,0,25);
 
         //Muestro mi arreglo
-        System.out.println("\t\tLos Fertilizantes son: ");
+        System.out.println("\t\tLos Fertilizantes Disponibles son: ");
         Fertilizantes Fertilizante[]=new Fertilizantes[3];
         Fertilizante[0]=basica;
         Fertilizante[1]=media;
@@ -341,6 +338,62 @@ public class Mercado {
                 System.out.println(i+".  "+Fertilizante[i].getFertibilidadSuelo()+" y tiene una cantidad de: "+
                         Fertilizante[i].getCantidad());
             }
+        }
+        System.out.println("Ingrese su opción");
+        Scanner fertilizante = new Scanner(System.in);
+        int Eleccion = fertilizante.nextInt();
+        switch(Eleccion){
+            case 0:
+                System.out.println("Fertibilidad BASICA");
+                System.out.println("Actualmente posse "+basica.getCantidad()+" unidades");
+                System.out.println("Cuantas unidades desea comprar, a un costo de: "+basica.getPrecio());
+                Scanner unidades = new Scanner(System.in);
+                int Unidades = unidades.nextInt();
+                int Total= Unidades* basica.getPrecio();
+                media.setCantidad(Unidades+ basica.getCantidad());
+                System.out.println("Su compra se ha relizado, gastó "+Total+" de oro");
+                System.out.println("Inventario actualizado");
+                for (int i=0;i<Fertilizante.length;i++){
+                    if(Fertilizante[i]!=null){
+                        System.out.println(i+".  "+Fertilizante[i].getFertibilidadSuelo()+" y tiene una cantidad de: "+
+                                Fertilizante[i].getCantidad());
+                    }
+                }
+                break;
+            case 1:
+                System.out.println("Fertibilidad MEDIA");
+                System.out.println("Actualmente posse "+media.getCantidad()+" unidades");
+                System.out.println("Cuantas unidades desea comprar, a un costo de: "+media.getPrecio());
+                Scanner unidades1 = new Scanner(System.in);
+                int Unidades1 = unidades1.nextInt();
+                int Total1= Unidades1* basica.getPrecio();
+                media.setCantidad(Unidades1+ media.getCantidad());
+                System.out.println("Su compra se ha relizado, gastó "+Total1+" de oro");
+                System.out.println("Inventario actualizado");
+                for (int i=0;i<Fertilizante.length;i++){
+                    if(Fertilizante[i]!=null){
+                        System.out.println(i+".  "+Fertilizante[i].getFertibilidadSuelo()+" y tiene una cantidad de: "+
+                                Fertilizante[i].getCantidad());
+                    }
+                }
+                break;
+            case 2:
+                System.out.println("Fertibilidad ALTA");
+                System.out.println("Actualmente posse "+alta.getCantidad()+" unidades");
+                System.out.println("Cuantas unidades desea comprar, a un costo de: "+alta.getPrecio());
+                Scanner unidades2 = new Scanner(System.in);
+                int Unidades2 = unidades2.nextInt();
+                int Total2= Unidades2* alta.getPrecio();
+                media.setCantidad(Unidades2+ alta.getCantidad());
+                System.out.println("Su compra se ha relizado, gastó "+Total2+" de oro");
+                System.out.println("Inventario actualizado");
+                for (int i=0;i<Fertilizante.length;i++){
+                    if(Fertilizante[i]!=null){
+                        System.out.println(i+".  "+Fertilizante[i].getFertibilidadSuelo()+" y tiene una cantidad de: "+
+                                Fertilizante[i].getCantidad());
+                    }
+                }
+                break;
         }
     }
 }

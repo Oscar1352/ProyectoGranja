@@ -5,9 +5,11 @@ import Granja.Enum.FertibilidadSuelo;
 
 public class Media extends Fertilizantes {
 
-    public Media(FertibilidadSuelo fertibilidadSuelo, int indiceDeMejora, int Cantidad) {
-        super(fertibilidadSuelo, indiceDeMejora, Cantidad);
+
+    public Media(FertibilidadSuelo fertibilidadSuelo, int indiceDeMejora, int Cantidad, int Precio) {
+        super(fertibilidadSuelo, indiceDeMejora, Cantidad, Precio);
     }
+
     @Override
     public void FERTIBILIDADBASICA() {
         super.FERTIBILIDADBASICA();

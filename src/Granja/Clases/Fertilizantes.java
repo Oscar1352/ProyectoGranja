@@ -7,10 +7,12 @@ public abstract class Fertilizantes {
     private FertibilidadSuelo fertibilidadSuelo;
     private int IndiceDeMejora;
     private int Cantidad;
+    private int Precio;
 
-    public Fertilizantes(FertibilidadSuelo fertibilidadSuelo, int indiceDeMejora, int Cantidad) {
+    public Fertilizantes(FertibilidadSuelo fertibilidadSuelo, int indiceDeMejora, int Cantidad, int Precio) {
         this.fertibilidadSuelo = fertibilidadSuelo;
         this.Cantidad=Cantidad;
+        this.Precio= Precio;
         IndiceDeMejora = indiceDeMejora;
     }
 
@@ -20,6 +22,14 @@ public abstract class Fertilizantes {
 
     public void setFertibilidadSuelo(FertibilidadSuelo fertibilidadSuelo) {
         this.fertibilidadSuelo = fertibilidadSuelo;
+    }
+
+    public int getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(int precio) {
+        Precio = precio;
     }
 
     public int getIndiceDeMejora() {

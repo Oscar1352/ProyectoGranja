@@ -5,10 +5,10 @@ import Granja.Enum.FertibilidadSuelo;
 
 public class Basica extends Fertilizantes {
 
-    public Basica(FertibilidadSuelo fertibilidadSuelo, int indiceDeMejora, int Cantidad) {
-        super(fertibilidadSuelo, indiceDeMejora, Cantidad);
-    }
 
+    public Basica(FertibilidadSuelo fertibilidadSuelo, int indiceDeMejora, int Cantidad, int Precio) {
+        super(fertibilidadSuelo, indiceDeMejora, Cantidad, Precio);
+    }
     @Override
     public void FERTIBILIDADBASICA() {
         super.FERTIBILIDADBASICA();

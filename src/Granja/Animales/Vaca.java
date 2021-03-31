@@ -12,6 +12,7 @@ public class Vaca extends Animales implements Herviboro, Destazable{
         super(nombre, Edad, tipoDeAnimal, tamaño, producto, comidaConsumida, destazable, estado);
     }
 
+
     @Override
     public void ProduceCuero() {
 
