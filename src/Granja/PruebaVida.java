@@ -19,7 +19,7 @@ public class PruebaVida extends Thread{
     private EstadoAgua estadoAgua;
 
     //HILOS
-    
+
     public PruebaVida() throws InterruptedException {
     }
 
@@ -145,8 +145,4 @@ public class PruebaVida extends Thread{
         Thread.sleep(z);
         maiz.MUERTA();
     }
-    public static void PruebaCasillasAleatorias(){
-        Celdas celdas[][]= new Celdas[5][5];
-
-        }
     }

@@ -41,8 +41,8 @@ public class PruebaCeldasAleatorias {
         Celdas celdas[][]= new Celdas[6][6];
 
         Grama grama= new Grama("Grama","Siembra",40,25, FertibilidadSuelo.BASICA);
-        Agua agua= new Agua("Agua","Pezca",25,25, EstadoAgua.CONPECES);
-        Desierto desierto= new Desierto("Desierto","Nada",15,5);
+        Agua agua= new Agua("Agua","Pezca",35,25, EstadoAgua.CONPECES);
+        Desierto desierto= new Desierto("Desierto","Nada",25,5);
 
         for(int b=0;b<=5;b++){
             for(int c=0;c<=5;c++){

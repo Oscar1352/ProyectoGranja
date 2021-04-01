@@ -11,6 +11,16 @@ public class Maiz extends Plantas implements DeGranos {
     }
 
     @Override
+    public int getCantidadDeSemillas() {
+        return super.getCantidadDeSemillas();
+    }
+
+    @Override
+    public void setCantidadDeSemillas(int cantidadDeSemillas) {
+        super.setCantidadDeSemillas(cantidadDeSemillas);
+    }
+
+    @Override
     public String getTipoDePlanta() {
         return super.getTipoDePlanta();
     }

@@ -9,6 +9,7 @@ public abstract class Plantas extends SerVivo{
 
     private String TipoDePlanta;
     private Integer PrecioDeSemillas;
+    private int CantidadDeSemillas=5;
     private EstadoPlanta estadoPlanta;
 
     public Plantas(String nombre, Integer Edad, String tipoDePlanta, Integer precioDeSemillas, EstadoPlanta estadoPlanta) {
@@ -16,6 +17,14 @@ public abstract class Plantas extends SerVivo{
         TipoDePlanta = tipoDePlanta;
         PrecioDeSemillas = precioDeSemillas;
         this.estadoPlanta = estadoPlanta;
+    }
+
+    public int getCantidadDeSemillas() {
+        return CantidadDeSemillas;
+    }
+
+    public void setCantidadDeSemillas(int cantidadDeSemillas) {
+        CantidadDeSemillas = cantidadDeSemillas;
     }
 
     public String getTipoDePlanta() {
