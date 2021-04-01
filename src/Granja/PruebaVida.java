@@ -1,6 +1,7 @@
 package Granja;
 
 import Granja.Animales.Vaca;
+import Granja.Clases.Celdas;
 import Granja.Enum.EstadoAgua;
 import Granja.Enum.EstadoAnimal;
 import Granja.Enum.EstadoPlanta;
@@ -144,4 +145,8 @@ public class PruebaVida extends Thread{
         Thread.sleep(z);
         maiz.MUERTA();
     }
-}
+    public static void PruebaCasillasAleatorias(){
+        Celdas celdas[][]= new Celdas[5][5];
+
+        }
+    }
