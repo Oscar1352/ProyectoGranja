@@ -57,12 +57,12 @@ SiembraMaiz();
         Grama grama = new Grama("Grama","Siembra y crianza",40,25,FertibilidadSuelo.BASICA);
         Basica basica= new Basica(FertibilidadSuelo.BASICA, 1, 1,25);
 
-
-
+        //Empieza la plantacion en una de las celdas
         System.out.println("Se empezará la cosecha: ");
         int semillas= maiz.getCantidadDeSemillas();
         int siembra=semillas-1;
         System.out.println("Usted ha sembrado "+maiz.getNombre());
+        maiz.setCantidadDeSemillas(siembra);
         System.out.println("Y producirá "+maiz.getTipoDePlanta());
         System.out.println("Se harán los cálculos...");
         sleep(1000);
