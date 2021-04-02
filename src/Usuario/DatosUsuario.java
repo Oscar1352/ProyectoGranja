@@ -9,9 +9,9 @@ public class DatosUsuario {
     private String Nombre;
     private String Nickname;
     private int PuntosDeVida=50;
-    private int AlimentoConsumido;
+    private int AlimentoConsumido=50;
     private EstadoUsuario estadoUsuario;
-    private int Oro;
+    private int Oro=100;
 
     //Variables de Actividades
     private int PecesPescados=0;

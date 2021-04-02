@@ -16,12 +16,13 @@ import Granja.TiposDeAlimento.Omnivoros.Insectos;
 public class Bodega  {
 
     public static void main(String[] args) {
+        Prueba();
         AlimentoHerviboro();
         AlimentoOmnivoro();
         ProductosAnimales();
     }
 
-    public void Prueba(){
+    public static void Prueba(){
         Chipilin chipilin= new Chipilin("Herviboros", "Chipilin",6, 5);
         Insectos insectos= new Insectos("Herviboros", "Chipilin",6,2);
 

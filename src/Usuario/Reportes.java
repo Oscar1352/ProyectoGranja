@@ -33,9 +33,9 @@ public class Reportes {
     }
 
     public static void ReporteDePlantas() {
-        PlantasReporte plantas= new PlantasReporte();
-        System.out.println("La cantidad de semillas compradas es de: "+plantas.getCantidadDeSemillasCompradas());
-        System.out.println("La cantidad de celdas compradas es de: "+plantas.getCantidadDeCeldasSembradas());
+        PlantasReporte plantasReporte= new PlantasReporte();
+        System.out.println("La cantidad de semillas compradas es de: "+plantasReporte.getCantidadDeSemillasCompradas());
+        System.out.println("La cantidad de celdas compradas es de: "+plantasReporte.getCantidadDeCeldasSembradas());
 
     }
 }
