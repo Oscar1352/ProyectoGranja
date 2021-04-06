@@ -203,8 +203,4 @@ public class CompraChipilin extends JFrame {
             }
         });
     }
-
-    public static void main(String[] args) {
-        CompraChipilin compraChipilin= new CompraChipilin();
-    }
 }
