@@ -1,4 +1,8 @@
-package InterfazGráfica;
+package InterfazGráfica.Mercado;
+import Granja.Enum.FertibilidadSuelo;
+import Granja.Fertilizantes.Alta;
+import Granja.Fertilizantes.Basica;
+import Granja.Fertilizantes.Media;
 import Granja.ProductosAnimales.Carne;
 import Granja.ProductosAnimales.Cuero;
 import Granja.ProductosAnimales.Huevos;
@@ -9,6 +13,10 @@ import Granja.TiposDeAlimento.Herviboros.Vegetales;
 import Granja.TiposDeAlimento.Omnivoros.Frutas;
 import Granja.TiposDeAlimento.Omnivoros.Insectos;
 import Granja.TiposDeAlimento.Omnivoros.Nueces;
+import InterfazGráfica.Ventana1;
+import InterfazGráfica.Ventana2;
+import InterfazGráfica.Ventana4;
+import InterfazGráfica.Ventana5;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -38,21 +46,25 @@ public class Ventana3 extends JFrame {
     private VenderMercado venderMercado;
 
     //PlantasHerviboros
-    Chipilin chipilin=                new Chipilin("Herviboro","Chipilin",5,5);
-    Pasto pasto=                      new Pasto("Herviboro","Pasto",5,2);
-    Vegetales vegetales=              new Vegetales("Herviboro","Vegetales",5,5);
+    private Chipilin chipilin=          new Chipilin("Herviboro","Chipilin",5,5);
+    private Pasto pasto=                new Pasto("Herviboro","Pasto",5,2);
+    private Vegetales vegetales=        new Vegetales("Herviboro","Vegetales",5,5);
 
     //PlantasOmnivoros
-    Nueces nueces=                new Nueces("Omnivoro","Nueces",5,3);
-    Frutas frutas=                new Frutas("Omnivoro","Frutas",5,5);
-    Insectos insectos=            new Insectos("Omnivoro","Insectos",5,3);
+    private Nueces nueces=              new Nueces("Omnivoro","Nueces",5,3);
+    private Frutas frutas=              new Frutas("Omnivoro","Frutas",5,5);
+    private Insectos insectos=          new Insectos("Omnivoro","Insectos",5,3);
 
     //ProductosAnimales
-    Carne carne =               new Carne("Carne",5,15);
-    Cuero cuero =               new Cuero("Cuero",5,15);
-    Huevos huevos =             new Huevos("Huevos",5,15);
-    Lana lana =                 new Lana("Lana",5,15);
+    private Carne carne =               new Carne("Carne",5,15);
+    private Cuero cuero =               new Cuero("Cuero",5,15);
+    private Huevos huevos =             new Huevos("Huevos",5,15);
+    private Lana lana =                 new Lana("Lana",5,15);
 
+    //Fertilizantes
+    private Basica basica = new Basica(FertibilidadSuelo.BASICA,1,2, 15);
+    private Media media = new Media(FertibilidadSuelo.MEDIA,2,2, 30);
+    private Alta alta = new Alta(FertibilidadSuelo.ALTA,3,2, 45);
 
     public Ventana3() {
         // Crear el gridbag layout y su constraints
@@ -70,18 +82,22 @@ public class Ventana3 extends JFrame {
         int a = 50;
         JLabel Productos =          new JLabel("Productos");
         JLabel Alimento1 =          new JLabel("Alimento Herviboros ");
-        JLabel Producto1 =          new JLabel("Chipilin "+chipilin.getCantidad());
-        JLabel Producto2 =          new JLabel("Pasto "+pasto.getCantidad());
-        JLabel Producto3 =          new JLabel("Vegetales "+vegetales.getCantidad());
+        JLabel Producto1 =          new JLabel("Chipilin: "+chipilin.getCantidad());
+        JLabel Producto2 =          new JLabel("Pasto: "+pasto.getCantidad());
+        JLabel Producto3 =          new JLabel("Vegetales: "+vegetales.getCantidad());
         JLabel Alimento2 =          new JLabel("Alimento Omnivoros");
-        JLabel Producto11 =         new JLabel("Nueces "+nueces.getCantidad());
-        JLabel Producto22 =         new JLabel("Frutas "+frutas.getCantidad());
-        JLabel Producto33 =         new JLabel("Insectos "+insectos.getCantidad());
+        JLabel Producto11 =         new JLabel("Nueces: "+nueces.getCantidad());
+        JLabel Producto22 =         new JLabel("Frutas: "+frutas.getCantidad());
+        JLabel Producto33 =         new JLabel("Insectos: "+insectos.getCantidad());
         JLabel Cantidad =           new JLabel("Producto Animal");
-        JLabel Cantidad1 =          new JLabel("Cuero "+cuero.getCantidad());
-        JLabel Cantidad2 =          new JLabel("Carne "+carne.getCantidad());
-        JLabel Cantidad3 =          new JLabel("Huevos "+huevos.getCantidad());
-        JLabel Cantidad4 =          new JLabel("Lana "+lana.getCantidad());
+        JLabel Cantidad1 =          new JLabel("Cuero: "+cuero.getCantidad());
+        JLabel Cantidad2 =          new JLabel("Carne: "+carne.getCantidad());
+        JLabel Cantidad3 =          new JLabel("Huevos: "+huevos.getCantidad());
+        JLabel Cantidad4 =          new JLabel("Lana: "+lana.getCantidad());
+        JLabel Fertilizante =       new JLabel("Fertilizantes");
+        JLabel Fertilizante1 =      new JLabel("Básico: "+basica.getCantidad());
+        JLabel Fertilizante2 =      new JLabel("Medio: "+media.getCantidad());
+        JLabel Fertilizante3 =      new JLabel("Alto: "+alta.getCantidad());
         JButton Comprar =           new JButton("COMPRAR");
         JButton Vender =            new JButton("VENDER");
 
@@ -166,6 +182,32 @@ public class Ventana3 extends JFrame {
         gbc.gridy = 7;
         gbl.setConstraints(Cantidad3, gbc);
         panel.add(Cantidad3);
+        //Muestra el Cantidad4
+        gbc.gridx = 5;
+        gbc.gridy = 7;
+        gbl.setConstraints(Cantidad4, gbc);
+        panel.add(Cantidad4);
+
+        //Muestra el Fertilizante
+        gbc.gridx = 3;
+        gbc.gridy = 8;
+        gbl.setConstraints(Fertilizante, gbc);
+        panel.add(Fertilizante);
+        //Muestra el Fertilizante1
+        gbc.gridx = 2;
+        gbc.gridy = 9;
+        gbl.setConstraints(Fertilizante1, gbc);
+        panel.add(Fertilizante1);
+        //Muestra el Fertilizante2
+        gbc.gridx = 3;
+        gbc.gridy = 9;
+        gbl.setConstraints(Fertilizante2, gbc);
+        panel.add(Fertilizante2);
+        //Muestra el Fertilizante3
+        gbc.gridx = 4;
+        gbc.gridy = 9;
+        gbl.setConstraints(Fertilizante3, gbc);
+        panel.add(Fertilizante3);
 
         //Declaro las funciones de los botones
         Comprar.addActionListener(new ActionListener() {

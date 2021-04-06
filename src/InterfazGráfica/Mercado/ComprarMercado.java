@@ -1,4 +1,8 @@
-package InterfazGráfica;
+package InterfazGráfica.Mercado;
+
+import InterfazGráfica.Ventana1;
+import InterfazGráfica.Ventana2;
+import InterfazGráfica.Ventana4;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,12 +19,14 @@ public class ComprarMercado extends JFrame {
         private JDialog ventana13;
         private JDialog ventana14;
         private JDialog ventana21;
+        private JDialog Boton1;
 
         //Declaro mis ventanas
         private Ventana1 ventana1;
         private Ventana2 ventana2;
         private Ventana3 ventana3;
         private Ventana4 ventana4;
+        private CompraChipilin compraChipilin;
         private InterfazGráfica.Ventana5 ventana5;
         public ComprarMercado() {
             // Crear el gridbag layout y su constraints
@@ -36,8 +42,17 @@ public class ComprarMercado extends JFrame {
 
             // crear las partes del formulario
             int a = 50;
-            JLabel Manual = new JLabel("COMPRAR EN EL MERCADO");
-            JLabel texto = new JLabel(".........");
+            JLabel COMPRAR =                      new JLabel("COMPRAR EN EL MERCADO");
+            JButton ProductoChipilin =           new JButton("Chipilin");
+            JButton ProductosPasto =             new JButton("Pasto");
+            JButton ProductosVegetales =         new JButton("Vegetales");
+            JButton ProductosNueces =            new JButton("Nueces");
+            JButton ProductosFrutas =            new JButton("Frutas");
+            JButton ProductosInsectos =          new JButton("Insectos");
+            JButton ProductoFertilizante1 =      new JButton("Fertilizante Básico");
+            JButton ProductoFertilizante2 =      new JButton("Fertilizante Medio");
+            JButton ProductoFertilizante3 =      new JButton("Fertilizante Alto");
+
 
             // Creando MenuBar y agregando componentes
             gbc.gridx = 0;
@@ -46,17 +61,71 @@ public class ComprarMercado extends JFrame {
             //Muestra el Manual
             gbc.gridx = 3;
             gbc.gridy = 0;
-            gbl.setConstraints(Manual, gbc);
-            panel.add(Manual);
+            gbl.setConstraints(COMPRAR, gbc);
+            panel.add(COMPRAR);
 
-            //Muestra el Texto
+            //Muestra el Chipilin
+            gbc.gridx = 1;
+            gbc.gridy = 1;
+            gbl.setConstraints(ProductoChipilin, gbc);
+            panel.add(ProductoChipilin);
+            //Muestra el Pasto
+            gbc.gridx = 2;
+            gbc.gridy = 1;
+            gbl.setConstraints(ProductosPasto, gbc);
+            panel.add(ProductosPasto);
+            //Muestra el Vegetales
             gbc.gridx = 3;
             gbc.gridy = 1;
-            gbl.setConstraints(texto, gbc);
-            panel.add(texto);
+            gbl.setConstraints(ProductosVegetales, gbc);
+            panel.add(ProductosVegetales);
+            //Muestra las Nueces
+            gbc.gridx = 4;
+            gbc.gridy = 1;
+            gbl.setConstraints(ProductosNueces, gbc);
+            panel.add(ProductosNueces);
+            //Muestra las Frutas
+            gbc.gridx = 1;
+            gbc.gridy = 2;
+            gbl.setConstraints(ProductosFrutas, gbc);
+            panel.add(ProductosFrutas);
+            //Muestra los Insectos
+            gbc.gridx = 2;
+            gbc.gridy = 2;
+            gbl.setConstraints(ProductosInsectos, gbc);
+            panel.add(ProductosInsectos);
+            //Muestra los Fertilizantes 1
+            gbc.gridx = 3;
+            gbc.gridy = 2;
+            gbl.setConstraints(ProductoFertilizante1, gbc);
+            panel.add(ProductoFertilizante1);
+            //Muestra los Fertilizantes 2
+            gbc.gridx = 4;
+            gbc.gridy = 2;
+            gbl.setConstraints(ProductoFertilizante2, gbc);
+            panel.add(ProductoFertilizante2);
+            //Muestra los Fertilizantes 3
+            gbc.gridx = 1;
+            gbc.gridy = 3;
+            gbl.setConstraints(ProductoFertilizante3, gbc);
+            panel.add(ProductoFertilizante3);
+
+            //Establezco mis acciones de los botones
+            ProductoChipilin.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    CompraChipilin aux = new CompraChipilin();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+
 
             // finalmente pintar todo
-
             frame.add( panel );
             frame.pack();
             frame.setSize(800,250);

@@ -2,8 +2,8 @@ package InterfazGráfica;
 
 import Granja.Animales.AnimalesReporte;
 import Granja.CaracteristicasDeLaGranja;
-import Granja.Clases.Animales;
 import Granja.Plantas.PlantasReporte;
+import InterfazGráfica.Mercado.Ventana3;
 import Usuario.DatosUsuario;
 
 import javax.swing.*;

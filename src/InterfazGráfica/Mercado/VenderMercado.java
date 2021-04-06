@@ -1,4 +1,8 @@
-package InterfazGráfica;
+package InterfazGráfica.Mercado;
+
+import InterfazGráfica.Ventana1;
+import InterfazGráfica.Ventana2;
+import InterfazGráfica.Ventana4;
 
 import javax.swing.*;
 import javax.swing.border.Border;

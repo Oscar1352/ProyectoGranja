@@ -1,6 +1,11 @@
-package InterfazGráfica;
+package InterfazGráfica.Mercado;
 
+import Granja.TiposDeAlimento.Herviboros.Chipilin;
 import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana1;
+import InterfazGráfica.Ventana2;
+import InterfazGráfica.Ventana4;
+import Usuario.DatosUsuario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -10,7 +15,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana5 extends JFrame {
+public class CompraChipilin extends JFrame {
+    //Declaro mis clases
+    DatosUsuario datosUsuario= new DatosUsuario();
+
     //Declaro mis JDialog
     private JDialog ventana11;
     private JDialog ventana12;
@@ -23,8 +31,9 @@ public class Ventana5 extends JFrame {
     private Ventana2 ventana2;
     private Ventana3 ventana3;
     private Ventana4 ventana4;
-    private Ventana5 ventana5;
-    public Ventana5() {
+    private InterfazGráfica.Ventana5 ventana5;
+
+    public CompraChipilin() {
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -33,32 +42,76 @@ public class Ventana5 extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(gbl);
         //Declaro un margen estético a mi ventana
-        Border bordejpanel = new TitledBorder(new EtchedBorder(), "MANUAL DE USUARIO");
+        Border bordejpanel = new TitledBorder(new EtchedBorder(), "COMPRAR Chipilin");
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Manual = new JLabel("MANUAL DE USUARIO.........");
-        JLabel texto = new JLabel(".........");
+        JLabel Chiplin =                     new JLabel("COMPRAR EN EL MERCADO");
+        JLabel CantidadActual =              new JLabel("Unidades actuales");
+        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: ");
+        JLabel Oro =                         new JLabel("Oro: "+datosUsuario.getOro());
+        JTextField introducir=               new JTextField(new Integer(3));
+        JButton comprar =                    new JButton("COMPRAR");
 
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0;
         gbc.gridy = 0;
 
-        //Muestra el Manual
+        //Muestra el Titulo
         gbc.gridx = 3;
         gbc.gridy = 0;
-        gbl.setConstraints(Manual, gbc);
-        panel.add(Manual);
-
-        //Muestra el Texto
+        gbl.setConstraints(Chiplin, gbc);
+        panel.add(Chiplin);
+        //Muestra el Cantidad
+        gbc.gridx = 2;
+        gbc.gridy = 2;
+        gbl.setConstraints(CantidadActual, gbc);
+        panel.add(CantidadActual);
+        //Muestra el Cantidad
         gbc.gridx = 3;
-        gbc.gridy = 1;
-        gbl.setConstraints(texto, gbc);
-        panel.add(texto);
+        gbc.gridy = 2;
+        gbl.setConstraints(Oro, gbc);
+        panel.add(Oro);
+        //Muestra el Comprar
+        gbc.gridx = 4;
+        gbc.gridy = 2;
+        gbl.setConstraints(Cantidad, gbc);
+        panel.add(Cantidad);
+        //Muestra el Textflied
+        gbc.gridx = 6;
+        gbc.gridy = 2;
+        gbl.setConstraints(introducir, gbc);
+        introducir.setBounds(new Rectangle(25, 15, 250, 21));
+        introducir.setEditable(true);
+        introducir.setHorizontalAlignment(JTextField.LEFT);
+        panel.add(introducir);
+        //Muestra el Boton
+        gbc.gridx = 3;
+        gbc.gridy = 3;
+        gbl.setConstraints(comprar, gbc);
+        panel.add(comprar);
+
+        //Acciones del Boton
+        comprar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int x= Integer.parseInt(introducir.getText());
+                int Total= x*5;
+                if(datosUsuario.getOro()>=x){
+                    JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO");
+                    datosUsuario.setOro(datosUsuario.getOro()-Total);
+                    CantidadActual.setText("Se ha actualizado");
+                    Oro.setText("Oro:"+datosUsuario.getOro());
+                    introducir.setText("");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Cantidad de Oro insuficiente");
+                    introducir.setText("");
+                }
+            }
+        });
 
         // finalmente pintar todo
-
         frame.add( panel );
         frame.pack();
         frame.setSize(800,250);
@@ -144,12 +197,14 @@ public class Ventana5 extends JFrame {
                 ventana21.setSize(350, 250);
                 ventana21.setLocationRelativeTo(null);
                 ventana21.setLayout(new BorderLayout());
-                Ventana5 aux = new Ventana5();//Creamos una nueva
+                InterfazGráfica.Ventana5 aux = new InterfazGráfica.Ventana5();//Creamos una nueva
                 ventana21.add(aux, BorderLayout.NORTH);
                 ventana21.setVisible(true);
             }
         });
-
     }
 
+    public static void main(String[] args) {
+        CompraChipilin compraChipilin= new CompraChipilin();
+    }
 }
