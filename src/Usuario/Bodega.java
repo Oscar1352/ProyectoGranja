@@ -9,7 +9,7 @@ import Granja.ProductosAnimales.Lana;
 import Granja.TiposDeAlimento.Herviboros.Chipilin;
 import Granja.TiposDeAlimento.Herviboros.Pasto;
 import Granja.TiposDeAlimento.Herviboros.Vegetales;
-import Granja.TiposDeAlimento.Omnivoros.Aves;
+import Granja.TiposDeAlimento.Omnivoros.Nueces;
 import Granja.TiposDeAlimento.Omnivoros.Frutas;
 import Granja.TiposDeAlimento.Omnivoros.Insectos;
 
@@ -56,13 +56,13 @@ public class Bodega  {
     }
     public static void AlimentoOmnivoro(){
         //Declaro mis tipos de comida
-        Aves aves= new Aves("Omnivoros", "Aves",5, 5);
+        Nueces nueces= new Nueces("Omnivoros", "Aves",5, 5);
         Frutas frutas= new Frutas("Omnivoros", "Frutas",5,1);
         Insectos insectos= new Insectos("Omnivoros","Insectos",5,5);
 
         //Declaro mi arreglo
         AlimentosOmnivoro alimentosOmnivoros[]= new AlimentosOmnivoro[3];
-        alimentosOmnivoros[0]= aves;
+        alimentosOmnivoros[0]= nueces;
         alimentosOmnivoros[1]= frutas;
         alimentosOmnivoros[2]= insectos;
 

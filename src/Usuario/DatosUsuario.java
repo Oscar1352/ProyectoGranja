@@ -6,8 +6,8 @@ import Granja.Enum.EstadoUsuario;
 public class DatosUsuario {
 
     //Declaro mis varibales para datos generales
-    private String Nombre;
-    private String Nickname;
+    private String Nombre=" Oscar";
+    private String Nickname=" Black";
     private int PuntosDeVida=50;
     private int AlimentoConsumido=50;
     private EstadoUsuario estadoUsuario;

@@ -15,7 +15,7 @@ import Granja.ProductosAnimales.Lana;
 import Granja.TiposDeAlimento.Herviboros.Chipilin;
 import Granja.TiposDeAlimento.Herviboros.Pasto;
 import Granja.TiposDeAlimento.Herviboros.Vegetales;
-import Granja.TiposDeAlimento.Omnivoros.Aves;
+import Granja.TiposDeAlimento.Omnivoros.Nueces;
 import Granja.TiposDeAlimento.Omnivoros.Frutas;
 import Granja.TiposDeAlimento.Omnivoros.Insectos;
 
@@ -205,13 +205,13 @@ public class Mercado {
         DatosUsuario datosUsuario= new DatosUsuario();
 
         //Declaro mis tipos de comida
-        Aves aves= new Aves("Omnivoros", "Aves",5, 5);
+        Nueces nueces= new Nueces("Omnivoros", "Aves",5, 5);
         Frutas frutas= new Frutas("Omnivoros", "Frutas",5,1);
         Insectos insectos= new Insectos("Omnivoros","Insectos",5,5);
 
         //Declaro mi arreglo
         AlimentosOmnivoro alimentosOmnivoros[]= new AlimentosOmnivoro[3];
-        alimentosOmnivoros[0]= aves;
+        alimentosOmnivoros[0]= nueces;
         alimentosOmnivoros[1]= frutas;
         alimentosOmnivoros[2]= insectos;
 
@@ -244,16 +244,16 @@ public class Mercado {
                 int compra = Compra.nextInt();
                 switch (compra){
                     case 0:
-                        System.out.println("Actualmente tiene "+aves.getCantidad()+" unidades de aves");
-                        System.out.println("Cuantas desea comprar, a un costo de: "+aves.getPrecio());
+                        System.out.println("Actualmente tiene "+nueces.getCantidad()+" unidades de aves");
+                        System.out.println("Cuantas desea comprar, a un costo de: "+nueces.getPrecio());
                         Scanner avesCompra = new Scanner(System.in);
                         int compraaves = avesCompra.nextInt();
-                        int x= aves.getPrecio();
+                        int x= nueces.getPrecio();
                         int Total=compraaves*x;
                         datosUsuario.setOro(datosUsuario.getOro()-Total);
                         System.out.println("Usted ha comprado "+compraaves+" unidades "+
                                 " y ha gastado "+Total+" de oro");
-                        aves.setCantidad(aves.getCantidad()+compraaves);
+                        nueces.setCantidad(nueces.getCantidad()+compraaves);
                         break;
                     case 1:
                         System.out.println("Actualmente tiene "+frutas.getCantidad()+" unidades de frutas");
