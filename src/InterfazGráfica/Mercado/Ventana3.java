@@ -46,25 +46,25 @@ public class Ventana3 extends JFrame {
     private VenderMercado venderMercado;
 
     //PlantasHerviboros
-    private Chipilin chipilin=          new Chipilin("Herviboro","Chipilin",5,5);
-    private Pasto pasto=                new Pasto("Herviboro","Pasto",5,2);
-    private Vegetales vegetales=        new Vegetales("Herviboro","Vegetales",5,5);
+    public static Chipilin chipilin=          new Chipilin("Herviboro","Chipilin",5,5);
+    public static Pasto pasto=                new Pasto("Herviboro","Pasto",5,2);
+    public static Vegetales vegetales=        new Vegetales("Herviboro","Vegetales",5,5);
 
     //PlantasOmnivoros
-    private Nueces nueces=              new Nueces("Omnivoro","Nueces",5,3);
-    private Frutas frutas=              new Frutas("Omnivoro","Frutas",5,5);
-    private Insectos insectos=          new Insectos("Omnivoro","Insectos",5,3);
+    public static Nueces nueces=              new Nueces("Omnivoro","Nueces",5,3);
+    public static Frutas frutas=              new Frutas("Omnivoro","Frutas",5,5);
+    public static Insectos insectos=          new Insectos("Omnivoro","Insectos",5,3);
 
     //ProductosAnimales
-    private Carne carne =               new Carne("Carne",5,15);
-    private Cuero cuero =               new Cuero("Cuero",5,15);
-    private Huevos huevos =             new Huevos("Huevos",5,15);
-    private Lana lana =                 new Lana("Lana",5,15);
+    public static Carne carne =               new Carne("Carne",5,15);
+    public static Cuero cuero =               new Cuero("Cuero",5,15);
+    public static Huevos huevos =             new Huevos("Huevos",5,15);
+    public static Lana lana =                 new Lana("Lana",5,15);
 
     //Fertilizantes
-    private Basica basica = new Basica(FertibilidadSuelo.BASICA,1,2, 15);
-    private Media media = new Media(FertibilidadSuelo.MEDIA,2,2, 30);
-    private Alta alta = new Alta(FertibilidadSuelo.ALTA,3,2, 45);
+    public static Basica basica = new Basica(FertibilidadSuelo.BASICA,1,2, 15);
+    public static Media media = new Media(FertibilidadSuelo.MEDIA,2,2, 30);
+    public static Alta alta = new Alta(FertibilidadSuelo.ALTA,3,2, 45);
 
     public Ventana3() {
         // Crear el gridbag layout y su constraints

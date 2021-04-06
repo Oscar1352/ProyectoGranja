@@ -1,6 +1,11 @@
 package Granja.Clases;
 
 import Granja.TiposDeAlimento.Herviboros.Chipilin;
+import Granja.TiposDeAlimento.Herviboros.Pasto;
+import Granja.TiposDeAlimento.Herviboros.Vegetales;
+import Granja.TiposDeAlimento.Omnivoros.Frutas;
+import Granja.TiposDeAlimento.Omnivoros.Insectos;
+import Granja.TiposDeAlimento.Omnivoros.Nueces;
 
 public abstract class AlimentoAnimales {
     private String Tipo;
@@ -46,4 +51,5 @@ public abstract class AlimentoAnimales {
     public void setNombre(String nombre) {
         Nombre = nombre;
     }
+
 }

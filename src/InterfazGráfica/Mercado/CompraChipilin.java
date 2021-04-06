@@ -1,5 +1,6 @@
 package InterfazGráfica.Mercado;
 
+import Granja.Clases.Plantas;
 import Granja.TiposDeAlimento.Herviboros.Chipilin;
 import InterfazGráfica.Mercado.Ventana3;
 import InterfazGráfica.Ventana1;
@@ -47,10 +48,10 @@ public class CompraChipilin extends JFrame {
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Chiplin =                     new JLabel("COMPRAR EN EL MERCADO");
-        JLabel CantidadActual =              new JLabel("Unidades actuales");
-        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: ");
-        JLabel Oro =                         new JLabel("Oro: "+datosUsuario.getOro());
+        JLabel Chipilin =                     new JLabel("COMPRAR EN EL MERCADO");
+        JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.chipilin.getCantidad());
+        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.chipilin.getPrecio());
+        JLabel Oro =                         new JLabel("Oro:  "+datosUsuario.getOro());
         JTextField introducir=               new JTextField(new Integer(3));
         JButton comprar =                    new JButton("COMPRAR");
 
@@ -61,8 +62,8 @@ public class CompraChipilin extends JFrame {
         //Muestra el Titulo
         gbc.gridx = 3;
         gbc.gridy = 0;
-        gbl.setConstraints(Chiplin, gbc);
-        panel.add(Chiplin);
+        gbl.setConstraints(Chipilin, gbc);
+        panel.add(Chipilin);
         //Muestra el Cantidad
         gbc.gridx = 2;
         gbc.gridy = 2;
@@ -101,7 +102,8 @@ public class CompraChipilin extends JFrame {
                 if(datosUsuario.getOro()>=x){
                     JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO");
                     datosUsuario.setOro(datosUsuario.getOro()-Total);
-                    CantidadActual.setText("Se ha actualizado");
+                    Ventana3.chipilin.setCantidad(ventana3.chipilin.getCantidad()+x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.chipilin.getCantidad());
                     Oro.setText("Oro:"+datosUsuario.getOro());
                     introducir.setText("");
                 }else{
@@ -203,4 +205,5 @@ public class CompraChipilin extends JFrame {
             }
         });
     }
+
 }

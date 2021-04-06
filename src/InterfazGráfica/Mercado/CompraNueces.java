@@ -1,6 +1,9 @@
-package InterfazGráfica;
+package InterfazGráfica.Mercado;
 
-import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana1;
+import InterfazGráfica.Ventana2;
+import InterfazGráfica.Ventana4;
+import Usuario.DatosUsuario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -10,7 +13,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana2 extends JFrame {
+public class CompraNueces extends JFrame{
+    //Declaro mis clases
+    DatosUsuario datosUsuario= new DatosUsuario();
+
     //Declaro mis JDialog
     private JDialog ventana11;
     private JDialog ventana12;
@@ -23,9 +29,9 @@ public class Ventana2 extends JFrame {
     private Ventana2 ventana2;
     private Ventana3 ventana3;
     private Ventana4 ventana4;
-    private Ventana5 ventana5;
+    private InterfazGráfica.Ventana5 ventana5;
 
-    public Ventana2() {
+    public CompraNueces() {
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -34,108 +40,81 @@ public class Ventana2 extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(gbl);
         //Declaro un margen estético a mi ventana
-        Border bordejpanel = new TitledBorder(new EtchedBorder(), "BODEGA");
+        Border bordejpanel = new TitledBorder(new EtchedBorder(), "COMPRAR nueces");
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Productos = new JLabel("Productos");
-        JLabel Alimento1 = new JLabel("Alimento Herviboros ");
-        JLabel Producto1 = new JLabel("Chipilin: "+ventana3.chipilin.getCantidad());
-        JLabel Producto2 = new JLabel("Pasto: "+ventana3.pasto.getCantidad());
-        JLabel Producto3 = new JLabel("Vegetales: "+ventana3.vegetales.getCantidad());
-        JLabel Alimento2 = new JLabel("Alimento Omnivoros: ");
-        JLabel Producto11 = new JLabel("Nueces: "+ventana3.nueces.getCantidad());
-        JLabel Producto22 = new JLabel("Frutas: "+ventana3.frutas.getCantidad());
-        JLabel Producto33 = new JLabel("Insectos: "+ventana3.insectos.getCantidad());
-        JLabel Cantidad = new JLabel("Producto Animal");
-        JLabel Cantidad1 = new JLabel("Cuero: "+ventana3.cuero.getCantidad());
-        JLabel Cantidad2 = new JLabel("Carne: "+ventana3.carne.getCantidad());
-        JLabel Cantidad3 = new JLabel("Huevos: "+ventana3.huevos.getCantidad());
-        JLabel Cantidad4 = new JLabel("Lana: "+ventana3.lana.getCantidad());
-
+        JLabel Chipilin =                     new JLabel("COMPRAR EN EL MERCADO");
+        JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.nueces.getCantidad());
+        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.nueces.getPrecio());
+        JLabel Oro =                         new JLabel("Oro:  "+datosUsuario.getOro());
+        JTextField introducir=               new JTextField(new Integer(3));
+        JButton comprar =                    new JButton("COMPRAR");
 
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0;
         gbc.gridy = 0;
 
-        //Muestra el Producto
+        //Muestra el Titulo
         gbc.gridx = 3;
         gbc.gridy = 0;
-        gbl.setConstraints(Productos, gbc);
-        panel.add(Productos);
-        //Muestra el Herviboros
-        gbc.gridx = 3;
-        gbc.gridy = 1;
-        gbl.setConstraints(Alimento1, gbc);
-        panel.add(Alimento1);
-        //Muestra Producto 1
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        gbl.setConstraints(Producto1, gbc);
-        panel.add(Producto1);
-        //Muestra Producto 2
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        gbl.setConstraints(Producto2, gbc);
-        panel.add(Producto2);
-        //Muestra Producto 3
+        gbl.setConstraints(Chipilin, gbc);
+        panel.add(Chipilin);
+        //Muestra el Cantidad
         gbc.gridx = 2;
         gbc.gridy = 2;
-        gbl.setConstraints(Producto3, gbc);
-        panel.add(Producto3);
-
-
-        //Muestra el Omnivoros
-        gbc.gridx = 3;
-        gbc.gridy = 3;
-        gbl.setConstraints(Alimento2, gbc);
-        panel.add(Alimento2);
-        //Muestra Producto 1
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbl.setConstraints(Producto11, gbc);
-        panel.add(Producto11);
-        //Muestra Producto 2
-        gbc.gridx = 1;
-        gbc.gridy = 4;
-        gbl.setConstraints(Producto22, gbc);
-        panel.add(Producto22);
-        //Muestra Producto 3
-        gbc.gridx = 2;
-        gbc.gridy = 4;
-        gbl.setConstraints(Producto33, gbc);
-        panel.add(Producto33);
-
-
+        gbl.setConstraints(CantidadActual, gbc);
+        panel.add(CantidadActual);
         //Muestra el Cantidad
         gbc.gridx = 3;
-        gbc.gridy = 6;
+        gbc.gridy = 2;
+        gbl.setConstraints(Oro, gbc);
+        panel.add(Oro);
+        //Muestra el Comprar
+        gbc.gridx = 4;
+        gbc.gridy = 2;
         gbl.setConstraints(Cantidad, gbc);
         panel.add(Cantidad);
-        //Muestra el Cantidad1
-        gbc.gridx = 0;
-        gbc.gridy = 7;
-        gbl.setConstraints(Cantidad1, gbc);
-        panel.add(Cantidad1);
-        //Muestra el Cantidad2
-        gbc.gridx = 1;
-        gbc.gridy = 7;
-        gbl.setConstraints(Cantidad2, gbc);
-        panel.add(Cantidad2);
-        //Muestra el Cantidad3
-        gbc.gridx = 2;
-        gbc.gridy = 7;
-        gbl.setConstraints(Cantidad3, gbc);
-        panel.add(Cantidad3);
+        //Muestra el Textflied
+        gbc.gridx = 6;
+        gbc.gridy = 2;
+        gbl.setConstraints(introducir, gbc);
+        introducir.setBounds(new Rectangle(25, 15, 250, 21));
+        introducir.setEditable(true);
+        introducir.setHorizontalAlignment(JTextField.LEFT);
+        panel.add(introducir);
+        //Muestra el Boton
+        gbc.gridx = 3;
+        gbc.gridy = 3;
+        gbl.setConstraints(comprar, gbc);
+        panel.add(comprar);
+
+        //Acciones del Boton
+        comprar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int x= Integer.parseInt(introducir.getText());
+                int Total= x*5;
+                if(datosUsuario.getOro()>=x){
+                    JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO");
+                    datosUsuario.setOro(datosUsuario.getOro()-Total);
+                    Ventana3.nueces.setCantidad(ventana3.nueces.getCantidad()+x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.nueces.getCantidad());
+                    Oro.setText("Oro:"+datosUsuario.getOro());
+                    introducir.setText("");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Cantidad de Oro insuficiente");
+                    introducir.setText("");
+                }
+            }
+        });
 
         // finalmente pintar todo
-
-        frame.add(panel);
+        frame.add( panel );
         frame.pack();
-        frame.setAlwaysOnTop(true);
-        frame.setSize(550, 250);
-        frame.setVisible(true);
+        frame.setSize(800,250);
+        frame.setVisible( true );
 
 
         JMenuBar mb = new JMenuBar();
@@ -144,7 +123,7 @@ public class Ventana2 extends JFrame {
         JMenu m2 = new JMenu("AYUDA");
         mb.add(m1);
         mb.add(m2);
-        gbl.setConstraints(mb, gbc);
+        gbl.setConstraints( mb, gbc );
         panel.add(mb);
 
         //Declaro mis categorias del menu prindipal, TIPOS DE JUEGO
@@ -167,8 +146,7 @@ public class Ventana2 extends JFrame {
                 ventana11.add(aux, BorderLayout.NORTH);
                 ventana11.setVisible(true);
 
-            }
-        });
+            }        });
         m12.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -208,7 +186,7 @@ public class Ventana2 extends JFrame {
         });
 
         //Declaro mis categorias del submenu, AYUDA
-        JMenuItem m21 = new JMenuItem("MANUAL DE USUARIO");
+        JMenuItem m21= new JMenuItem("MANUAL DE USUARIO");
         m2.add(m21);
         panel.add(mb);
         m21.addActionListener(new ActionListener() {
@@ -218,7 +196,7 @@ public class Ventana2 extends JFrame {
                 ventana21.setSize(350, 250);
                 ventana21.setLocationRelativeTo(null);
                 ventana21.setLayout(new BorderLayout());
-                Ventana5 aux = new Ventana5();//Creamos una nueva
+                InterfazGráfica.Ventana5 aux = new InterfazGráfica.Ventana5();//Creamos una nueva
                 ventana21.add(aux, BorderLayout.NORTH);
                 ventana21.setVisible(true);
             }

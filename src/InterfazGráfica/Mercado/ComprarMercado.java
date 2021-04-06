@@ -1,5 +1,6 @@
 package InterfazGráfica.Mercado;
 
+import Granja.TiposDeAlimento.Herviboros.Chipilin;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
 import InterfazGráfica.Ventana4;
@@ -119,6 +120,102 @@ public class ComprarMercado extends JFrame {
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
                     CompraChipilin aux = new CompraChipilin();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            ProductosFrutas.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    CompraFrutas aux = new CompraFrutas();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            ProductosVegetales.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    CompraVegetales aux = new CompraVegetales();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            ProductosNueces.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    CompraNueces aux = new CompraNueces();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            ProductosPasto.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    CompraPasto aux = new CompraPasto();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            ProductosInsectos.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    CompraInsectos aux = new CompraInsectos();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            ProductoFertilizante1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    CompraFertilizante1 aux = new CompraFertilizante1();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            ProductoFertilizante2.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    CompraFertilizante2 aux = new CompraFertilizante2();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            ProductoFertilizante3.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    CompraFertilizante3 aux = new CompraFertilizante3();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }
