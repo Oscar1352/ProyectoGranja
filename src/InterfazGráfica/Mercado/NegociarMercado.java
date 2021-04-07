@@ -13,7 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ComprarMercado extends JFrame {
+public class NegociarMercado extends JFrame {
         //Declaro mis JDialog
         private JDialog ventana11;
         private JDialog ventana12;
@@ -27,9 +27,8 @@ public class ComprarMercado extends JFrame {
         private Ventana2 ventana2;
         private Ventana3 ventana3;
         private Ventana4 ventana4;
-        private CompraChipilin compraChipilin;
         private InterfazGráfica.Ventana5 ventana5;
-        public ComprarMercado() {
+        public NegociarMercado() {
             // Crear el gridbag layout y su constraints
             GridBagLayout gbl = new GridBagLayout();
             GridBagConstraints gbc = new GridBagConstraints();
@@ -38,12 +37,12 @@ public class ComprarMercado extends JFrame {
             JPanel panel = new JPanel();
             panel.setLayout(gbl);
             //Declaro un margen estético a mi ventana
-            Border bordejpanel = new TitledBorder(new EtchedBorder(), "COMPRAR EN EL MERCADO");
+            Border bordejpanel = new TitledBorder(new EtchedBorder(), "NEGOCIAR EN EL MERCADO");
             panel.setBorder(bordejpanel);
 
             // crear las partes del formulario
             int a = 50;
-            JLabel COMPRAR =                      new JLabel("COMPRAR EN EL MERCADO");
+            JLabel NEGOCIAR =                      new JLabel("NEGOCIAR EN EL MERCADO");
             JButton ProductoChipilin =           new JButton("Chipilin");
             JButton ProductosPasto =             new JButton("Pasto");
             JButton ProductosVegetales =         new JButton("Vegetales");
@@ -53,6 +52,8 @@ public class ComprarMercado extends JFrame {
             JButton ProductoFertilizante1 =      new JButton("Fertilizante Básico");
             JButton ProductoFertilizante2 =      new JButton("Fertilizante Medio");
             JButton ProductoFertilizante3 =      new JButton("Fertilizante Alto");
+            JButton Vacas =                       new JButton("Vacas");
+            JButton Gallinas =                   new JButton("Gallinas");
 
 
             // Creando MenuBar y agregando componentes
@@ -62,8 +63,8 @@ public class ComprarMercado extends JFrame {
             //Muestra el Manual
             gbc.gridx = 3;
             gbc.gridy = 0;
-            gbl.setConstraints(COMPRAR, gbc);
-            panel.add(COMPRAR);
+            gbl.setConstraints(NEGOCIAR, gbc);
+            panel.add(NEGOCIAR);
 
             //Muestra el Chipilin
             gbc.gridx = 1;
@@ -110,6 +111,16 @@ public class ComprarMercado extends JFrame {
             gbc.gridy = 3;
             gbl.setConstraints(ProductoFertilizante3, gbc);
             panel.add(ProductoFertilizante3);
+            //Muestra las Vacas
+            gbc.gridx = 2;
+            gbc.gridy = 3;
+            gbl.setConstraints(Vacas, gbc);
+            panel.add(Vacas);
+            //Muestra las Gallinas
+            gbc.gridx = 3;
+            gbc.gridy = 3;
+            gbl.setConstraints(Gallinas, gbc);
+            panel.add(Gallinas);
 
             //Establezco mis acciones de los botones
             ProductoChipilin.addActionListener(new ActionListener() {
@@ -119,7 +130,7 @@ public class ComprarMercado extends JFrame {
                     Boton1.setSize(300, 300);
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
-                    CompraChipilin aux = new CompraChipilin();//Creamos una nueva
+                    NegociarChipilin aux = new NegociarChipilin();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }
@@ -131,7 +142,7 @@ public class ComprarMercado extends JFrame {
                     Boton1.setSize(300, 300);
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
-                    CompraFrutas aux = new CompraFrutas();//Creamos una nueva
+                    NegociarFrutas aux = new NegociarFrutas();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }
@@ -143,7 +154,7 @@ public class ComprarMercado extends JFrame {
                     Boton1.setSize(300, 300);
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
-                    CompraVegetales aux = new CompraVegetales();//Creamos una nueva
+                    NegociarVegetales aux = new NegociarVegetales();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }
@@ -155,7 +166,7 @@ public class ComprarMercado extends JFrame {
                     Boton1.setSize(300, 300);
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
-                    CompraNueces aux = new CompraNueces();//Creamos una nueva
+                    NegociarNueces aux = new NegociarNueces();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }
@@ -167,7 +178,7 @@ public class ComprarMercado extends JFrame {
                     Boton1.setSize(300, 300);
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
-                    CompraPasto aux = new CompraPasto();//Creamos una nueva
+                    NegociarPasto aux = new NegociarPasto();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }
@@ -179,7 +190,7 @@ public class ComprarMercado extends JFrame {
                     Boton1.setSize(300, 300);
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
-                    CompraInsectos aux = new CompraInsectos();//Creamos una nueva
+                    NegociarInsectos aux = new NegociarInsectos();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }
@@ -191,7 +202,7 @@ public class ComprarMercado extends JFrame {
                     Boton1.setSize(300, 300);
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
-                    CompraFertilizante1 aux = new CompraFertilizante1();//Creamos una nueva
+                    NegociarFertilizante1 aux = new NegociarFertilizante1();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }
@@ -203,7 +214,7 @@ public class ComprarMercado extends JFrame {
                     Boton1.setSize(300, 300);
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
-                    CompraFertilizante2 aux = new CompraFertilizante2();//Creamos una nueva
+                    NegociarFertilizante2 aux = new NegociarFertilizante2();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }
@@ -215,7 +226,31 @@ public class ComprarMercado extends JFrame {
                     Boton1.setSize(300, 300);
                     Boton1.setLocationRelativeTo(null);
                     Boton1.setLayout(new BorderLayout());
-                    CompraFertilizante3 aux = new CompraFertilizante3();//Creamos una nueva
+                    NegociarFertilizante3 aux = new NegociarFertilizante3();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            Vacas.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    NegociarVacas aux = new NegociarVacas();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            Gallinas.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    NegociarGallinas aux = new NegociarGallinas();//Creamos una nueva
                     Boton1.add(aux, BorderLayout.NORTH);
                     Boton1.setVisible(true);
                 }

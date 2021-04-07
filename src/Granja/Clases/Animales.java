@@ -10,12 +10,16 @@ public abstract class Animales extends SerVivo{
     private int ComidaConsumida;
     private boolean Destazable;
     private EstadoAnimal estado;
+    private  int Cantidad;
+    private  int Precio;
 
-    public Animales(String nombre, Integer Edad, String tipoDeAnimal, double tamaño, String producto, int comidaConsumida, boolean destazable, EstadoAnimal estado) {
+    public Animales(String nombre, Integer Edad, String tipoDeAnimal, double tamaño,int cantidad, int Precio, String producto, int comidaConsumida, boolean destazable, EstadoAnimal estado) {
         super(nombre, Edad);
         this.TipoDeAnimal = tipoDeAnimal;
         this.Tamaño = tamaño;
         this.Producto = producto;
+        this.Cantidad= cantidad;
+        this.Precio=Precio;
         this.ComidaConsumida = comidaConsumida;
         this.Destazable = destazable;
         this.estado = estado;
@@ -29,28 +33,20 @@ public abstract class Animales extends SerVivo{
         TipoDeAnimal = tipoDeAnimal;
     }
 
-    public String getProducto() {
-        return Producto;
-    }
-
-    public void setProducto(String producto) {
-        Producto = producto;
-    }
-
-    public boolean isDestazable() {
-        return Destazable;
-    }
-
-    public void setDestazable(boolean destazable) {
-        Destazable = destazable;
-    }
-
     public double getTamaño() {
         return Tamaño;
     }
 
     public void setTamaño(double tamaño) {
         Tamaño = tamaño;
+    }
+
+    public String getProducto() {
+        return Producto;
+    }
+
+    public void setProducto(String producto) {
+        Producto = producto;
     }
 
     public int getComidaConsumida() {
@@ -61,12 +57,36 @@ public abstract class Animales extends SerVivo{
         ComidaConsumida = comidaConsumida;
     }
 
+    public boolean isDestazable() {
+        return Destazable;
+    }
+
+    public void setDestazable(boolean destazable) {
+        Destazable = destazable;
+    }
+
     public EstadoAnimal getEstado() {
         return estado;
     }
 
     public void setEstado(EstadoAnimal estado) {
         this.estado = estado;
+    }
+
+    public int getCantidad() {
+        return Cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        Cantidad = cantidad;
+    }
+
+    public int getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(int precio) {
+        Precio = precio;
     }
 
     @Override

@@ -3,6 +3,7 @@ package InterfazGráfica.Mercado;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
 import InterfazGráfica.Ventana4;
+import Usuario.DatosUsuario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -12,7 +13,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VenderMercado extends JFrame {
+public class NegociarInsectos extends JFrame{
+    //Declaro mis clases
+    DatosUsuario datosUsuario= new DatosUsuario();
+
     //Declaro mis JDialog
     private JDialog ventana11;
     private JDialog ventana12;
@@ -26,7 +30,8 @@ public class VenderMercado extends JFrame {
     private Ventana3 ventana3;
     private Ventana4 ventana4;
     private InterfazGráfica.Ventana5 ventana5;
-    public VenderMercado() {
+
+    public NegociarInsectos() {
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -35,32 +40,106 @@ public class VenderMercado extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(gbl);
         //Declaro un margen estético a mi ventana
-        Border bordejpanel = new TitledBorder(new EtchedBorder(), "VENDER EN EL MERCADO");
+        Border bordejpanel = new TitledBorder(new EtchedBorder(), "COMPRAR insectos");
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Manual = new JLabel("VENDER EN EL MERCADO");
-        JLabel texto = new JLabel(".........");
+        JLabel Chipilin =                     new JLabel("COMPRAR EN EL MERCADO");
+        JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.insectos.getCantidad()+" c/u");
+        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.insectos.getPrecio());
+        JLabel Oro =                         new JLabel("Oro:  "+datosUsuario.getOro());
+        JTextField introducir=               new JTextField(new Integer(3));
+        JButton comprar =                    new JButton("COMPRAR");
+        JButton vender =                    new JButton("VENDER");
+
 
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0;
         gbc.gridy = 0;
 
-        //Muestra el Manual
+        //Muestra el Titulo
         gbc.gridx = 3;
         gbc.gridy = 0;
-        gbl.setConstraints(Manual, gbc);
-        panel.add(Manual);
-
-        //Muestra el Texto
+        gbl.setConstraints(Chipilin, gbc);
+        panel.add(Chipilin);
+        //Muestra el Cantidad
+        gbc.gridx = 2;
+        gbc.gridy = 2;
+        gbl.setConstraints(CantidadActual, gbc);
+        panel.add(CantidadActual);
+        //Muestra el Oro
         gbc.gridx = 3;
-        gbc.gridy = 1;
-        gbl.setConstraints(texto, gbc);
-        panel.add(texto);
+        gbc.gridy = 2;
+        gbl.setConstraints(Oro, gbc);
+        panel.add(Oro);
+        //Muestra Cantidad
+        gbc.gridx = 4;
+        gbc.gridy = 2;
+        gbl.setConstraints(Cantidad, gbc);
+        panel.add(Cantidad);
+
+
+        //Muestra el Textflied
+        gbc.gridx = 6;
+        gbc.gridy = 2;
+        gbl.setConstraints(introducir, gbc);
+        introducir.setBounds(new Rectangle(25, 15, 250, 21));
+        introducir.setEditable(true);
+        introducir.setHorizontalAlignment(JTextField.LEFT);
+        panel.add(introducir);
+        //Muestra el Boton
+        gbc.gridx = 3;
+        gbc.gridy = 3;
+        gbl.setConstraints(comprar, gbc);
+        panel.add(comprar);
+        //Muestra el Vender
+        gbc.gridx = 4;
+        gbc.gridy = 3;
+        gbl.setConstraints(vender, gbc);
+        panel.add(vender);
+
+        //Acciones del Boton
+        comprar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int x= Integer.parseInt(introducir.getText());
+                int Total= x*ventana3.insectos.getPrecio();
+                if(datosUsuario.getOro()>=Total){
+                    JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO, GASTO "+Total+" DE ORO");
+                    datosUsuario.setOro(datosUsuario.getOro()-Total);
+                    Ventana3.insectos.setCantidad(ventana3.insectos.getCantidad()+x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.insectos.getCantidad());
+                    Oro.setText("Oro:"+datosUsuario.getOro());
+                    introducir.setText("");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Cantidad de Oro insuficiente");
+                    introducir.setText("");
+                }
+            }
+        });
+        vender.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int x= Integer.parseInt(introducir.getText());
+                int Total= x*ventana3.insectos.getPrecio();
+                if(x>ventana3.insectos.getCantidad()){
+                    JOptionPane.showMessageDialog(null, "Cantidad de Producto insuficiente");
+                    introducir.setText("");
+                }else{
+                    JOptionPane.showMessageDialog(null, "VENTA REALIZADA CON EXITO, GANO "+Total+" DE ORO");
+                    datosUsuario.setOro(datosUsuario.getOro()+Total);
+                    Ventana3.insectos.setCantidad(ventana3.insectos.getCantidad()-x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.insectos.getCantidad());
+                    Oro.setText("Oro:"+datosUsuario.getOro());
+                    introducir.setText("");
+
+                }
+            }
+        });
+
 
         // finalmente pintar todo
-
         frame.add( panel );
         frame.pack();
         frame.setSize(800,250);
@@ -151,7 +230,5 @@ public class VenderMercado extends JFrame {
                 ventana21.setVisible(true);
             }
         });
-
     }
-
 }

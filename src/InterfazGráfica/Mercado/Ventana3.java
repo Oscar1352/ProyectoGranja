@@ -1,4 +1,7 @@
 package InterfazGráfica.Mercado;
+import Granja.Animales.Gallina;
+import Granja.Animales.Vaca;
+import Granja.Enum.EstadoAnimal;
 import Granja.Enum.FertibilidadSuelo;
 import Granja.Fertilizantes.Alta;
 import Granja.Fertilizantes.Basica;
@@ -42,8 +45,7 @@ public class Ventana3 extends JFrame {
     private Ventana3 ventana3;
     private Ventana4 ventana4;
     private Ventana5 ventana5;
-    private ComprarMercado comprarMercado;
-    private VenderMercado venderMercado;
+    private NegociarMercado negociarMercado;
 
     //PlantasHerviboros
     public static Chipilin chipilin=          new Chipilin("Herviboro","Chipilin",5,5);
@@ -60,6 +62,11 @@ public class Ventana3 extends JFrame {
     public static Cuero cuero =               new Cuero("Cuero",5,15);
     public static Huevos huevos =             new Huevos("Huevos",5,15);
     public static Lana lana =                 new Lana("Lana",5,15);
+
+    //Animales
+    public static Gallina gallina =           new Gallina("Galiina",50,"Omnivoro",0.5,3,25,50,"Carne",false,EstadoAnimal.VIVO);
+    public static Vaca vaca =                 new Vaca("Vaca",50,"Hervibvoro",2,2,50,50,"Carne y Leche",true, EstadoAnimal.VIVO);
+
 
     //Fertilizantes
     public static Basica basica = new Basica(FertibilidadSuelo.BASICA,1,2, 15);
@@ -98,8 +105,10 @@ public class Ventana3 extends JFrame {
         JLabel Fertilizante1 =      new JLabel("Básico: "+basica.getCantidad());
         JLabel Fertilizante2 =      new JLabel("Medio: "+media.getCantidad());
         JLabel Fertilizante3 =      new JLabel("Alto: "+alta.getCantidad());
-        JButton Comprar =           new JButton("COMPRAR");
-        JButton Vender =            new JButton("VENDER");
+        JLabel Animales =           new JLabel("Animales");
+        JLabel Vaca =               new JLabel("Vaca: "+vaca.getCantidad());
+        JLabel Galiina =             new JLabel("Gallina: "+gallina.getCantidad());
+        JButton Negociar =           new JButton("Negociar");
 
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0;
@@ -134,8 +143,8 @@ public class Ventana3 extends JFrame {
         //Muestra Boton Compra
         gbc.gridx = 5;
         gbc.gridy = 2;
-        gbl.setConstraints(Comprar, gbc);
-        panel.add(Comprar);
+        gbl.setConstraints(Negociar, gbc);
+        panel.add(Negociar);
         //Muestra el Omnivoros
         gbc.gridx = 3;
         gbc.gridy = 3;
@@ -157,11 +166,6 @@ public class Ventana3 extends JFrame {
         gbl.setConstraints(Producto33, gbc);
         panel.add(Producto33);
 
-        //Muestra Boton Venta
-        gbc.gridx = 5;
-        gbc.gridy = 4;
-        gbl.setConstraints(Vender, gbc);
-        panel.add(Vender);
         //Muestra el Cantidad
         gbc.gridx = 3;
         gbc.gridy = 6;
@@ -209,29 +213,33 @@ public class Ventana3 extends JFrame {
         gbl.setConstraints(Fertilizante3, gbc);
         panel.add(Fertilizante3);
 
+        //Muestra los animales
+        gbc.gridx = 3;
+        gbc.gridy = 10;
+        gbl.setConstraints(Animales, gbc);
+        panel.add(Animales);
+        //Muestra la Vaca
+        gbc.gridx = 2;
+        gbc.gridy = 11;
+        gbl.setConstraints(Vaca, gbc);
+        panel.add(Vaca);
+        //Muestra la Gallina
+        gbc.gridx = 3;
+        gbc.gridy = 11;
+        gbl.setConstraints(Galiina, gbc);
+        panel.add(Galiina);
+
         //Declaro las funciones de los botones
-        Comprar.addActionListener(new ActionListener() {
+        Negociar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 comprar = new JDialog();
-                comprar.setSize(300, 300);
+                comprar.setSize(300, 350);
                 comprar.setLocationRelativeTo(null);
                 comprar.setLayout(new BorderLayout());
-                ComprarMercado aux = new ComprarMercado();//Creamos una nueva
+                NegociarMercado aux = new NegociarMercado();//Creamos una nueva
                 comprar.add(aux, BorderLayout.NORTH);
                 comprar.setVisible(true);
-            }
-        });
-        Vender.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                vender = new JDialog();
-                vender.setSize(300, 300);
-                vender.setLocationRelativeTo(null);
-                vender.setLayout(new BorderLayout());
-                VenderMercado aux = new VenderMercado();//Creamos una nueva
-                vender.add(aux, BorderLayout.NORTH);
-                vender.setVisible(true);
             }
         });
 
@@ -330,4 +338,7 @@ public class Ventana3 extends JFrame {
 
     }
 
+    public static void main(String[] args) {
+        Ventana3 ventana3= new Ventana3();
+    }
 }

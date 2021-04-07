@@ -1,3 +1,5 @@
+package Usuario;
+
 import Granja.Animales.Gallina;
 import Granja.Animales.Vaca;
 import Granja.Clases.Animales;
@@ -16,11 +18,10 @@ import Usuario.Actividades.Pesca;
 
 public class Ejecutable {
     private Animales animales;
-    Vaca vaca = new Vaca("Vaca",50,"Hervibvoro",2,"Carne y Leche",30 ,true,EstadoAnimal.MUERTO);
     Grama grama= new Grama("grama", "Siembra", 25,2, FertibilidadSuelo.ALTA);
 
     public static void main(String[] args) throws InterruptedException {
-        //PRUEBA OBJETOS DECLARADOS
+        /*//PRUEBA OBJETOS DECLARADOS
         Vaca vaca = new Vaca("Vaca",50,"Hervibvoro",2,"Carne y Leche",30 ,true,EstadoAnimal.MUERTO);
         Gallina gallina= new Gallina("Gallina",2,"Omnivoro",50,"Carne",50 ,true, EstadoAnimal.VIVO);
         Grama grama= new Grama("grama", "Siembra", 25,2, FertibilidadSuelo.ALTA);
@@ -114,5 +115,6 @@ public class Ejecutable {
         Pesca pesca= new Pesca();
         pesca.LlenarDePeces();
     }
-
+*/
+    }
 }

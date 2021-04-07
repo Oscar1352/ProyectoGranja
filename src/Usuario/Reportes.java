@@ -1,7 +1,7 @@
 package Usuario;
 
 import Granja.Animales.AnimalesReporte;
-import Granja.CaracteristicasDeLaGranja;
+import Granja.TiposDeCelda.CaracteristicasDeLaGranja;
 import Granja.Plantas.PlantasReporte;
 
 public class Reportes {

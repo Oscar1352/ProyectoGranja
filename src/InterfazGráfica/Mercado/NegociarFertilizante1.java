@@ -1,9 +1,8 @@
-package InterfazGráfica;
+package InterfazGráfica.Mercado;
 
-import Granja.Animales.AnimalesReporte;
-import Granja.TiposDeCelda.CaracteristicasDeLaGranja;
-import Granja.Plantas.PlantasReporte;
-import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana1;
+import InterfazGráfica.Ventana2;
+import InterfazGráfica.Ventana4;
 import Usuario.DatosUsuario;
 
 import javax.swing.*;
@@ -14,7 +13,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana4 extends JFrame {
+public class NegociarFertilizante1 extends JFrame{
+    //Declaro mis clases
+    DatosUsuario datosUsuario= new DatosUsuario();
 
     //Declaro mis JDialog
     private JDialog ventana11;
@@ -23,15 +24,14 @@ public class Ventana4 extends JFrame {
     private JDialog ventana14;
     private JDialog ventana21;
 
-
     //Declaro mis ventanas
     private Ventana1 ventana1;
     private Ventana2 ventana2;
     private Ventana3 ventana3;
     private Ventana4 ventana4;
-    private Ventana5 ventana5;
+    private InterfazGráfica.Ventana5 ventana5;
 
-    public Ventana4() {
+    public NegociarFertilizante1() {
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -40,119 +40,106 @@ public class Ventana4 extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(gbl);
         //Declaro un margen estético a mi ventana
-        Border bordejpanel = new TitledBorder(new EtchedBorder(), "REPORTE");
+        Border bordejpanel = new TitledBorder(new EtchedBorder(), "COMPRAR Fertilizante Bajo");
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
-        JLabel RP =         new JLabel("Resumen de Partida  ");
-        JLabel Nombre =     new JLabel("Nombre  "+DatosUsuario.getNombre());
-        JLabel DP =         new JLabel("Duración de partida "+CaracteristicasDeLaGranja.getDuraciónDePartida());
-        JLabel AG =         new JLabel("Alimento Generado "+CaracteristicasDeLaGranja.getAlimento());
-        JLabel OG =         new JLabel("Oro Generado "+DatosUsuario.getOro());
-        JLabel AC =         new JLabel("Alimento Consumido "+ DatosUsuario.getAlimentoConsumido());
-        JLabel CC =         new JLabel(" Celdas compradas "+CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas());
+        int a = 50;
+        JLabel Chipilin =                     new JLabel("COMPRAR EN EL MERCADO");
+        JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.basica.getCantidad());
+        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.basica.getPrecio()+" c/u");
+        JLabel Oro =                         new JLabel("Oro:  "+datosUsuario.getOro());
+        JTextField introducir=               new JTextField(new Integer(3));
+        JButton comprar =                    new JButton("COMPRAR");
+        JButton vender =                    new JButton("VENDER");
 
-        JLabel Espacio1=     new JLabel("    ");
-        JLabel Espacio2=     new JLabel("    ");
-
-        JLabel RA = new JLabel("Reporte de Animales");
-        JLabel CriasC = new JLabel("Crias Compradas "+AnimalesReporte.getCriasCompradas());
-        JLabel AD = new JLabel("Animales Destozados "+AnimalesReporte.getUnidadesDestazadas());
-
-        JLabel RPlantas = new JLabel("Reporte de Plantas ");
-        JLabel SP = new JLabel("Semillas Compradas"+PlantasReporte.getCantidadDeSemillasCompradas());
-        JLabel CC2 =         new JLabel("Celdas compradas "+CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas());
 
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0;
         gbc.gridy = 0;
 
-        //Muestra el Resumen de Partida
+        //Muestra el Titulo
         gbc.gridx = 3;
         gbc.gridy = 0;
-        gbl.setConstraints(RP, gbc);
-        panel.add(RP);
-        //Muestra el Nombre
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        gbl.setConstraints(Nombre, gbc);
-        panel.add(Nombre);
-        //Muestra La duración de Partida
+        gbl.setConstraints(Chipilin, gbc);
+        panel.add(Chipilin);
+        //Muestra el Cantidad
         gbc.gridx = 2;
         gbc.gridy = 2;
-        gbl.setConstraints(DP, gbc);
-        panel.add(DP);
-        //Muestra Oro Generado
+        gbl.setConstraints(CantidadActual, gbc);
+        panel.add(CantidadActual);
+        //Muestra el Oro
         gbc.gridx = 3;
         gbc.gridy = 2;
-        gbl.setConstraints(OG, gbc);
-        panel.add(OG);
-        //Muestra ALimento Generado
+        gbl.setConstraints(Oro, gbc);
+        panel.add(Oro);
+        //Muestra Cantidad
         gbc.gridx = 4;
         gbc.gridy = 2;
-        gbl.setConstraints(AG, gbc);
-        panel.add(AG);
-        //Muestra Alimento Consumido
-        gbc.gridx = 5;
-        gbc.gridy = 2;
-        gbl.setConstraints(AC, gbc);
-        panel.add(AC);
-        //Muestra Celdas Compradas
+        gbl.setConstraints(Cantidad, gbc);
+        panel.add(Cantidad);
+
+
+        //Muestra el Textflied
         gbc.gridx = 6;
         gbc.gridy = 2;
-        gbl.setConstraints(CC, gbc);
-        panel.add(CC);
-
-
-        //Espacio
+        gbl.setConstraints(introducir, gbc);
+        introducir.setBounds(new Rectangle(25, 15, 250, 21));
+        introducir.setEditable(true);
+        introducir.setHorizontalAlignment(JTextField.LEFT);
+        panel.add(introducir);
+        //Muestra el Boton
         gbc.gridx = 3;
         gbc.gridy = 3;
-        gbl.setConstraints(Espacio1, gbc);
-        panel.add(Espacio1);
+        gbl.setConstraints(comprar, gbc);
+        panel.add(comprar);
+        //Muestra el Vender
+        gbc.gridx = 4;
+        gbc.gridy = 3;
+        gbl.setConstraints(vender, gbc);
+        panel.add(vender);
 
+        //Acciones del Boton
+        comprar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int x= Integer.parseInt(introducir.getText());
+                int Total= x*ventana3.basica.getPrecio();
+                if(datosUsuario.getOro()>=Total){
+                    JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO, GASTO "+Total+" DE ORO");
+                    datosUsuario.setOro(datosUsuario.getOro()-Total);
+                    Ventana3.basica.setCantidad(ventana3.basica.getCantidad()+x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.basica.getCantidad());
+                    Oro.setText("Oro:"+datosUsuario.getOro());
+                    introducir.setText("");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Cantidad de Oro insuficiente");
+                    introducir.setText("");
+                }
+            }
+        });
+        vender.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int x= Integer.parseInt(introducir.getText());
+                int Total= x*ventana3.basica.getPrecio();
+                if(x>ventana3.basica.getCantidad()){
+                    JOptionPane.showMessageDialog(null, "Cantidad de Producto insuficiente");
+                    introducir.setText("");
+                }else{
+                    JOptionPane.showMessageDialog(null, "VENTA REALIZADA CON EXITO, GANO "+Total+" DE ORO");
+                    datosUsuario.setOro(datosUsuario.getOro()+Total);
+                    Ventana3.alta.setCantidad(ventana3.basica.getCantidad()-x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.basica.getCantidad());
+                    Oro.setText("Oro:"+datosUsuario.getOro());
+                    introducir.setText("");
 
-        //Muestra el Reporte de Animales
-        gbc.gridx = 3;
-        gbc.gridy = 4;
-        gbl.setConstraints(RA, gbc);
-        panel.add(RA);
-        //Muestra Crias Compradas
-        gbc.gridx = 2;
-        gbc.gridy = 5;
-        gbl.setConstraints(CriasC, gbc);
-        panel.add(CriasC);
-        //Muestra Animales Destozados
-        gbc.gridx = 3;
-        gbc.gridy = 5;
-        gbl.setConstraints(AD, gbc);
-        panel.add(AD);
-
-
-        //Espacio
-        gbc.gridx = 3;
-        gbc.gridy = 6;
-        gbl.setConstraints(Espacio2, gbc);
-        panel.add(Espacio2);
-
-        //Muestra el Reporte de Plantas
-        gbc.gridx = 3;
-        gbc.gridy = 7;
-        gbl.setConstraints(RPlantas, gbc);
-        panel.add(RPlantas);
-        //Muestra el Semillas Compradas
-        gbc.gridx = 2;
-        gbc.gridy = 8;
-        gbl.setConstraints(SP, gbc);
-        panel.add(SP);
-        //Muestra Celdas Compradas
-        gbc.gridx = 3;
-        gbc.gridy = 8;
-        gbl.setConstraints(CC2, gbc);
-        panel.add(CC2);
+                }
+            }
+        });
 
 
         // finalmente pintar todo
-
         frame.add( panel );
         frame.pack();
         frame.setSize(800,250);
@@ -238,13 +225,10 @@ public class Ventana4 extends JFrame {
                 ventana21.setSize(350, 250);
                 ventana21.setLocationRelativeTo(null);
                 ventana21.setLayout(new BorderLayout());
-                Ventana5 aux = new Ventana5();//Creamos una nueva
+                InterfazGráfica.Ventana5 aux = new InterfazGráfica.Ventana5();//Creamos una nueva
                 ventana21.add(aux, BorderLayout.NORTH);
                 ventana21.setVisible(true);
             }
         });
-
     }
-
 }
-

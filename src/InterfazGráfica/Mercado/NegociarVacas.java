@@ -1,9 +1,11 @@
 package InterfazGráfica.Mercado;
 
+import Granja.Animales.AnimalesReporte;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
 import InterfazGráfica.Ventana4;
 import Usuario.DatosUsuario;
+import Usuario.Reportes;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -13,7 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CompraFertilizante2 extends JFrame{
+public class NegociarVacas extends JFrame {
     //Declaro mis clases
     DatosUsuario datosUsuario= new DatosUsuario();
 
@@ -31,7 +33,7 @@ public class CompraFertilizante2 extends JFrame{
     private Ventana4 ventana4;
     private InterfazGráfica.Ventana5 ventana5;
 
-    public CompraFertilizante2() {
+    public NegociarVacas() {
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -40,17 +42,18 @@ public class CompraFertilizante2 extends JFrame{
         JPanel panel = new JPanel();
         panel.setLayout(gbl);
         //Declaro un margen estético a mi ventana
-        Border bordejpanel = new TitledBorder(new EtchedBorder(), "COMPRAR Fertilizante Medio");
+        Border bordejpanel = new TitledBorder(new EtchedBorder(), "NEGOCIAR VACAS");
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
         int a = 50;
         JLabel Chipilin =                     new JLabel("COMPRAR EN EL MERCADO");
-        JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.media.getCantidad());
-        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.media.getPrecio());
+        JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.vaca.getCantidad());
+        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.vaca.getPrecio()+" c/u");
         JLabel Oro =                         new JLabel("Oro:  "+datosUsuario.getOro());
         JTextField introducir=               new JTextField(new Integer(3));
         JButton comprar =                    new JButton("COMPRAR");
+        JButton vender =                    new JButton("VENDER");
 
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0;
@@ -66,16 +69,18 @@ public class CompraFertilizante2 extends JFrame{
         gbc.gridy = 2;
         gbl.setConstraints(CantidadActual, gbc);
         panel.add(CantidadActual);
-        //Muestra el Cantidad
+        //Muestra el Oro
         gbc.gridx = 3;
         gbc.gridy = 2;
         gbl.setConstraints(Oro, gbc);
         panel.add(Oro);
-        //Muestra el Comprar
+        //Muestra Cantidad
         gbc.gridx = 4;
         gbc.gridy = 2;
         gbl.setConstraints(Cantidad, gbc);
         panel.add(Cantidad);
+
+
         //Muestra el Textflied
         gbc.gridx = 6;
         gbc.gridy = 2;
@@ -89,18 +94,24 @@ public class CompraFertilizante2 extends JFrame{
         gbc.gridy = 3;
         gbl.setConstraints(comprar, gbc);
         panel.add(comprar);
+        //Muestra el Vender
+        gbc.gridx = 4;
+        gbc.gridy = 3;
+        gbl.setConstraints(vender, gbc);
+        panel.add(vender);
 
         //Acciones del Boton
         comprar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int x= Integer.parseInt(introducir.getText());
-                int Total= x*5;
-                if(datosUsuario.getOro()>=x){
-                    JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO");
+                int Total= x*ventana3.vaca.getPrecio();
+                if(datosUsuario.getOro()>=Total){
+                    JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO, GASTO "+Total+" DE ORO");
                     datosUsuario.setOro(datosUsuario.getOro()-Total);
-                    Ventana3.media.setCantidad(ventana3.media.getCantidad()+x);
-                    CantidadActual.setText("Unidades actuales: "+ventana3.media.getCantidad());
+                    AnimalesReporte.setCriasCompradas(AnimalesReporte.getCriasCompradas()+x);
+                    Ventana3.vaca.setCantidad(ventana3.vaca.getCantidad()+x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.vaca.getCantidad());
                     Oro.setText("Oro:"+datosUsuario.getOro());
                     introducir.setText("");
                 }else{
@@ -109,6 +120,26 @@ public class CompraFertilizante2 extends JFrame{
                 }
             }
         });
+        vender.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int x= Integer.parseInt(introducir.getText());
+                int Total= x*ventana3.vaca.getPrecio();
+                if(x>ventana3.vaca.getCantidad()){
+                    JOptionPane.showMessageDialog(null, "Cantidad de Producto insuficiente");
+                    introducir.setText("");
+                }else{
+                    JOptionPane.showMessageDialog(null, "VENTA REALIZADA CON EXITO, GANO "+Total+" DE ORO");
+                    datosUsuario.setOro(datosUsuario.getOro()+Total);
+                    Ventana3.vaca.setCantidad(ventana3.vaca.getCantidad()-x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.vaca.getCantidad());
+                    Oro.setText("Oro:"+datosUsuario.getOro());
+                    introducir.setText("");
+
+                }
+            }
+        });
+
 
         // finalmente pintar todo
         frame.add( panel );

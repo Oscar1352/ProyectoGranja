@@ -6,65 +6,65 @@ import Granja.Enum.EstadoUsuario;
 public class DatosUsuario {
 
     //Declaro mis varibales para datos generales
-    private String Nombre=" Oscar";
-    private String Nickname=" Black";
-    private int PuntosDeVida=50;
-    private int AlimentoConsumido=50;
-    private EstadoUsuario estadoUsuario;
-    private int Oro=100;
+    private static String Nombre=" Oscar";
+    private static String Nickname=" Black";
+    private static int PuntosDeVida=50;
+    private static int AlimentoConsumido=50;
+    private static EstadoUsuario estadoUsuario;
+    private static int Oro=100;
 
     //Variables de Actividades
-    private int PecesPescados=0;
+    private static int PecesPescados=0;
 
     //Declaro mis getters y setters
-    public int getPecesPescados() {
+    public static int getPecesPescados() {
         return PecesPescados;
     }
-    public void setPecesPescados(int pecesPescados) {
+    public static void setPecesPescados(int pecesPescados) {
         PecesPescados = pecesPescados;
     }
 
-    public EstadoUsuario getEstadoUsuario() {
+    public static EstadoUsuario getEstadoUsuario() {
         return estadoUsuario;
     }
 
-    public void setEstadoUsuario(EstadoUsuario estadoUsuario) {
+    public  void setEstadoUsuario(EstadoUsuario estadoUsuario) {
         this.estadoUsuario = estadoUsuario;
     }
 
-    public String getNombre() {
+    public static String getNombre() {
         return Nombre;
     }
-    public void setNombre(String nombre) {
+    public static void setNombre(String nombre) {
         Nombre = nombre;
     }
 
-    public String getNickname() {
+    public static String getNickname() {
         return Nickname;
     }
-    public void setNickname(String nickname) {
+    public static void setNickname(String nickname) {
         Nickname = nickname;
     }
 
-    public int getOro() {
+    public static int getOro() {
         return Oro;
     }
 
-    public void setOro(int oro) {
+    public static void setOro(int oro) {
         Oro = oro;
     }
 
-    public int getAlimentoConsumido() {
+    public static int getAlimentoConsumido() {
         return AlimentoConsumido;
     }
-    public void setAlimentoConsumido(int alimentoConsumido) {
+    public static void setAlimentoConsumido(int alimentoConsumido) {
         AlimentoConsumido = alimentoConsumido;
     }
 
-    public int getPuntosDeVida() {
+    public static int getPuntosDeVida() {
         return PuntosDeVida;
     }
-    public void setPuntosDeVida(int puntosDeVida) {
+    public static void setPuntosDeVida(int puntosDeVida) {
         PuntosDeVida = puntosDeVida;
     }
 

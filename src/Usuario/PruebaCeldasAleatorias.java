@@ -1,9 +1,13 @@
+package Usuario;
+
 import Granja.Clases.Celdas;
 import Granja.Enum.EstadoAgua;
 import Granja.Enum.FertibilidadSuelo;
 import Granja.TiposDeCelda.Agua;
 import Granja.TiposDeCelda.Desierto;
 import Granja.TiposDeCelda.Grama;
+
+import java.util.Arrays;
 
 public class PruebaCeldasAleatorias {
     public static void main(String[] args) {
@@ -38,18 +42,19 @@ public class PruebaCeldasAleatorias {
 
     }
     public static void Prueba1(){
+         int Columnas=2;
+         int Filas=9;
         Celdas celdas[][]= new Celdas[6][10];
 
         Grama grama= new Grama("Grama","Siembra",40,25, FertibilidadSuelo.BASICA);
         Agua agua= new Agua("Agua","Pezca",35,25, EstadoAgua.CONPECES);
         Desierto desierto= new Desierto("Desierto","Nada",25,5);
 
-        for(int b=0;b<=5;b++){
-            for(int c=0;c<=9;c++){
+        for(int b=0;b<=Columnas;b++){
+            for(int c=0;c<=Filas;c++){
                 celdas[b][c]=grama;
                 celdas[b][c]=agua;
                 celdas[b][c]=desierto;
-
                 //Probabilidades
                 double random1 = Math.random();// generamos un numero al azar entre 0 y 1
                 double random2 = Math.random();// generamos un numero al azar entre 0 y 1
@@ -59,17 +64,15 @@ public class PruebaCeldasAleatorias {
                 }else if (random2 < 0.35){// el 35% de las veces
                     celdas[b][c]=agua;
                 }else if (random3 < 0.25){// el 25% de las veces
-                celdas[b][c]=desierto;
-            }
+                    celdas[b][c]=desierto;
+                }
                 int tamaño=b+c;
                 if(b<=2 && c<=10){
-                System.out.println("Prueba Random2 "+b+c+" es: "+celdas[b][c].getTipoDeSuelo());
+                    System.out.println("Prueba Random2 "+b+c+" es: "+celdas[b][c].getTipoDeSuelo());
+
                 }
             }
-            }
-            System.out.println(celdas.length);
-
-
+        }
         int[][] Prueba = new int[5][2];
         Prueba[0][0]=1;
         Prueba[1][0]=2;
@@ -82,6 +85,7 @@ public class PruebaCeldasAleatorias {
             System.out.println("Boton: "+i);
         }
         System.out.println("Se crearon "+Prueba.length+" Botones");
+
 
     }
 }

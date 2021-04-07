@@ -1,4 +1,4 @@
-package Granja;
+package Usuario;
 
 import Granja.Animales.Vaca;
 import Granja.Clases.Celdas;
@@ -73,21 +73,21 @@ public class PruebaVida extends Thread{
         maiz.MUERTA();
     }
     public static void PruebaAnimal() throws InterruptedException{
-        Vaca vaca = new Vaca("Vaca",50,"Hervibvoro",2,"Carne y Leche",30 ,true, EstadoAnimal.MUERTO);
+/*
 
         do{
-            int x= vaca.getComidaConsumida();
-            int Tiempo= vaca.getComidaConsumida()*100;
+            int x= Vaca.getComidaConsumida();
+            int Tiempo= Vaca.getComidaConsumida()*100;
             int Consumido=x-10;
         Thread.sleep(Tiempo);
         System.out.println("Comida actual: "+x);
-        vaca.setComidaConsumida(Consumido);
-        if(vaca.getComidaConsumida()==0){
-            vaca.setEstado(EstadoAnimal.MUERTO);
+            Vaca.setComidaConsumida(Consumido);
+        if(Vaca.getComidaConsumida()==0){
+            Vaca.setEstado(EstadoAnimal.MUERTO);
         }
-        }while(vaca.getComidaConsumida()!=-10);
-        System.out.println("El Estado del animal es: "+vaca.getEstado());
-
+        }while(Vaca.getComidaConsumida()!=-10);
+        System.out.println("El Estado del animal es: "+Vaca.getEstado());
+*/
     }
     public static void PruebaVida() throws InterruptedException {
         //Declaro mis variables

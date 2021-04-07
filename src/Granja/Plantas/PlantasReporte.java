@@ -1,22 +1,22 @@
 package Granja.Plantas;
 
 public class PlantasReporte {
-    private int CantidadDeSemillasCompradas;
-    private int CantidadDeCeldasSembradas;
+    private static int CantidadDeSemillasCompradas;
+    private static int CantidadDeCeldasSembradas;
 
-    public int getCantidadDeSemillasCompradas() {
+    public static int getCantidadDeSemillasCompradas() {
         return CantidadDeSemillasCompradas;
     }
 
-    public void setCantidadDeSemillasCompradas(int cantidadDeSemillasCompradas) {
+    public static void setCantidadDeSemillasCompradas(int cantidadDeSemillasCompradas) {
         CantidadDeSemillasCompradas = cantidadDeSemillasCompradas;
     }
 
-    public int getCantidadDeCeldasSembradas() {
+    public static int getCantidadDeCeldasSembradas() {
         return CantidadDeCeldasSembradas;
     }
 
-    public void setCantidadDeCeldasSembradas(int cantidadDeCeldasSembradas) {
+    public static void setCantidadDeCeldasSembradas(int cantidadDeCeldasSembradas) {
         CantidadDeCeldasSembradas = cantidadDeCeldasSembradas;
     }
 }

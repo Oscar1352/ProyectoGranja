@@ -50,6 +50,7 @@ public class Ventana1 extends JFrame {
         JLabel TituloJuego =    new JLabel("MyFarm");
         JLabel Oro =            new JLabel("Oro: "+datosUsuario.getOro());
         JLabel PV =             new JLabel("Puntos de Vida:"+datosUsuario.getPuntosDeVida());
+        JButton Granja=         new JButton("Granja");
         JLabel imagen =         new JLabel("");
 
 
@@ -85,6 +86,12 @@ public class Ventana1 extends JFrame {
         gbl.setConstraints(PV, gbc);
         panel.add(PV);
 
+        //Declaro Boton
+        gbc.gridx = 2;
+        gbc.gridy = 5;
+        gbl.setConstraints(Granja, gbc);
+        panel.add(Granja);
+
         //Agregar imagen
         imagen.setIcon(new ImageIcon("C:\\Users\\Oscar Luna\\OneDrive\\Imágenes\\Granja.jpg"));
         panel.add(imagen);
@@ -100,6 +107,14 @@ public class Ventana1 extends JFrame {
 
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0; gbc.gridy = 0;
+
+        //Declaro la accion del boton
+        Granja.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
 
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
