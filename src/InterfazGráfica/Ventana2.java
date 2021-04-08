@@ -39,20 +39,23 @@ public class Ventana2 extends JFrame {
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Productos = new JLabel("Productos");
-        JLabel Alimento1 = new JLabel("Alimento Herviboros ");
-        JLabel Producto1 = new JLabel("Chipilin: "+ventana3.chipilin.getCantidad());
-        JLabel Producto2 = new JLabel("Pasto: "+ventana3.pasto.getCantidad());
-        JLabel Producto3 = new JLabel("Vegetales: "+ventana3.vegetales.getCantidad());
-        JLabel Alimento2 = new JLabel("Alimento Omnivoros: ");
-        JLabel Producto11 = new JLabel("Nueces: "+ventana3.nueces.getCantidad());
-        JLabel Producto22 = new JLabel("    Frutas: "+ventana3.frutas.getCantidad());
-        JLabel Producto33 = new JLabel("Insectos: "+ventana3.insectos.getCantidad());
-        JLabel Cantidad = new JLabel("Producto Animal");
-        JLabel Cantidad1 = new JLabel("Cuero: "+ventana3.cuero.getCantidad());
-        JLabel Cantidad2 = new JLabel("Carne: "+ventana3.carne.getCantidad());
-        JLabel Cantidad3 = new JLabel("Huevos: "+ventana3.huevos.getCantidad());
-        JLabel Cantidad4 = new JLabel("Lana: "+ventana3.lana.getCantidad());
+        JLabel Productos =                  new JLabel("Productos");
+        JLabel Alimento1 =                  new JLabel("Alimento Herviboros ");
+        JLabel Producto1 =                  new JLabel("Chipilin: "+ventana3.chipilin.getCantidad());
+        JLabel Producto2 =                  new JLabel("Pasto: "+ventana3.pasto.getCantidad());
+        JLabel Producto3 =                  new JLabel("Vegetales: "+ventana3.vegetales.getCantidad());
+        JLabel Alimento2 =                  new JLabel("Alimento Omnivoros: ");
+        JLabel Producto11 =                 new JLabel("Nueces: "+ventana3.nueces.getCantidad());
+        JLabel Producto22 =                 new JLabel("    Frutas: "+ventana3.frutas.getCantidad());
+        JLabel Producto33 =                 new JLabel("Insectos: "+ventana3.insectos.getCantidad());
+        JLabel Cantidad =                   new JLabel("Producto Animal");
+        JLabel Cantidad1 =                  new JLabel("Cuero: "+ventana3.cuero.getCantidad());
+        JLabel Cantidad2 =                  new JLabel("Carne: "+ventana3.carne.getCantidad());
+        JLabel Cantidad3 =                  new JLabel("Huevos: "+ventana3.huevos.getCantidad());
+        JLabel Cantidad4 =                  new JLabel("Lana: "+ventana3.lana.getCantidad());
+        JLabel Plantas =                   new JLabel("Plantas");
+        JLabel planta1 =                    new JLabel("Maiz: "+ventana3.maiz.getCantidadDeSemillas());
+        JLabel planta2 =                    new JLabel("Manzano: "+ventana3.manzano.getCantidadDeSemillas());
 
 
         // Creando MenuBar y agregando componentes
@@ -129,6 +132,22 @@ public class Ventana2 extends JFrame {
         gbl.setConstraints(Cantidad3, gbc);
         panel.add(Cantidad3);
 
+        //Muestra Las Plantas
+        gbc.gridx = 3;
+        gbc.gridy = 8;
+        gbl.setConstraints(Plantas, gbc);
+        panel.add(Plantas);
+        //Muestra el Cantidad1
+        gbc.gridx = 2;
+        gbc.gridy = 9;
+        gbl.setConstraints(planta1, gbc);
+        panel.add(planta1);
+        //Muestra el Cantidad2
+        gbc.gridx = 4;
+        gbc.gridy = 9;
+        gbl.setConstraints(planta2, gbc);
+        panel.add(planta2);
+
         // finalmente pintar todo
 
         frame.add(panel);
@@ -144,8 +163,10 @@ public class Ventana2 extends JFrame {
         JMenu m2 = new JMenu("AYUDA");
         mb.add(m1);
         mb.add(m2);
-        gbl.setConstraints(mb, gbc);
-        panel.add(mb);
+        // Creando MenuBar y agregando componentes
+        gbc.gridx = 0; gbc.gridy = 0;
+        gbl.setConstraints( mb, gbc );
+        frame.add(mb);
 
         //Declaro mis categorias del menu prindipal, TIPOS DE JUEGO
         JMenuItem m11 = new JMenuItem("GRANJA");

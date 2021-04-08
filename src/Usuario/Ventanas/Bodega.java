@@ -1,4 +1,4 @@
-package Usuario;
+package Usuario.Ventanas;
 import Granja.Clases.AlimentosHerviboros;
 import Granja.Clases.AlimentosOmnivoro;
 import Granja.Clases.Producto;

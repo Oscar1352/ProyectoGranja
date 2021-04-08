@@ -1,4 +1,4 @@
-package Usuario;
+package Usuario.Ventanas;
 
 import Granja.Enum.EstadoAgua;
 import Granja.Enum.EstadoUsuario;

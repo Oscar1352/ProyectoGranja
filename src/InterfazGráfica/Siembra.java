@@ -11,7 +11,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ConsumirAlimento extends JFrame {
+
+public class Siembra extends JFrame {
     //Declaro mis JDialog
     private JDialog ventana11;
     private JDialog ventana12;
@@ -26,7 +27,7 @@ public class ConsumirAlimento extends JFrame {
     private Ventana4 ventana4;
     private Ventana5 ventana5;
 
-    public ConsumirAlimento() {
+    public Siembra() {
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -40,7 +41,7 @@ public class ConsumirAlimento extends JFrame {
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Productos =          new JLabel("Productos");
+        JLabel Plantas =            new JLabel("Qué desea Plantar");
         JLabel Alimento1 =          new JLabel("Alimento Herviboros ");
         JLabel Producto1 =          new JLabel("Chipilin: "+ventana3.chipilin.getCantidad());
         JLabel Producto3 =          new JLabel("Vegetales: "+ventana3.vegetales.getCantidad());
@@ -60,8 +61,8 @@ public class ConsumirAlimento extends JFrame {
         //Muestra el Producto
         gbc.gridx = 3;
         gbc.gridy = 0;
-        gbl.setConstraints(Productos, gbc);
-        panel.add(Productos);
+        gbl.setConstraints(Plantas, gbc);
+        panel.add(Plantas);
         //Muestra el Herviboros
         gbc.gridx = 3;
         gbc.gridy = 1;
@@ -115,14 +116,14 @@ public class ConsumirAlimento extends JFrame {
         gbc.gridx = 3;
         gbc.gridy = 9;
         gbl.setConstraints(ALIMENTARSE, gbc);
-            panel.add(ALIMENTARSE);
+        panel.add(ALIMENTARSE);
 
-            //Declaro la Acción del Boton
+        //Declaro la Acción del Boton
         ALIMENTARSE.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(ventana3.chipilin.getCantidad()>0){
-                Ventana3.chipilin.setCantidad(Ventana3.chipilin.getCantidad()-1);
+                    Ventana3.chipilin.setCantidad(Ventana3.chipilin.getCantidad()-1);
                     DatosUsuario.setPuntosDeVida(50);
                     JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
                     Producto1.setText("Chipilin: "+ventana3.chipilin.getCantidad());
@@ -251,5 +252,9 @@ public class ConsumirAlimento extends JFrame {
                 ventana21.setVisible(true);
             }
         });
+    }
+
+    public static void main(String[] args) {
+        Siembra siembra= new Siembra();
     }
 }

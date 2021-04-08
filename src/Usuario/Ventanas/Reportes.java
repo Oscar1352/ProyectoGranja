@@ -1,8 +1,9 @@
-package Usuario;
+package Usuario.Ventanas;
 
 import Granja.Animales.AnimalesReporte;
 import Granja.TiposDeCelda.CaracteristicasDeLaGranja;
 import Granja.Plantas.PlantasReporte;
+import Usuario.Ventanas.DatosUsuario;
 
 public class Reportes {
 

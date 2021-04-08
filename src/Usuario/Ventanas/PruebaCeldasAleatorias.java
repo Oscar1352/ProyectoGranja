@@ -1,4 +1,4 @@
-package Usuario;
+package Usuario.Ventanas;
 
 import Granja.Clases.Celdas;
 import Granja.Enum.EstadoAgua;

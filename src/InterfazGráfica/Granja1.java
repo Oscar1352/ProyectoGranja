@@ -14,17 +14,17 @@ public class Granja1 {
     private static final int COLUMNAS = 6;
     private static final int FILAS = 4;
 
-    public static void main(String [] args)
-    {
+    public static void main(String [] args) throws InterruptedException {
 
         int Elementos=26;
         Celdas celdas[]= new Celdas[Elementos];
+        int b;
 
         Grama grama= new Grama("Grama","Siembra",40,25, FertibilidadSuelo.BASICA);
         Agua agua= new Agua("Agua","Pezca",35,25, EstadoAgua.CONPECES);
         Desierto desierto= new Desierto("Desierto","Nada",25,5);
 
-        for(int b=0;b<Elementos;b++){
+        for(b=0;b<Elementos;b++){
             celdas[b]=grama;
             celdas[b]=agua;
             celdas[b]=desierto;
@@ -41,7 +41,6 @@ public class Granja1 {
             }
             if(b<=Elementos){
                 System.out.println("Prueba Random2 "+b+" es: "+celdas[b].getTipoDeSuelo());
-
             }
         }
         JFrame v = new JFrame("Granja MyFarm");
@@ -50,8 +49,10 @@ public class Granja1 {
                 for (int i=0;i<COLUMNAS;i++){
                     for (int j=0;j<FILAS;j++)
                     {
-                System.out.println();
-                Botones[i][j] = new JButton();
+                for(int a= 0; a<Elementos;a++){
+                    Botones[i][j] = new JButton(""+celdas[a].getTipoDeSuelo());
+                    System.out.println(""+celdas[a].getTipoDeSuelo());
+                }
                 v.getContentPane().add(Botones[i][j]);
             }
         }

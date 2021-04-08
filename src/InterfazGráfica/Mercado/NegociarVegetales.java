@@ -3,7 +3,7 @@ package InterfazGráfica.Mercado;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
 import InterfazGráfica.Ventana4;
-import Usuario.DatosUsuario;
+import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -146,14 +146,17 @@ public class NegociarVegetales extends JFrame {
         frame.setVisible( true );
 
 
+        //Delcaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
         JMenu m1 = new JMenu("TIPOS DE JUEGO");
         JMenu m2 = new JMenu("AYUDA");
         mb.add(m1);
         mb.add(m2);
+        // Creando MenuBar y agregando componentes
+        gbc.gridx = 0; gbc.gridy = 0;
         gbl.setConstraints( mb, gbc );
-        panel.add(mb);
+        frame.add(mb);
 
         //Declaro mis categorias del menu prindipal, TIPOS DE JUEGO
         JMenuItem m11 = new JMenuItem("GRANJA");

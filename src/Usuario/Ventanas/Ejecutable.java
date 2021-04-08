@@ -1,4 +1,4 @@
-package Usuario;
+package Usuario.Ventanas;
 
 import Granja.Animales.Gallina;
 import Granja.Animales.Vaca;

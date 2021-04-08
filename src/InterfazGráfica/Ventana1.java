@@ -3,7 +3,7 @@ package InterfazGráfica;
 
 import Granja.Enum.EstadoUsuario;
 import InterfazGráfica.Mercado.Ventana3;
-import Usuario.DatosUsuario;
+import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -108,11 +108,10 @@ public class Ventana1 extends JFrame {
         JFrame frame = new JFrame();
         frame.add( panel );
         frame.pack();
-        frame.setSize(450,240);
+        frame.setSize(500,300);
         frame.setVisible( true );
 
-        // Creando MenuBar y agregando componentes
-        gbc.gridx = 0; gbc.gridy = 0;
+
 
         //Declaro la accion del boton
         Granja.addActionListener(new ActionListener() {
@@ -125,7 +124,7 @@ public class Ventana1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ventana11 = new JDialog();
-                ventana11.setSize(300, 300);
+                ventana11.setSize(400, 400);
                 ventana11.setLocationRelativeTo(null);
                 ventana11.setLayout(new BorderLayout());
                 ConsumirAlimento aux = new ConsumirAlimento();//Creamos una nueva
@@ -133,9 +132,9 @@ public class Ventana1 extends JFrame {
                 ventana11.setVisible(true);
             }
         });
-
+/*
         //Vida Usuario
-        datosUsuario.VIVO();
+        {datosUsuario.VIVO();
         JOptionPane.showMessageDialog(null, "El juego ha comenzado alimentate para seguir con vida");
         do{
             int VidaPerdida= datosUsuario.getPuntosDeVida()-10;
@@ -157,7 +156,8 @@ public class Ventana1 extends JFrame {
                 PV.setText("Puntos de Vida:"+datosUsuario.getPuntosDeVida());
             }
         }while(datosUsuario.getPuntosDeVida()!=0);
-
+        }
+*/
         //Delcaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
@@ -165,8 +165,9 @@ public class Ventana1 extends JFrame {
         JMenu m2 = new JMenu("AYUDA");
         mb.add(m1);
         mb.add(m2);
+        // Creando MenuBar y agregando componentes
+        gbc.gridx = 0; gbc.gridy = 0;
         gbl.setConstraints( mb, gbc );
-        frame.getContentPane().add(BorderLayout.NORTH, mb);
         frame.add(mb);
 
 

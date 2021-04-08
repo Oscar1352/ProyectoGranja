@@ -54,6 +54,8 @@ public class NegociarMercado extends JFrame {
             JButton ProductoFertilizante3 =      new JButton("Fertilizante Alto");
             JButton Vacas =                       new JButton("Vacas");
             JButton Gallinas =                   new JButton("Gallinas");
+            JButton Maiz =                       new JButton("Maiz");
+            JButton Manzano =                   new JButton("Manzano");
 
 
             // Creando MenuBar y agregando componentes
@@ -121,6 +123,16 @@ public class NegociarMercado extends JFrame {
             gbc.gridy = 3;
             gbl.setConstraints(Gallinas, gbc);
             panel.add(Gallinas);
+            //Muestra el Maiz
+            gbc.gridx = 4;
+            gbc.gridy = 3;
+            gbl.setConstraints(Maiz, gbc);
+            panel.add(Maiz);
+            //Muestra el Manzano
+            gbc.gridx = 1;
+            gbc.gridy = 5;
+            gbl.setConstraints(Manzano, gbc);
+            panel.add(Manzano);
 
             //Establezco mis acciones de los botones
             ProductoChipilin.addActionListener(new ActionListener() {
@@ -255,6 +267,31 @@ public class NegociarMercado extends JFrame {
                     Boton1.setVisible(true);
                 }
             });
+            Maiz.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    NegociarMaiz aux = new NegociarMaiz();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+            Manzano.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Boton1 = new JDialog();
+                    Boton1.setSize(300, 300);
+                    Boton1.setLocationRelativeTo(null);
+                    Boton1.setLayout(new BorderLayout());
+                    NegociarManzano aux = new NegociarManzano();//Creamos una nueva
+                    Boton1.add(aux, BorderLayout.NORTH);
+                    Boton1.setVisible(true);
+                }
+            });
+
 
 
             // finalmente pintar todo
@@ -264,14 +301,17 @@ public class NegociarMercado extends JFrame {
             frame.setVisible( true );
 
 
+            //Delcaro el JMenu
             JMenuBar mb = new JMenuBar();
             //Agrego mis categorias del menu
             JMenu m1 = new JMenu("TIPOS DE JUEGO");
             JMenu m2 = new JMenu("AYUDA");
             mb.add(m1);
             mb.add(m2);
+            // Creando MenuBar y agregando componentes
+            gbc.gridx = 0; gbc.gridy = 0;
             gbl.setConstraints( mb, gbc );
-            panel.add(mb);
+            frame.add(mb);
 
             //Declaro mis categorias del menu prindipal, TIPOS DE JUEGO
             JMenuItem m11 = new JMenuItem("GRANJA");
@@ -351,4 +391,7 @@ public class NegociarMercado extends JFrame {
 
         }
 
+    public static void main(String[] args) {
+        NegociarMercado negociarMercado= new NegociarMercado();
+    }
     }

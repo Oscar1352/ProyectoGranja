@@ -1,15 +1,10 @@
-package Usuario;
+package Usuario.Ventanas;
 
-import Granja.Animales.Vaca;
-import Granja.Clases.Celdas;
 import Granja.Enum.EstadoAgua;
-import Granja.Enum.EstadoAnimal;
 import Granja.Enum.EstadoPlanta;
 import Granja.Enum.EstadoUsuario;
 import Granja.Plantas.Maiz;
 import Granja.TiposDeCelda.Agua;
-import Usuario.DatosUsuario;
-import Usuario.Mercado;
 
 import java.util.Scanner;
 

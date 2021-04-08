@@ -2,7 +2,7 @@ package Usuario.Actividades;
 
 import Granja.Enum.EstadoAgua;
 import Granja.TiposDeCelda.Agua;
-import Usuario.DatosUsuario;
+import Usuario.Ventanas.DatosUsuario;
 
 import java.util.Scanner;
 

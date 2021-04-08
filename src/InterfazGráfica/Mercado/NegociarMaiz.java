@@ -13,7 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class NegociarChipilin extends JFrame {
+public class NegociarMaiz extends JFrame{
     //Declaro mis clases
     DatosUsuario datosUsuario= new DatosUsuario();
 
@@ -31,7 +31,7 @@ public class NegociarChipilin extends JFrame {
     private Ventana4 ventana4;
     private InterfazGráfica.Ventana5 ventana5;
 
-    public NegociarChipilin() {
+    public NegociarMaiz() {
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -40,18 +40,19 @@ public class NegociarChipilin extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(gbl);
         //Declaro un margen estético a mi ventana
-        Border bordejpanel = new TitledBorder(new EtchedBorder(), "COMPRAR Chipilin");
+        Border bordejpanel = new TitledBorder(new EtchedBorder(), "COMPRAR Maiz");
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
         int a = 50;
         JLabel Chipilin =                     new JLabel("COMPRAR EN EL MERCADO");
-        JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.chipilin.getCantidad());
-        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.chipilin.getPrecio()+" c/u");
+        JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.maiz.getCantidadDeSemillas()+" c/u");
+        JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.maiz.getPrecioDeSemillas());
         JLabel Oro =                         new JLabel("Oro:  "+datosUsuario.getOro());
         JTextField introducir=               new JTextField(new Integer(3));
         JButton comprar =                    new JButton("COMPRAR");
         JButton vender =                    new JButton("VENDER");
+
 
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0;
@@ -103,12 +104,12 @@ public class NegociarChipilin extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int x= Integer.parseInt(introducir.getText());
-                int Total= x*ventana3.chipilin.getPrecio();
+                int Total= x*ventana3.maiz.getPrecioDeSemillas();
                 if(datosUsuario.getOro()>=Total){
                     JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO, GASTO "+Total+" DE ORO");
                     datosUsuario.setOro(datosUsuario.getOro()-Total);
-                    Ventana3.chipilin.setCantidad(ventana3.chipilin.getCantidad()+x);
-                    CantidadActual.setText("Unidades actuales: "+ventana3.chipilin.getCantidad());
+                    Ventana3.maiz.setCantidadDeSemillas(ventana3.maiz.getCantidadDeSemillas()+x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.maiz.getCantidadDeSemillas());
                     Oro.setText("Oro:"+datosUsuario.getOro());
                     introducir.setText("");
                 }else{
@@ -121,15 +122,15 @@ public class NegociarChipilin extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int x= Integer.parseInt(introducir.getText());
-                int Total= x*ventana3.chipilin.getPrecio();
-                if(x>ventana3.chipilin.getCantidad()){
+                int Total= x*ventana3.maiz.getPrecioDeSemillas();
+                if(x>ventana3.maiz.getCantidadDeSemillas()){
                     JOptionPane.showMessageDialog(null, "Cantidad de Producto insuficiente");
                     introducir.setText("");
                 }else{
                     JOptionPane.showMessageDialog(null, "VENTA REALIZADA CON EXITO, GANO "+Total+" DE ORO");
                     datosUsuario.setOro(datosUsuario.getOro()+Total);
-                    Ventana3.chipilin.setCantidad(ventana3.chipilin.getCantidad()-x);
-                    CantidadActual.setText("Unidades actuales: "+ventana3.chipilin.getCantidad());
+                    Ventana3.maiz.setCantidadDeSemillas(ventana3.maiz.getCantidadDeSemillas()-x);
+                    CantidadActual.setText("Unidades actuales: "+ventana3.maiz.getCantidadDeSemillas());
                     Oro.setText("Oro:"+datosUsuario.getOro());
                     introducir.setText("");
 

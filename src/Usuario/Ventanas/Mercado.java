@@ -1,4 +1,4 @@
-package Usuario;
+package Usuario.Ventanas;
 
 import Granja.Clases.AlimentosHerviboros;
 import Granja.Clases.AlimentosOmnivoro;
@@ -18,6 +18,7 @@ import Granja.TiposDeAlimento.Herviboros.Vegetales;
 import Granja.TiposDeAlimento.Omnivoros.Nueces;
 import Granja.TiposDeAlimento.Omnivoros.Frutas;
 import Granja.TiposDeAlimento.Omnivoros.Insectos;
+import Usuario.Ventanas.DatosUsuario;
 
 import java.util.Scanner;
 

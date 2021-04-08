@@ -2,10 +2,13 @@ package InterfazGráfica.Mercado;
 import Granja.Animales.Gallina;
 import Granja.Animales.Vaca;
 import Granja.Enum.EstadoAnimal;
+import Granja.Enum.EstadoPlanta;
 import Granja.Enum.FertibilidadSuelo;
 import Granja.Fertilizantes.Alta;
 import Granja.Fertilizantes.Basica;
 import Granja.Fertilizantes.Media;
+import Granja.Plantas.Maiz;
+import Granja.Plantas.Manzano;
 import Granja.ProductosAnimales.Carne;
 import Granja.ProductosAnimales.Cuero;
 import Granja.ProductosAnimales.Huevos;
@@ -73,6 +76,11 @@ public class Ventana3 extends JFrame {
     public static Media media = new Media(FertibilidadSuelo.MEDIA,2,2, 30);
     public static Alta alta = new Alta(FertibilidadSuelo.ALTA,3,2, 45);
 
+    //Plantación
+    public static Maiz maiz= new Maiz("Maiz",2,"Granos",5, EstadoPlanta.JOVEN);
+    public static Manzano manzano= new Manzano("Manzano",2,"Frutos",15, EstadoPlanta.JOVEN);
+
+
     public Ventana3() {
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
@@ -107,12 +115,11 @@ public class Ventana3 extends JFrame {
         JLabel Fertilizante3 =      new JLabel("Alto: "+alta.getCantidad());
         JLabel Animales =           new JLabel("Animales");
         JLabel Vaca =               new JLabel("Vaca: "+vaca.getCantidad());
-        JLabel Galiina =             new JLabel("Gallina: "+gallina.getCantidad());
-        JButton Negociar =           new JButton("Negociar");
-
-        // Creando MenuBar y agregando componentes
-        gbc.gridx = 0;
-        gbc.gridy = 0;
+        JLabel Galiina =            new JLabel("Gallina: "+gallina.getCantidad());
+        JLabel Plantas =            new JLabel("Plantas");
+        JLabel planta1 =            new JLabel("Maiz: "+ventana3.maiz.getCantidadDeSemillas());
+        JLabel planta2 =            new JLabel("Manzano: "+ventana3.manzano.getCantidadDeSemillas());
+        JButton Negociar =          new JButton("Negociar");
 
         //Muestra el Producto
         gbc.gridx = 3;
@@ -229,6 +236,22 @@ public class Ventana3 extends JFrame {
         gbl.setConstraints(Galiina, gbc);
         panel.add(Galiina);
 
+        //Muestra Las Plantas
+        gbc.gridx = 3;
+        gbc.gridy = 12;
+        gbl.setConstraints(Plantas, gbc);
+        panel.add(Plantas);
+        //Muestra el Cantidad1
+        gbc.gridx = 2;
+        gbc.gridy = 13;
+        gbl.setConstraints(planta1, gbc);
+        panel.add(planta1);
+        //Muestra el Cantidad2
+        gbc.gridx = 4;
+        gbc.gridy = 13;
+        gbl.setConstraints(planta2, gbc);
+        panel.add(planta2);
+
         //Declaro las funciones de los botones
         Negociar.addActionListener(new ActionListener() {
             @Override
@@ -246,18 +269,21 @@ public class Ventana3 extends JFrame {
         // finalmente pintar todo
         frame.add( panel );
         frame.pack();
-        frame.setSize(450,250);
+        frame.setSize(600,350);
         frame.setVisible( true );
 
 
+        //Delcaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
         JMenu m1 = new JMenu("TIPOS DE JUEGO");
         JMenu m2 = new JMenu("AYUDA");
         mb.add(m1);
         mb.add(m2);
+        // Creando MenuBar y agregando componentes
+        gbc.gridx = 0; gbc.gridy = 0;
         gbl.setConstraints( mb, gbc );
-        panel.add(mb);
+        frame.add(mb);
 
         //Declaro mis categorias del menu prindipal, TIPOS DE JUEGO
         JMenuItem m11 = new JMenuItem("GRANJA");

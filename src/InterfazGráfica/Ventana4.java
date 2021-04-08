@@ -4,7 +4,7 @@ import Granja.Animales.AnimalesReporte;
 import Granja.TiposDeCelda.CaracteristicasDeLaGranja;
 import Granja.Plantas.PlantasReporte;
 import InterfazGráfica.Mercado.Ventana3;
-import Usuario.DatosUsuario;
+import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -63,9 +63,6 @@ public class Ventana4 extends JFrame {
         JLabel SP = new JLabel("Semillas Compradas"+PlantasReporte.getCantidadDeSemillasCompradas());
         JLabel CC2 =         new JLabel("Celdas compradas "+CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas());
 
-        // Creando MenuBar y agregando componentes
-        gbc.gridx = 0;
-        gbc.gridy = 0;
 
         //Muestra el Resumen de Partida
         gbc.gridx = 3;
@@ -159,14 +156,17 @@ public class Ventana4 extends JFrame {
         frame.setVisible( true );
 
 
+        //Delcaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
         JMenu m1 = new JMenu("TIPOS DE JUEGO");
         JMenu m2 = new JMenu("AYUDA");
         mb.add(m1);
         mb.add(m2);
+        // Creando MenuBar y agregando componentes
+        gbc.gridx = 0; gbc.gridy = 0;
         gbl.setConstraints( mb, gbc );
-        panel.add(mb);
+        frame.add(mb);
 
         //Declaro mis categorias del menu prindipal, TIPOS DE JUEGO
         JMenuItem m11 = new JMenuItem("GRANJA");
