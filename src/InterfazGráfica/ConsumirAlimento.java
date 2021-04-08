@@ -1,6 +1,7 @@
 package InterfazGráfica;
 
 import InterfazGráfica.Mercado.Ventana3;
+import Usuario.DatosUsuario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -10,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana2 extends JFrame {
+public class ConsumirAlimento extends JFrame {
     //Declaro mis JDialog
     private JDialog ventana11;
     private JDialog ventana12;
@@ -25,7 +26,7 @@ public class Ventana2 extends JFrame {
     private Ventana4 ventana4;
     private Ventana5 ventana5;
 
-    public Ventana2() {
+    public ConsumirAlimento() {
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -34,25 +35,22 @@ public class Ventana2 extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(gbl);
         //Declaro un margen estético a mi ventana
-        Border bordejpanel = new TitledBorder(new EtchedBorder(), "BODEGA");
+        Border bordejpanel = new TitledBorder(new EtchedBorder(), "CONSUMIR ALIMENTO");
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Productos = new JLabel("Productos");
-        JLabel Alimento1 = new JLabel("Alimento Herviboros ");
-        JLabel Producto1 = new JLabel("Chipilin: "+ventana3.chipilin.getCantidad());
-        JLabel Producto2 = new JLabel("Pasto: "+ventana3.pasto.getCantidad());
-        JLabel Producto3 = new JLabel("Vegetales: "+ventana3.vegetales.getCantidad());
-        JLabel Alimento2 = new JLabel("Alimento Omnivoros: ");
-        JLabel Producto11 = new JLabel("Nueces: "+ventana3.nueces.getCantidad());
-        JLabel Producto22 = new JLabel("    Frutas: "+ventana3.frutas.getCantidad());
-        JLabel Producto33 = new JLabel("Insectos: "+ventana3.insectos.getCantidad());
-        JLabel Cantidad = new JLabel("Producto Animal");
-        JLabel Cantidad1 = new JLabel("Cuero: "+ventana3.cuero.getCantidad());
-        JLabel Cantidad2 = new JLabel("Carne: "+ventana3.carne.getCantidad());
-        JLabel Cantidad3 = new JLabel("Huevos: "+ventana3.huevos.getCantidad());
-        JLabel Cantidad4 = new JLabel("Lana: "+ventana3.lana.getCantidad());
+        JLabel Productos =          new JLabel("Productos");
+        JLabel Alimento1 =          new JLabel("Alimento Herviboros ");
+        JLabel Producto1 =          new JLabel("Chipilin: "+ventana3.chipilin.getCantidad());
+        JLabel Producto3 =          new JLabel("Vegetales: "+ventana3.vegetales.getCantidad());
+        JLabel Alimento2 =          new JLabel("Alimento Omnivoros: ");
+        JLabel Producto11 =         new JLabel("Nueces: "+ventana3.nueces.getCantidad());
+        JLabel Producto22 =         new JLabel("Frutas: "+ventana3.frutas.getCantidad());
+        JLabel Cantidad =           new JLabel("Producto Animal");
+        JLabel Cantidad2 =          new JLabel("Carne: "+ventana3.carne.getCantidad());
+        JLabel Cantidad3 =          new JLabel("Huevos: "+ventana3.huevos.getCantidad());
+        JButton ALIMENTARSE=        new JButton("ALIMENTARSE");
 
 
         // Creando MenuBar y agregando componentes
@@ -74,11 +72,6 @@ public class Ventana2 extends JFrame {
         gbc.gridy = 2;
         gbl.setConstraints(Producto1, gbc);
         panel.add(Producto1);
-        //Muestra Producto 2
-        gbc.gridx = 3;
-        gbc.gridy = 2;
-        gbl.setConstraints(Producto2, gbc);
-        panel.add(Producto2);
         //Muestra Producto 3
         gbc.gridx = 4;
         gbc.gridy = 2;
@@ -97,15 +90,10 @@ public class Ventana2 extends JFrame {
         gbl.setConstraints(Producto11, gbc);
         panel.add(Producto11);
         //Muestra Producto 2
-        gbc.gridx = 3;
+        gbc.gridx = 4;
         gbc.gridy = 4;
         gbl.setConstraints(Producto22, gbc);
         panel.add(Producto22);
-        //Muestra Producto 3
-        gbc.gridx = 4;
-        gbc.gridy = 4;
-        gbl.setConstraints(Producto33, gbc);
-        panel.add(Producto33);
 
 
         //Muestra el Cantidad
@@ -113,13 +101,8 @@ public class Ventana2 extends JFrame {
         gbc.gridy = 6;
         gbl.setConstraints(Cantidad, gbc);
         panel.add(Cantidad);
-        //Muestra el Cantidad1
-        gbc.gridx = 2;
-        gbc.gridy = 7;
-        gbl.setConstraints(Cantidad1, gbc);
-        panel.add(Cantidad1);
         //Muestra el Cantidad2
-        gbc.gridx = 3;
+        gbc.gridx = 2;
         gbc.gridy = 7;
         gbl.setConstraints(Cantidad2, gbc);
         panel.add(Cantidad2);
@@ -128,6 +111,51 @@ public class Ventana2 extends JFrame {
         gbc.gridy = 7;
         gbl.setConstraints(Cantidad3, gbc);
         panel.add(Cantidad3);
+        //Muestra el ALIMENTARSE
+        gbc.gridx = 3;
+        gbc.gridy = 9;
+        gbl.setConstraints(ALIMENTARSE, gbc);
+            panel.add(ALIMENTARSE);
+
+            //Declaro la Acción del Boton
+        ALIMENTARSE.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(ventana3.chipilin.getCantidad()>0){
+                Ventana3.chipilin.setCantidad(Ventana3.chipilin.getCantidad()-1);
+                    DatosUsuario.setPuntosDeVida(50);
+                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                    Producto1.setText("Chipilin: "+ventana3.chipilin.getCantidad());
+                }else if(ventana3.vegetales.getCantidad()>0){
+                    Ventana3.vegetales.setCantidad(Ventana3.vegetales.getCantidad()-1);
+                    DatosUsuario.setPuntosDeVida(50);
+                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                    Producto3.setText("Vegetales: "+ventana3.vegetales.getCantidad());
+                }else if(ventana3.nueces.getCantidad()>0){
+                    Ventana3.nueces.setCantidad(Ventana3.nueces.getCantidad()-1);
+                    DatosUsuario.setPuntosDeVida(50);
+                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                    Producto11.setText("Nueces: "+ventana3.nueces.getCantidad());
+                }else if(ventana3.frutas.getCantidad()>0){
+                    Ventana3.frutas.setCantidad(Ventana3.frutas.getCantidad()-1);
+                    DatosUsuario.setPuntosDeVida(50);
+                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                    Producto22.setText("Frutas: "+ventana3.frutas.getCantidad());
+                }else if(ventana3.carne.getCantidad()>0){
+                    Ventana3.carne.setCantidad(Ventana3.carne.getCantidad()-1);
+                    DatosUsuario.setPuntosDeVida(50);
+                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                    Cantidad2.setText("Carne: "+ventana3.carne.getCantidad());
+                }else if(ventana3.huevos.getCantidad()>0){
+                    Ventana3.huevos.setCantidad(Ventana3.huevos.getCantidad()-1);
+                    DatosUsuario.setPuntosDeVida(50);
+                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                    Cantidad3.setText("Huevos: "+ventana3.huevos.getCantidad());
+                }else{
+                    JOptionPane.showMessageDialog(null, "Comida Insuficiente");
+                }
+            }
+        });
 
         // finalmente pintar todo
 
@@ -223,9 +251,5 @@ public class Ventana2 extends JFrame {
                 ventana21.setVisible(true);
             }
         });
-    }
-
-    public static void main(String[] args) {
-        Ventana2 ventana2= new Ventana2();
     }
 }

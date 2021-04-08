@@ -1,6 +1,7 @@
 package InterfazGráfica;
 
 
+import Granja.Enum.EstadoUsuario;
 import InterfazGráfica.Mercado.Ventana3;
 import Usuario.DatosUsuario;
 
@@ -28,10 +29,9 @@ public class Ventana1 extends JFrame {
     private Ventana2 ventana4;
     private Ventana5 ventana5;
 
-    public void Ventana1() throws HeadlessException {
+    public void Ventana1() throws HeadlessException, InterruptedException {
         //Declaro mis variables
         DatosUsuario datosUsuario= new DatosUsuario();
-
 
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
@@ -51,6 +51,7 @@ public class Ventana1 extends JFrame {
         JLabel Oro =            new JLabel("Oro: "+datosUsuario.getOro());
         JLabel PV =             new JLabel("Puntos de Vida:"+datosUsuario.getPuntosDeVida());
         JButton Granja=         new JButton("Granja");
+        JButton ALIMENTAR=      new JButton("ALIMENTAR");
         JLabel imagen =         new JLabel("");
 
 
@@ -91,6 +92,11 @@ public class Ventana1 extends JFrame {
         gbc.gridy = 5;
         gbl.setConstraints(Granja, gbc);
         panel.add(Granja);
+        //Declaro ALIMENTAR
+        gbc.gridx = 3;
+        gbc.gridy = 5;
+        gbl.setConstraints(ALIMENTAR, gbc);
+        panel.add(ALIMENTAR);
 
         //Agregar imagen
         imagen.setIcon(new ImageIcon("C:\\Users\\Oscar Luna\\OneDrive\\Imágenes\\Granja.jpg"));
@@ -115,7 +121,44 @@ public class Ventana1 extends JFrame {
 
             }
         });
+        ALIMENTAR.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ventana11 = new JDialog();
+                ventana11.setSize(300, 300);
+                ventana11.setLocationRelativeTo(null);
+                ventana11.setLayout(new BorderLayout());
+                ConsumirAlimento aux = new ConsumirAlimento();//Creamos una nueva
+                ventana11.add(aux, BorderLayout.NORTH);
+                ventana11.setVisible(true);
+            }
+        });
 
+        //Vida Usuario
+        datosUsuario.VIVO();
+        JOptionPane.showMessageDialog(null, "El juego ha comenzado alimentate para seguir con vida");
+        do{
+            int VidaPerdida= datosUsuario.getPuntosDeVida()-10;
+            System.out.println("\nLa cantidad de vida del usuario es de: "+datosUsuario.getPuntosDeVida());
+            System.out.println("El usuario ha perdido vida, vida actual: "+VidaPerdida);
+            datosUsuario.setPuntosDeVida(VidaPerdida);
+            datosUsuario.setEstadoUsuario(EstadoUsuario.HAMBRIENTO);
+            JOptionPane.showMessageDialog(null, "El Usuario Está hambriento, come algo");
+
+            Thread.sleep(100000);
+            if (datosUsuario.getPuntosDeVida()==0) {
+                System.out.println("El usuario morirá");
+                datosUsuario.MUERTO();
+                JOptionPane.showMessageDialog(null, "El Usuario ha muerto");
+                datosUsuario.setEstadoUsuario(EstadoUsuario.MUERTO);
+                System.exit(0);
+            }else{
+                datosUsuario.HAMBRIENTO();
+                PV.setText("Puntos de Vida:"+datosUsuario.getPuntosDeVida());
+            }
+        }while(datosUsuario.getPuntosDeVida()!=0);
+
+        //Delcaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
         JMenu m1 = new JMenu("TIPOS DE JUEGO");
@@ -207,11 +250,12 @@ public class Ventana1 extends JFrame {
             }
         });
     }
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Ventana1 ventana1= new Ventana1();
         ventana1.Ventana1();
+
     }
+
 
 }
 
