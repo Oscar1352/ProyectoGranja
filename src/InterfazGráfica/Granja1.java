@@ -11,12 +11,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Granja1 {
-    private static final int COLUMNAS = 6;
-    private static final int FILAS = 4;
+    private static final int COLUMNAS = 5;
+    private static final int FILAS = 7;
 
     public static void main(String [] args) throws InterruptedException {
 
-        int Elementos=26;
+        int Elementos=25;
         Celdas celdas[]= new Celdas[Elementos];
         int b;
 
@@ -44,25 +44,22 @@ public class Granja1 {
             }
         }
         JFrame v = new JFrame("Granja MyFarm");
-        v.getContentPane().setLayout(new GridLayout(COLUMNAS, FILAS));
-                JButton [][] Botones = new JButton [COLUMNAS][FILAS];
-                for (int i=0;i<COLUMNAS;i++){
-                    for (int j=0;j<FILAS;j++)
-                    {
-                for(int a= 0; a<Elementos;a++){
-                    Botones[i][j] = new JButton(""+celdas[a].getTipoDeSuelo());
-                    System.out.println(""+celdas[a].getTipoDeSuelo());
+        v.getContentPane().setLayout(new GridLayout(FILAS,COLUMNAS));
+                JButton[] Botones = new JButton [Elementos];
+                for (int i=0;i<FILAS;i++){
+                    for (int j=0;j<COLUMNAS;j++)
+                    {}
                 }
-                v.getContentPane().add(Botones[i][j]);
-            }
+                for(int a= 0; a<Elementos;a++){
+                    Botones[a] = new JButton(""+celdas[a].getTipoDeSuelo());
+                    v.getContentPane().add(Botones[a]);
+
         }
-        JButton b0= new JButton("");
         JButton b1= new JButton("SEMBRAR");
         JButton b2= new JButton("COSECHAR");
         JButton b3= new JButton("COMPRAR CELDAS");
         JButton b4= new JButton("PESCA");
         JButton b5= new JButton("LIMPIAR");
-        v.add(b0);
         v.add(b1);
         v.add(b2);
         v.add(b3);
@@ -70,6 +67,6 @@ public class Granja1 {
         v.add(b5);
         v.pack();
         v.setVisible(true);
-        v.setSize(700,500);
+        v.setSize(800,600);
         v.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);}
 }
