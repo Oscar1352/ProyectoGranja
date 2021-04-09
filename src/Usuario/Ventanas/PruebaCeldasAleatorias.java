@@ -2,6 +2,7 @@ package Usuario.Ventanas;
 
 import Granja.Clases.Celdas;
 import Granja.Enum.EstadoAgua;
+import Granja.Enum.EstadoGrama;
 import Granja.Enum.FertibilidadSuelo;
 import Granja.TiposDeCelda.Agua;
 import Granja.TiposDeCelda.Desierto;
@@ -17,7 +18,7 @@ public class PruebaCeldasAleatorias {
 
         Celdas celdas[][]= new Celdas[5][5];
 
-        Grama grama= new Grama("Grama","Siembra",40,25, FertibilidadSuelo.BASICA);
+        Grama grama= new Grama("Grama","Siembra",40,25, EstadoGrama.DISPONIBLE, FertibilidadSuelo.BASICA);
         Agua agua= new Agua("Agua","Pezca",25,25, EstadoAgua.CONPECES);
         Desierto desierto= new Desierto("Desierto","Nada",15,5);
 
@@ -46,7 +47,7 @@ public class PruebaCeldasAleatorias {
          int Filas=9;
         Celdas celdas[][]= new Celdas[6][10];
 
-        Grama grama= new Grama("Grama","Siembra",40,25, FertibilidadSuelo.BASICA);
+        Grama grama= new Grama("Grama","Siembra",40,25,EstadoGrama.DISPONIBLE, FertibilidadSuelo.BASICA);
         Agua agua= new Agua("Agua","Pezca",35,25, EstadoAgua.CONPECES);
         Desierto desierto= new Desierto("Desierto","Nada",25,5);
 

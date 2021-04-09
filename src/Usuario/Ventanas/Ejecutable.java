@@ -5,10 +5,7 @@ import Granja.Animales.Vaca;
 import Granja.Clases.Animales;
 import Granja.Clases.Celdas;
 import Granja.Clases.Plantas;
-import Granja.Enum.EstadoAgua;
-import Granja.Enum.EstadoAnimal;
-import Granja.Enum.EstadoPlanta;
-import Granja.Enum.FertibilidadSuelo;
+import Granja.Enum.*;
 import Granja.Interfaces.TiposDeAnimal.Herviboro;
 import Granja.Plantas.Maiz;
 import Granja.Plantas.Manzano;
@@ -18,7 +15,7 @@ import Usuario.Actividades.Pesca;
 
 public class Ejecutable {
     private Animales animales;
-    Grama grama= new Grama("grama", "Siembra", 25,2, FertibilidadSuelo.ALTA);
+    Grama grama= new Grama("grama", "Siembra", 25,2, EstadoGrama.DISPONIBLE, FertibilidadSuelo.ALTA);
 
     public static void main(String[] args) throws InterruptedException {
         /*//PRUEBA OBJETOS DECLARADOS

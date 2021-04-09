@@ -2,6 +2,7 @@ package InterfazGráfica.Mercado;
 import Granja.Animales.Gallina;
 import Granja.Animales.Vaca;
 import Granja.Enum.EstadoAnimal;
+import Granja.Enum.EstadoGrama;
 import Granja.Enum.EstadoPlanta;
 import Granja.Enum.FertibilidadSuelo;
 import Granja.Fertilizantes.Alta;
@@ -52,7 +53,7 @@ public class Ventana3 extends JFrame {
     private NegociarMercado negociarMercado;
 
     //CeldaGrama
-    public static Grama grama=          new Grama("Grama","Siembra",40,25,FertibilidadSuelo.BASICA);
+    public static Grama grama=          new Grama("Grama","Siembra",40,25, EstadoGrama.DISPONIBLE,FertibilidadSuelo.BASICA);
 
     //PlantasHerviboros
     public static Chipilin chipilin=          new Chipilin("Herviboro","Chipilin",5,5);

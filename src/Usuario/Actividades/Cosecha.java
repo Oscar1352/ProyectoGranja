@@ -2,6 +2,7 @@ package Usuario.Actividades;
 
 import Granja.Clases.Celdas;
 import Granja.Enum.EstadoAgua;
+import Granja.Enum.EstadoGrama;
 import Granja.Enum.EstadoPlanta;
 import Granja.Enum.FertibilidadSuelo;
 import Granja.Fertilizantes.Alta;
@@ -22,7 +23,7 @@ public class Cosecha extends Thread{
         int a=0;
         Celdas celdas[][]= new Celdas[6][6];
 
-        Grama grama= new Grama("Grama","Siembra",40,25, FertibilidadSuelo.BASICA);
+        Grama grama= new Grama("Grama","Siembra",40,25, EstadoGrama.DISPONIBLE, FertibilidadSuelo.BASICA);
         Agua agua= new Agua("Agua","Pezca",35,25, EstadoAgua.CONPECES);
         Desierto desierto= new Desierto("Desierto","Nada",25,5);
 
@@ -57,7 +58,7 @@ public class Cosecha extends Thread{
     public static void SiembraMaiz() throws InterruptedException {
         //Debo declarar mi planta, mi suelo y el Fertilizante utilizado
         Maiz maiz = new Maiz("Maiz",2,"Granos",25, EstadoPlanta.JOVEN);
-        Grama grama = new Grama("Grama","Siembra y crianza",40,25,FertibilidadSuelo.BASICA);
+        Grama grama = new Grama("Grama","Siembra y crianza",40,25,EstadoGrama.DISPONIBLE,FertibilidadSuelo.BASICA);
         grama.setFertibilidadSuelo(FertibilidadSuelo.MEDIA);
         Basica basica= new Basica(FertibilidadSuelo.BASICA, 1, 1,25);
         Media media= new Media(FertibilidadSuelo.MEDIA, 2, 1,25);

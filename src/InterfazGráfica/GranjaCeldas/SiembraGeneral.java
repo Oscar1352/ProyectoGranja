@@ -2,6 +2,7 @@ package InterfazGráfica.GranjaCeldas;
 
 
 import Controladores.ControladorGrama;
+import Granja.Enum.EstadoGrama;
 import Hilos.VidaMaizHilos;
 import Hilos.VidaManzanoHilos;
 import InterfazGráfica.Mercado.Ventana3;
@@ -107,35 +108,47 @@ public class SiembraGeneral extends JFrame {
         //Acciones del Boton
         Maiz.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {;
-                if(ventana3.maiz.getCantidadDeSemillas()<ControladorGrama.getCantidad()){
-                    JOptionPane.showMessageDialog(null,"No posee la cantidad de Semillas Suficientes para Su siembra");
+            public void actionPerformed(ActionEvent e) {
+                if(Ventana3.grama.getEstadoGrama()==EstadoGrama.OCUPADA){
+                    JOptionPane.showMessageDialog(null,"YA HAY UNA PLANTACIÓN EN CURSO");
+
                 }else{
-                    ventana3.maiz.setSemillasSembradas(ControladorGrama.getCantidad());
-                    ventana3.maiz.setCantidadDeSemillas(ventana3.maiz.getCantidadDeSemillas()-ControladorGrama.getCantidad());
-                    ControladorGrama.setCantidad(0);
-                    JOptionPane.showMessageDialog(null,"La Plantación Fue hecha con éxito, esté atento");
-                    CantidadActual.setText("Cantidad actuales de celdas disponibles "+ ControladorGrama.getCantidad());
-                    CantidadMaiz.setText("Cantidad Disponible de Maiz :"+Ventana3.maiz.getCantidadDeSemillas());
-                    VidaMaizHilos vidaMaizHilos= new VidaMaizHilos();
-                    vidaMaizHilos.start();
+                    if(ventana3.maiz.getCantidadDeSemillas()<ControladorGrama.getCantidad()){
+                        JOptionPane.showMessageDialog(null,"No posee la cantidad de Semillas Suficientes para Su siembra");
+                    }else{
+                        Ventana3.grama.setEstadoGrama(EstadoGrama.OCUPADA);
+                        ventana3.maiz.setSemillasSembradas(ControladorGrama.getCantidad());
+                        ventana3.maiz.setCantidadDeSemillas(ventana3.maiz.getCantidadDeSemillas()-ControladorGrama.getCantidad());
+                        JOptionPane.showMessageDialog(null,"La Plantación Fue hecha con éxito, esté atento");
+                        CantidadActual.setText("Cantidad actuales de celdas disponibles "+ ControladorGrama.getCantidad());
+                        CantidadMaiz.setText("Cantidad Disponible de Maiz :"+Ventana3.maiz.getCantidadDeSemillas());
+                        VidaMaizHilos vidaMaizHilos= new VidaMaizHilos();
+                        vidaMaizHilos.start();
+                    }
                 }
+
             }
         });
         Manzano.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if(ventana3.manzano.getCantidadDeSemillas()<ControladorGrama.getCantidad()){
-                    JOptionPane.showMessageDialog(null,"No posee la cantidad de Semillas Suficientes para Su siembra");
+            public void actionPerformed(ActionEvent e) {Ventana3.manzano.setCantidadDeSemillas(100);
+                if(Ventana3.grama.getEstadoGrama()==EstadoGrama.OCUPADA){
+                    JOptionPane.showMessageDialog(null,"YA HAY UNA PLANTACIÓN EN CURSO");
+
                 }else{
-                    ventana3.manzano.setSemillasSembradas(ControladorGrama.getCantidad());
-                    ventana3.manzano.setCantidadDeSemillas(ventana3.manzano.getCantidadDeSemillas()-ControladorGrama.getCantidad());
-                    ControladorGrama.setCantidad(0);
-                    JOptionPane.showMessageDialog(null,"La Plantación Fue hecha con éxito, esté atento");
-                    CantidadActual.setText("Cantidad actuales de celdas disponibles "+ ControladorGrama.getCantidad());
-                    CantidadManzano.setText("Cantidad Disponible de Manzano :"+Ventana3.manzano.getCantidadDeSemillas());
-                    VidaManzanoHilos vidaManzanoHilos= new VidaManzanoHilos();
-                    vidaManzanoHilos.start();
+                    if(ventana3.manzano.getCantidadDeSemillas()<ControladorGrama.getCantidad()){
+                        JOptionPane.showMessageDialog(null,"No posee la cantidad de Semillas Suficientes para Su siembra");
+                    }else{
+                        ventana3.manzano.setSemillasSembradas(ControladorGrama.getCantidad());
+                        ventana3.manzano.setCantidadDeSemillas(ventana3.manzano.getCantidadDeSemillas()-ControladorGrama.getCantidad());
+                        ControladorGrama.setCantidad(0);
+                        JOptionPane.showMessageDialog(null,"La Plantación Fue hecha con éxito, esté atento");
+                        CantidadActual.setText("Cantidad actuales de celdas disponibles "+ ControladorGrama.getCantidad());
+                        CantidadManzano.setText("Cantidad Disponible de Manzano :"+Ventana3.manzano.getCantidadDeSemillas());
+                        VidaManzanoHilos vidaManzanoHilos= new VidaManzanoHilos();
+                        vidaManzanoHilos.start();
+                    }
+
                 }
             }
         });

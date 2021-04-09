@@ -5,11 +5,14 @@ import Controladores.ControladorAgua;
 import Controladores.ControladorGrama;
 import Granja.Clases.Celdas;
 import Granja.Enum.EstadoAgua;
+import Granja.Enum.EstadoGrama;
 import Granja.Enum.EstadoPlanta;
 import Granja.Enum.FertibilidadSuelo;
 import Granja.TiposDeCelda.Agua;
 import Granja.TiposDeCelda.Desierto;
 import Granja.TiposDeCelda.Grama;
+import Hilos.CosechaMaizHilos;
+import Hilos.CosechaManzanoHilos;
 import InterfazGráfica.GranjaCeldas.SiembraGeneral;
 import InterfazGráfica.Mercado.Ventana3;
 
@@ -37,7 +40,7 @@ public class Granja extends JPanel{
 
         Celdas celdas[]= new Celdas[CantidadDeCeldas.getCantidadDeCeldas()];
 
-        Grama grama= new Grama("Grama","Siembra",40,25, FertibilidadSuelo.BASICA);
+        Grama grama= new Grama("Grama","Siembra",40,25, EstadoGrama.DISPONIBLE, FertibilidadSuelo.BASICA);
         Agua agua= new Agua("Agua","Pezca",35,25, EstadoAgua.CONPECES);
         Desierto desierto= new Desierto("Desierto","Nada",25,5);
 
@@ -114,12 +117,21 @@ public class Granja extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(Ventana3.maiz.getEstadoPlanta()== EstadoPlanta.PENDIENTEDECOSECHA){
-                    try {
-                        CosechaMaiz();
-                    } catch (InterruptedException interruptedException) {
-                        interruptedException.printStackTrace();
-                    }
-                }else if(Ventana3.manzano.getEstadoPlanta()== EstadoPlanta.PENDIENTEDECOSECHA){
+                    CosechaMaizHilos cosechaMaizHilos= new CosechaMaizHilos();
+                    cosechaMaizHilos.start();
+
+                }else if(Ventana3.maiz.getEstadoPlanta()== EstadoPlanta.COSECHADA){
+                    JOptionPane.showMessageDialog(null,"LA PLANTA YA FUE COSECHADA POR FAVOR PLANTAR DE NUEVO");
+
+                } else if(Ventana3.manzano.getEstadoPlanta()== EstadoPlanta.PENDIENTEDECOSECHA){
+                    CosechaManzanoHilos cosechaManzanoHilos= new CosechaManzanoHilos();
+                    cosechaManzanoHilos.start();
+
+                } else if(Ventana3.manzano.getEstadoPlanta()== EstadoPlanta.COSECHADA){
+                    JOptionPane.showMessageDialog(null,"LA PLANTA YA FUE COSECHADA POR FAVOR PLANTAR DE NUEVO");
+
+                }else{
+                    JOptionPane.showMessageDialog(null,"NO HAY NINGUNA COSECHA PENDIENTE");
 
                 }
             }
@@ -151,25 +163,6 @@ public class Granja extends JPanel{
 
     public static void main(String[] args) {
         Granja granja= new Granja();
-    }
-    public static void CosechaMaiz() throws InterruptedException {
-        //Empieza la plantacion en una de las celdas
-        System.out.println("Se empezará la cosecha: ");
 
-        System.out.println("Usted ha sembrado "+Ventana3.maiz.getNombre());
-        Ventana3.maiz.setCantidadDeSemillas(Ventana3.maiz.getSemillasSembradas());
-        System.out.println("Y producirá la cantidad de..."+Ventana3.maiz.getTipoDePlanta());
-        System.out.println("Se harán los cálculos...");
-        Thread.sleep(1000);
-        if(Ventana3.grama.getFertibilidadSuelo()==FertibilidadSuelo.BASICA){
-            int Cantidad= Ventana3.maiz.getEdad() * Ventana3.basica.getIndiceDeMejora()*10;
-            JOptionPane.showMessageDialog(null,"Cosechó la cantidad de En cantidad de: "+Cantidad+" "+Ventana3.maiz.getTipoDePlanta());
-        }else if(Ventana3.grama.getFertibilidadSuelo()==FertibilidadSuelo.MEDIA){
-            int Cantidad= Ventana3.maiz.getEdad() * Ventana3.media.getIndiceDeMejora()*10;
-            JOptionPane.showMessageDialog(null,"Cosechó la cantidad de En cantidad de: "+Cantidad+" "+Ventana3.maiz.getTipoDePlanta());
-        }else if(Ventana3.grama.getFertibilidadSuelo()==FertibilidadSuelo.ALTA){
-            int Cantidad= Ventana3.maiz.getEdad() * Ventana3.alta.getIndiceDeMejora()*10;
-            JOptionPane.showMessageDialog(null,"Cosechó la cantidad de En cantidad de: "+Cantidad+" "+Ventana3.maiz.getTipoDePlanta());
-        }
     }
 }

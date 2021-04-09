@@ -1,5 +1,7 @@
 package Hilos;
 
+import Controladores.ControladorGrama;
+import Granja.Enum.EstadoPlanta;
 import InterfazGráfica.Mercado.Ventana3;
 
 import javax.swing.*;
@@ -37,7 +39,10 @@ public class VidaMaizHilos extends Thread{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        if(Ventana3.maiz.getEstadoPlanta()== EstadoPlanta.COSECHADA){
+            stop();
 
+        }else{
         Ventana3.maiz.COSECHAPODRIDA();
         JOptionPane.showMessageDialog(null,"La plantación está "+Ventana3.maiz.getEstadoPlanta()+" Se perdió todo");
 
@@ -49,6 +54,8 @@ public class VidaMaizHilos extends Thread{
 
         Ventana3.maiz.MUERTA();
         JOptionPane.showMessageDialog(null,"Limpia las celdas");
+            ControladorGrama.getCantidad();
+        }
 
     }
 

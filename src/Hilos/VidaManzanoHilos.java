@@ -1,17 +1,19 @@
 package Hilos;
 
+import Granja.Enum.EstadoPlanta;
 import InterfazGráfica.Mercado.Ventana3;
 
 import javax.swing.*;
+
 
     public class VidaManzanoHilos extends Thread{
         public void run() {
             JOptionPane.showMessageDialog(null,"El tiempo de vida es "+ Ventana3.manzano.getEdad()+" minutos, esté al pendiente");
             //Declaro mis variables de tiempo, x es igual a la cantidad de minutos
             //z es igual al doble de la cantidad de minutos
-            int x= Ventana3.maiz.getEdad()*10000;
-            int z=(Ventana3.maiz.getEdad()*2)*10000;
-            Ventana3.maiz.JOVEN();
+            int x= Ventana3.manzano.getEdad()*10000;
+            int z=(Ventana3.manzano.getEdad()*2)*10000;
+            Ventana3.manzano.JOVEN();
             JOptionPane.showMessageDialog(null,"La plantación está "+Ventana3.manzano.getEstadoPlanta()+" mantente atento");
 
             try {
@@ -20,7 +22,7 @@ import javax.swing.*;
                 e.printStackTrace();
             }
 
-            Ventana3.maiz.GRANDE();
+            Ventana3.manzano.GRANDE();
             JOptionPane.showMessageDialog(null,"La plantación está "+Ventana3.manzano.getEstadoPlanta()+" mantente atento");
 
             try {
@@ -29,7 +31,7 @@ import javax.swing.*;
                 e.printStackTrace();
             }
 
-            Ventana3.maiz.PENDIENTEDECOSECHA();
+            Ventana3.manzano.PENDIENTEDECOSECHA();
             JOptionPane.showMessageDialog(null,"Cosecha Lista Para ser recogida, apurate");
 
             try {
@@ -37,20 +39,22 @@ import javax.swing.*;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            if(Ventana3.manzano.getEstadoPlanta()== EstadoPlanta.COSECHADA){
+                stop();
+            }else{
+                Ventana3.manzano.COSECHAPODRIDA();
+                JOptionPane.showMessageDialog(null,"La plantación está "+Ventana3.manzano.getEstadoPlanta()+" Se perdió todo");
 
-            Ventana3.maiz.COSECHAPODRIDA();
-            JOptionPane.showMessageDialog(null,"La plantación está "+Ventana3.manzano.getEstadoPlanta()+" Se perdió todo");
+                try {
+                    Thread.sleep(z);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-            try {
-                Thread.sleep(z);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                Ventana3.manzano.MUERTA();
+                JOptionPane.showMessageDialog(null,"Limpia las celdas");
             }
 
-            Ventana3.maiz.MUERTA();
-            JOptionPane.showMessageDialog(null,"Limpia las celdas");
-
         }
-
     }
 

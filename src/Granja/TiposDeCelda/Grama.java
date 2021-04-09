@@ -1,6 +1,7 @@
 package Granja.TiposDeCelda;
 
 import Granja.Clases.Celdas;
+import Granja.Enum.EstadoGrama;
 import Granja.Enum.FertibilidadSuelo;
 import Granja.Interfaces.ActividadesEnLasCeldas.Cosecha;
 import Granja.Interfaces.ActividadesEnLasCeldas.Crianza;
@@ -8,9 +9,19 @@ import Granja.Interfaces.ActividadesEnLasCeldas.Siembra;
 
 public class Grama extends Celdas implements Siembra, Crianza, Cosecha {
     private FertibilidadSuelo fertibilidadSuelo;
-    public Grama(String TipoDeSuelo, String ActividadQuePermite, Integer PorcentajeDeDistribucion, Integer Precio, FertibilidadSuelo fertibilidadSuelo) {
+    private EstadoGrama estadoGrama;
+    public Grama(String TipoDeSuelo, String ActividadQuePermite, Integer PorcentajeDeDistribucion, Integer Precio,EstadoGrama estadoGrama, FertibilidadSuelo fertibilidadSuelo) {
         super(TipoDeSuelo, ActividadQuePermite, PorcentajeDeDistribucion, Precio);
+    this.estadoGrama= estadoGrama;
     this.fertibilidadSuelo= fertibilidadSuelo;
+    }
+
+    public EstadoGrama getEstadoGrama() {
+        return estadoGrama;
+    }
+
+    public void setEstadoGrama(EstadoGrama estadoGrama) {
+        this.estadoGrama = estadoGrama;
     }
 
     @Override
