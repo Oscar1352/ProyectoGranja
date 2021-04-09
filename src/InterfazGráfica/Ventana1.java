@@ -44,7 +44,6 @@ public class Ventana1 extends JFrame {
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
-        int a = 50;
         JLabel Nombre =         new JLabel("Nombre:" +datosUsuario.getNombre());
         JLabel Nickname =       new JLabel("Nickname:"+datosUsuario.getNickname());
         JLabel TituloJuego =    new JLabel("MyFarm");
@@ -117,7 +116,13 @@ public class Ventana1 extends JFrame {
         Granja.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ventana11 = new JDialog();
+                ventana11.setSize(400, 400);
+                ventana11.setLocationRelativeTo(null);
+                ventana11.setLayout(new BorderLayout());
+                Granja aux = new Granja();//Creamos una nueva
+                ventana11.add(aux, BorderLayout.NORTH);
+                ventana11.setVisible(false);
             }
         });
         ALIMENTAR.addActionListener(new ActionListener() {
@@ -132,7 +137,6 @@ public class Ventana1 extends JFrame {
                 ventana11.setVisible(true);
             }
         });
-/*
         //Vida Usuario
         {datosUsuario.VIVO();
         JOptionPane.showMessageDialog(null, "El juego ha comenzado alimentate para seguir con vida");
@@ -157,7 +161,6 @@ public class Ventana1 extends JFrame {
             }
         }while(datosUsuario.getPuntosDeVida()!=0);
         }
-*/
         //Delcaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
@@ -190,7 +193,6 @@ public class Ventana1 extends JFrame {
                 Ventana1 aux = new Ventana1();//Creamos una nueva
                 ventana11.add(aux, BorderLayout.NORTH);
                 ventana11.setVisible(true);
-                dispose();
 
             }
         });
