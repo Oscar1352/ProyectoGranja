@@ -1,8 +1,8 @@
 package InterfazGráfica;
 
 
-import Granja.Enum.EstadoUsuario;
 import InterfazGráfica.Mercado.Ventana3;
+import Hilos.VidaUsuarioHilo;
 import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
@@ -28,6 +28,8 @@ public class Ventana1 extends JFrame {
     private Ventana1 ventana3;
     private Ventana2 ventana4;
     private Ventana5 ventana5;
+
+
 
     public void Ventana1() throws HeadlessException, InterruptedException {
         //Declaro mis variables
@@ -137,30 +139,6 @@ public class Ventana1 extends JFrame {
                 ventana11.setVisible(true);
             }
         });
-        //Vida Usuario
-        {datosUsuario.VIVO();
-        JOptionPane.showMessageDialog(null, "El juego ha comenzado alimentate para seguir con vida");
-        do{
-            int VidaPerdida= datosUsuario.getPuntosDeVida()-10;
-            System.out.println("\nLa cantidad de vida del usuario es de: "+datosUsuario.getPuntosDeVida());
-            System.out.println("El usuario ha perdido vida, vida actual: "+VidaPerdida);
-            datosUsuario.setPuntosDeVida(VidaPerdida);
-            datosUsuario.setEstadoUsuario(EstadoUsuario.HAMBRIENTO);
-            JOptionPane.showMessageDialog(null, "El Usuario Está hambriento, come algo");
-
-            Thread.sleep(100000);
-            if (datosUsuario.getPuntosDeVida()==0) {
-                System.out.println("El usuario morirá");
-                datosUsuario.MUERTO();
-                JOptionPane.showMessageDialog(null, "El Usuario ha muerto");
-                datosUsuario.setEstadoUsuario(EstadoUsuario.MUERTO);
-                System.exit(0);
-            }else{
-                datosUsuario.HAMBRIENTO();
-                PV.setText("Puntos de Vida:"+datosUsuario.getPuntosDeVida());
-            }
-        }while(datosUsuario.getPuntosDeVida()!=0);
-        }
         //Delcaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
@@ -257,6 +235,9 @@ public class Ventana1 extends JFrame {
         Ventana1 ventana1= new Ventana1();
         ventana1.Ventana1();
 
+        //Declaro mi hilo
+        VidaUsuarioHilo vidaUsuarioHilo= new VidaUsuarioHilo();
+        vidaUsuarioHilo.start();
     }
 
 

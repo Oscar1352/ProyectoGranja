@@ -2,8 +2,8 @@ package InterfazGráfica.GranjaCeldas;
 
 
 import Controladores.ControladorGrama;
-import Granja.Enum.EstadoPlanta;
-import Granja.Plantas.Maiz;
+import Hilos.VidaMaizHilos;
+import Hilos.VidaManzanoHilos;
 import InterfazGráfica.Mercado.Ventana3;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
@@ -36,7 +36,7 @@ public class SiembraGeneral extends JFrame {
     private Ventana4 ventana4;
     private InterfazGráfica.Ventana5 ventana5;
 
-    public SiembraGeneral() {
+    public SiembraGeneral(){
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -107,7 +107,7 @@ public class SiembraGeneral extends JFrame {
         //Acciones del Boton
         Maiz.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {;
                 if(ventana3.maiz.getCantidadDeSemillas()<ControladorGrama.getCantidad()){
                     JOptionPane.showMessageDialog(null,"No posee la cantidad de Semillas Suficientes para Su siembra");
                 }else{
@@ -115,14 +115,27 @@ public class SiembraGeneral extends JFrame {
                     ventana3.maiz.setCantidadDeSemillas(ventana3.maiz.getCantidadDeSemillas()-ControladorGrama.getCantidad());
                     ControladorGrama.setCantidad(0);
                     JOptionPane.showMessageDialog(null,"La Plantación Fue hecha con éxito, esté atento");
-                    try {
-                        VidaMaiz();
-                    } catch (InterruptedException interruptedException) {
-                        interruptedException.printStackTrace();
-                    }
                     CantidadActual.setText("Cantidad actuales de celdas disponibles "+ ControladorGrama.getCantidad());
                     CantidadMaiz.setText("Cantidad Disponible de Maiz :"+Ventana3.maiz.getCantidadDeSemillas());
-
+                    VidaMaizHilos vidaMaizHilos= new VidaMaizHilos();
+                    vidaMaizHilos.start();
+                }
+            }
+        });
+        Manzano.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(ventana3.manzano.getCantidadDeSemillas()<ControladorGrama.getCantidad()){
+                    JOptionPane.showMessageDialog(null,"No posee la cantidad de Semillas Suficientes para Su siembra");
+                }else{
+                    ventana3.manzano.setSemillasSembradas(ControladorGrama.getCantidad());
+                    ventana3.manzano.setCantidadDeSemillas(ventana3.manzano.getCantidadDeSemillas()-ControladorGrama.getCantidad());
+                    ControladorGrama.setCantidad(0);
+                    JOptionPane.showMessageDialog(null,"La Plantación Fue hecha con éxito, esté atento");
+                    CantidadActual.setText("Cantidad actuales de celdas disponibles "+ ControladorGrama.getCantidad());
+                    CantidadManzano.setText("Cantidad Disponible de Manzano :"+Ventana3.manzano.getCantidadDeSemillas());
+                    VidaManzanoHilos vidaManzanoHilos= new VidaManzanoHilos();
+                    vidaManzanoHilos.start();
                 }
             }
         });
@@ -226,23 +239,6 @@ public class SiembraGeneral extends JFrame {
 
     public static void main(String[] args) {
         SiembraGeneral siembraGeneral= new SiembraGeneral();
-    }
-    public static void VidaMaiz() throws InterruptedException {
-        JOptionPane.showMessageDialog(null,"El tiempo de vida es"+Ventana3.maiz.getEdad()+" minutos, esté al pendiente");
-        //Declaro mis variables de tiempo, x es igual a la cantidad de minutos
-        //z es igual al doble de la cantidad de minutos
-        int x= Ventana3.maiz.getEdad()*10000;
-        int z=(Ventana3.maiz.getEdad()*2)*10000;
-        Ventana3.maiz.JOVEN();
-        Thread.sleep(x);
-        Ventana3.maiz.GRANDE();
-        Thread.sleep(x);
-        Ventana3.maiz.PENDIENTEDECOSECHA();
-        JOptionPane.showMessageDialog(null,"Cosecha Lista Para ser recogida, apurate");
-        Thread.sleep(x+x);
-        Ventana3.maiz.COSECHAPODRIDA();
-        Thread.sleep(z);
-        Ventana3.maiz.MUERTA();
     }
 
 
