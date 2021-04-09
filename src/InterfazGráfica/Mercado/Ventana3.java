@@ -19,6 +19,7 @@ import Granja.TiposDeAlimento.Herviboros.Vegetales;
 import Granja.TiposDeAlimento.Omnivoros.Frutas;
 import Granja.TiposDeAlimento.Omnivoros.Insectos;
 import Granja.TiposDeAlimento.Omnivoros.Nueces;
+import Granja.TiposDeCelda.Grama;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
 import InterfazGráfica.Ventana4;
@@ -49,6 +50,9 @@ public class Ventana3 extends JFrame {
     private Ventana4 ventana4;
     private Ventana5 ventana5;
     private NegociarMercado negociarMercado;
+
+    //CeldaGrama
+    public static Grama grama=          new Grama("Grama","Siembra",40,25,FertibilidadSuelo.BASICA);
 
     //PlantasHerviboros
     public static Chipilin chipilin=          new Chipilin("Herviboro","Chipilin",5,5);

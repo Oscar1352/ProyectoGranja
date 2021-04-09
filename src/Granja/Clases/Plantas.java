@@ -1,9 +1,6 @@
 package Granja.Clases;
 
-import Granja.Enum.EstadoAnimal;
 import Granja.Enum.EstadoPlanta;
-import Granja.Plantas.Maiz;
-import Granja.Plantas.Manzano;
 
 public abstract class Plantas extends SerVivo{
 
@@ -11,12 +8,22 @@ public abstract class Plantas extends SerVivo{
     private Integer PrecioDeSemillas;
     private int CantidadDeSemillas=5;
     private EstadoPlanta estadoPlanta;
+    private int SemillasSembradas=0;
 
     public Plantas(String nombre, Integer Edad, String tipoDePlanta, Integer precioDeSemillas, EstadoPlanta estadoPlanta) {
         super(nombre, Edad);
         TipoDePlanta = tipoDePlanta;
         PrecioDeSemillas = precioDeSemillas;
         this.estadoPlanta = estadoPlanta;
+    }
+
+    public int getSemillasSembradas() {
+        return SemillasSembradas;
+    }
+
+    public int setSemillasSembradas(int semillasSembradas) {
+        SemillasSembradas = semillasSembradas;
+        return semillasSembradas;
     }
 
     public int getCantidadDeSemillas() {

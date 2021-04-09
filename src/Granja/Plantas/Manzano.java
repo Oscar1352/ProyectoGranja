@@ -10,6 +10,7 @@ public class Manzano extends Plantas implements DeFruta {
     public Manzano(String nombre, Integer Edad, String tipoDePlanta, Integer precioDeSemillas, EstadoPlanta estadoPlanta) {
         super(nombre, Edad, tipoDePlanta, precioDeSemillas, estadoPlanta);
     }
+
     @Override
     public int getCantidadDeSemillas() {
         return super.getCantidadDeSemillas();
