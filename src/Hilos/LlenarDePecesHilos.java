@@ -1,8 +1,7 @@
 package Hilos;
 
 import Granja.Enum.EstadoAgua;
-import Granja.TiposDeCelda.Agua;
-import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana3;
 
 import javax.swing.*;
 

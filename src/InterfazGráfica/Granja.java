@@ -13,7 +13,6 @@ import Hilos.*;
 import InterfazGráfica.GranjaCeldas.CrianzaGeneral;
 import InterfazGráfica.GranjaCeldas.PescaGeneral;
 import InterfazGráfica.GranjaCeldas.SiembraGeneral;
-import InterfazGráfica.Mercado.Ventana3;
 
 import javax.swing.*;
 import java.awt.*;

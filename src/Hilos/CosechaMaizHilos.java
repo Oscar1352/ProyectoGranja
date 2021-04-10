@@ -1,15 +1,9 @@
 package Hilos;
 
-import Controladores.ControladorGrama;
 import Granja.Enum.EstadoGrama;
 import Granja.Enum.EstadoPlanta;
 import Granja.Enum.FertibilidadSuelo;
-import Granja.Fertilizantes.Alta;
-import Granja.Fertilizantes.Basica;
-import Granja.Fertilizantes.Media;
-import Granja.Plantas.Maiz;
-import Granja.TiposDeCelda.Grama;
-import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana3;
 
 import javax.swing.*;
 

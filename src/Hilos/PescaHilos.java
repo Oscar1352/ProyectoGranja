@@ -1,11 +1,10 @@
 package Hilos;
 
 import Granja.Enum.EstadoAgua;
-import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana3;
 import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
-import java.util.Scanner;
 
 public class PescaHilos extends Thread{
     //Declaro mis varibales

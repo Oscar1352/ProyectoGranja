@@ -2,7 +2,7 @@ package Hilos;
 
 import Granja.Enum.EstadoPlanta;
 import Granja.Enum.FertibilidadSuelo;
-import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana3;
 
 import javax.swing.*;
 

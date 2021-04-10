@@ -1,7 +1,7 @@
 package InterfazGráfica;
 
-import Granja.Animales.Peces;
-import InterfazGráfica.Mercado.Ventana3;
+import Hilos.VidaUsuarioHilos;
+import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -41,6 +41,7 @@ public class Ventana2 extends JFrame {
         // crear las partes del formulario
         int a = 50;
         JLabel Productos =                  new JLabel("Productos");
+        JLabel Oro =                         new JLabel("Oro: "+ DatosUsuario.getOro());
         JLabel Alimento1 =                  new JLabel("Alimento Herviboros ");
         JLabel Producto1 =                  new JLabel("Chipilin: "+ventana3.chipilin.getCantidad());
         JLabel Producto2 =                  new JLabel("Pasto: "+ventana3.pasto.getCantidad());
@@ -71,6 +72,11 @@ public class Ventana2 extends JFrame {
         gbc.gridy = 0;
         gbl.setConstraints(Productos, gbc);
         panel.add(Productos);
+        //Muestra el Producto
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbl.setConstraints(Oro, gbc);
+        panel.add(Oro);
         //Muestra el Herviboros
         gbc.gridx = 3;
         gbc.gridy = 1;
@@ -172,16 +178,20 @@ public class Ventana2 extends JFrame {
         frame.setVisible(true);
 
 
+        //Delcaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
         JMenu m1 = new JMenu("TIPOS DE JUEGO");
         JMenu m2 = new JMenu("AYUDA");
+        JMenu m3 = new JMenu("ALIMENTARSE");
         mb.add(m1);
         mb.add(m2);
+        mb.add(m3);
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0; gbc.gridy = 0;
         gbl.setConstraints( mb, gbc );
         frame.add(mb);
+
 
         //Declaro mis categorias del menu prindipal, TIPOS DE JUEGO
         JMenuItem m11 = new JMenuItem("GRANJA");
@@ -215,6 +225,7 @@ public class Ventana2 extends JFrame {
                 Ventana2 aux = new Ventana2();//Creamos una nueva
                 ventana12.add(aux, BorderLayout.NORTH);
                 ventana12.setVisible(true);
+                dispose();
             }
         });
         m13.addActionListener(new ActionListener() {
@@ -227,6 +238,7 @@ public class Ventana2 extends JFrame {
                 Ventana3 aux = new Ventana3();//Creamos una nueva
                 ventana13.add(aux, BorderLayout.NORTH);
                 ventana13.setVisible(true);
+                ventana1.dispose();
 
             }
         });
@@ -244,9 +256,8 @@ public class Ventana2 extends JFrame {
         });
 
         //Declaro mis categorias del submenu, AYUDA
-        JMenuItem m21 = new JMenuItem("MANUAL DE USUARIO");
+        JMenuItem m21= new JMenuItem("MANUAL DE USUARIO");
         m2.add(m21);
-        panel.add(mb);
         m21.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -257,6 +268,25 @@ public class Ventana2 extends JFrame {
                 Ventana5 aux = new Ventana5();//Creamos una nueva
                 ventana21.add(aux, BorderLayout.NORTH);
                 ventana21.setVisible(true);
+            }
+        });
+        panel.add(mb);
+
+        JMenuItem m31= new JMenuItem("ALIMENTARSE");
+        m3.add(m31);
+        m31.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                VidaUsuarioHilos vidaUsuarioHilo= new VidaUsuarioHilos();
+                vidaUsuarioHilo.stop();
+                ventana11 = new JDialog();
+                ventana11.setSize(400, 400);
+                ventana11.setLocationRelativeTo(null);
+                ventana11.setLayout(new BorderLayout());
+                ConsumirAlimento aux = new ConsumirAlimento();//Creamos una nueva
+                ventana11.add(aux, BorderLayout.NORTH);
+                ventana11.setVisible(true);
+                vidaUsuarioHilo.start();
             }
         });
     }

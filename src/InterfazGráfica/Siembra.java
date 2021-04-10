@@ -1,6 +1,5 @@
 package InterfazGráfica;
 
-import InterfazGráfica.Mercado.Ventana3;
 import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;

@@ -1,7 +1,6 @@
 package InterfazGráfica;
 
-import Hilos.VidaUsuarioHilo;
-import InterfazGráfica.Mercado.Ventana3;
+import Hilos.VidaUsuarioHilos;
 import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
@@ -42,6 +41,7 @@ public class ConsumirAlimento extends JFrame {
         // crear las partes del formulario
         int a = 50;
         JLabel Productos =          new JLabel("Productos");
+        JLabel PV =                  new JLabel("La Vida Actual del granjeto es: "+DatosUsuario.getPuntosDeVida());
         JLabel Alimento1 =          new JLabel("Alimento Herviboros ");
         JLabel Producto1 =          new JLabel("Chipilin: "+ventana3.chipilin.getCantidad());
         JLabel Producto3 =          new JLabel("Vegetales: "+ventana3.vegetales.getCantidad());
@@ -58,6 +58,11 @@ public class ConsumirAlimento extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 0;
 
+        //Muestra el Producto
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbl.setConstraints(PV, gbc);
+        panel.add(PV);
         //Muestra el Producto
         gbc.gridx = 3;
         gbc.gridy = 0;
@@ -132,6 +137,8 @@ public class ConsumirAlimento extends JFrame {
                         JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
                         DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
                         Producto1.setText("Chipilin: "+ventana3.chipilin.getCantidad());
+                        PV.setText("La Vida Actual del granjeto es: "+DatosUsuario.getPuntosDeVida());
+
 
                     }else if(ventana3.vegetales.getCantidad()>0){
                         Ventana3.vegetales.setCantidad(Ventana3.vegetales.getCantidad()-1);
@@ -139,6 +146,8 @@ public class ConsumirAlimento extends JFrame {
                         JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
                         DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
                         Producto3.setText("Vegetales: "+ventana3.vegetales.getCantidad());
+                        PV.setText("La Vida Actual del granjeto es: "+DatosUsuario.getPuntosDeVida());
+
 
                     }else if(ventana3.nueces.getCantidad()>0){
                         Ventana3.nueces.setCantidad(Ventana3.nueces.getCantidad()-1);
@@ -146,6 +155,8 @@ public class ConsumirAlimento extends JFrame {
                         JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
                         Producto11.setText("Nueces: "+ventana3.nueces.getCantidad());
                         DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
+                        PV.setText("La Vida Actual del granjeto es: "+DatosUsuario.getPuntosDeVida());
+
 
                     }else if(ventana3.frutas.getCantidad()>0){
                         Ventana3.frutas.setCantidad(Ventana3.frutas.getCantidad()-1);
@@ -153,6 +164,8 @@ public class ConsumirAlimento extends JFrame {
                         JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
                         Producto22.setText("Frutas: "+ventana3.frutas.getCantidad());
                         DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
+                        PV.setText("La Vida Actual del granjeto es: "+DatosUsuario.getPuntosDeVida());
+
 
                     }else if(ventana3.carne.getCantidad()>0){
                         Ventana3.carne.setCantidad(Ventana3.carne.getCantidad()-1);
@@ -160,6 +173,8 @@ public class ConsumirAlimento extends JFrame {
                         JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
                         Cantidad2.setText("Carne: "+ventana3.carne.getCantidad());
                         DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
+                        PV.setText("La Vida Actual del granjeto es: "+DatosUsuario.getPuntosDeVida());
+
 
                     }else if(ventana3.huevos.getCantidad()>0){
                         Ventana3.huevos.setCantidad(Ventana3.huevos.getCantidad()-1);
@@ -167,7 +182,7 @@ public class ConsumirAlimento extends JFrame {
                         JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
                         Cantidad3.setText("Huevos: "+ventana3.huevos.getCantidad());
                         DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
-
+                        PV.setText("La Vida Actual del granjeto es: "+DatosUsuario.getPuntosDeVida());
                     }else{
                         JOptionPane.showMessageDialog(null, "Comida Insuficiente");
                     }
@@ -184,14 +199,20 @@ public class ConsumirAlimento extends JFrame {
         frame.setVisible(true);
 
 
+        //Delcaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
         JMenu m1 = new JMenu("TIPOS DE JUEGO");
         JMenu m2 = new JMenu("AYUDA");
+        JMenu m3 = new JMenu("ALIMENTARSE");
         mb.add(m1);
         mb.add(m2);
-        gbl.setConstraints(mb, gbc);
-        panel.add(mb);
+        mb.add(m3);
+        // Creando MenuBar y agregando componentes
+        gbc.gridx = 0; gbc.gridy = 0;
+        gbl.setConstraints( mb, gbc );
+        frame.add(mb);
+
 
         //Declaro mis categorias del menu prindipal, TIPOS DE JUEGO
         JMenuItem m11 = new JMenuItem("GRANJA");
@@ -225,6 +246,7 @@ public class ConsumirAlimento extends JFrame {
                 Ventana2 aux = new Ventana2();//Creamos una nueva
                 ventana12.add(aux, BorderLayout.NORTH);
                 ventana12.setVisible(true);
+                dispose();
             }
         });
         m13.addActionListener(new ActionListener() {
@@ -237,6 +259,7 @@ public class ConsumirAlimento extends JFrame {
                 Ventana3 aux = new Ventana3();//Creamos una nueva
                 ventana13.add(aux, BorderLayout.NORTH);
                 ventana13.setVisible(true);
+                ventana1.dispose();
 
             }
         });
@@ -254,9 +277,8 @@ public class ConsumirAlimento extends JFrame {
         });
 
         //Declaro mis categorias del submenu, AYUDA
-        JMenuItem m21 = new JMenuItem("MANUAL DE USUARIO");
+        JMenuItem m21= new JMenuItem("MANUAL DE USUARIO");
         m2.add(m21);
-        panel.add(mb);
         m21.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -267,6 +289,25 @@ public class ConsumirAlimento extends JFrame {
                 Ventana5 aux = new Ventana5();//Creamos una nueva
                 ventana21.add(aux, BorderLayout.NORTH);
                 ventana21.setVisible(true);
+            }
+        });
+        panel.add(mb);
+
+        JMenuItem m31= new JMenuItem("ALIMENTARSE");
+        m3.add(m31);
+        m31.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                VidaUsuarioHilos vidaUsuarioHilo= new VidaUsuarioHilos();
+                vidaUsuarioHilo.stop();
+                ventana11 = new JDialog();
+                ventana11.setSize(400, 400);
+                ventana11.setLocationRelativeTo(null);
+                ventana11.setLayout(new BorderLayout());
+                ConsumirAlimento aux = new ConsumirAlimento();//Creamos una nueva
+                ventana11.add(aux, BorderLayout.NORTH);
+                ventana11.setVisible(true);
+                vidaUsuarioHilo.start();
             }
         });
     }

@@ -1,8 +1,7 @@
 package InterfazGráfica;
 
 
-import InterfazGráfica.Mercado.Ventana3;
-import Hilos.VidaUsuarioHilo;
+import Hilos.VidaUsuarioHilos;
 import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
@@ -130,7 +129,7 @@ public class Ventana1 extends JFrame {
         ALIMENTAR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VidaUsuarioHilo vidaUsuarioHilo= new VidaUsuarioHilo();
+                VidaUsuarioHilos vidaUsuarioHilo= new VidaUsuarioHilos();
                 vidaUsuarioHilo.stop();
                 ventana11 = new JDialog();
                 ventana11.setSize(400, 400);
@@ -147,8 +146,10 @@ public class Ventana1 extends JFrame {
         //Agrego mis categorias del menu
         JMenu m1 = new JMenu("TIPOS DE JUEGO");
         JMenu m2 = new JMenu("AYUDA");
+        JMenu m3 = new JMenu("ALIMENTARSE");
         mb.add(m1);
         mb.add(m2);
+        mb.add(m3);
         // Creando MenuBar y agregando componentes
         gbc.gridx = 0; gbc.gridy = 0;
         gbl.setConstraints( mb, gbc );
@@ -220,7 +221,6 @@ public class Ventana1 extends JFrame {
         //Declaro mis categorias del submenu, AYUDA
         JMenuItem m21= new JMenuItem("MANUAL DE USUARIO");
         m2.add(m21);
-        panel.add(mb);
         m21.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -233,13 +233,35 @@ public class Ventana1 extends JFrame {
                 ventana21.setVisible(true);
             }
         });
+        panel.add(mb);
+
+        JMenuItem m31= new JMenuItem("ALIMENTARSE");
+        m3.add(m31);
+        m31.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                VidaUsuarioHilos vidaUsuarioHilo= new VidaUsuarioHilos();
+                vidaUsuarioHilo.stop();
+                ventana11 = new JDialog();
+                ventana11.setSize(400, 400);
+                ventana11.setLocationRelativeTo(null);
+                ventana11.setLayout(new BorderLayout());
+                ConsumirAlimento aux = new ConsumirAlimento();//Creamos una nueva
+                ventana11.add(aux, BorderLayout.NORTH);
+                ventana11.setVisible(true);
+                vidaUsuarioHilo.start();
+            }
+        });
+
+
+
     }
     public static void main(String[] args) throws InterruptedException {
         Ventana1 ventana1= new Ventana1();
         ventana1.Ventana1();
 
         //Declaro mi hilo
-        VidaUsuarioHilo vidaUsuarioHilo= new VidaUsuarioHilo();
+        VidaUsuarioHilos vidaUsuarioHilo= new VidaUsuarioHilos();
         vidaUsuarioHilo.start();
     }
 

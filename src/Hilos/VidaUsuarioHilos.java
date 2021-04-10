@@ -5,7 +5,7 @@ import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
 
-public class VidaUsuarioHilo extends Thread{
+public class VidaUsuarioHilos extends Thread{
     //Vida Usuario
     public void run(){
         //Declaro mi variables

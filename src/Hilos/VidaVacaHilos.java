@@ -2,8 +2,7 @@ package Hilos;
 
 import Controladores.ControladorGrama;
 import Granja.Enum.EstadoAnimal;
-import Granja.Enum.EstadoPlanta;
-import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana3;
 
 import javax.swing.*;
 

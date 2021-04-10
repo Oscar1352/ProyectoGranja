@@ -3,7 +3,7 @@ package Hilos;
 import Granja.Enum.EstadoAnimal;
 import Granja.Enum.EstadoGrama;
 import Granja.Enum.EstadoPlanta;
-import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana3;
 
 import javax.swing.*;
 
