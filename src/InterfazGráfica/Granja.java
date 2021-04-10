@@ -76,8 +76,27 @@ public class Granja extends JPanel{
         for(int a= 0; a<CantidadDeCeldas.getCantidadDeCeldas();a++){
             if(celdas[a]==null){
             }else{
-                Botones[a] = new JButton(""+celdas[a].getTipoDeSuelo());
-                v.getContentPane().add(Botones[a]);
+                if(celdas[a].getTipoDeSuelo()=="Grama"){
+                   JButton boton = new JButton(celdas[a].getTipoDeSuelo());
+                   ImageIcon icono= new ImageIcon("C:\\Users\\Oscar Luna\\OneDrive\\Imágenes\\Granja.jpg");
+                   boton.setIcon(icono);
+                   v.add(boton);
+                   setSize(50,50);
+
+                }else if(celdas[a].getTipoDeSuelo()=="Agua"){
+                    JButton boton = new JButton(celdas[a].getTipoDeSuelo());
+                    ImageIcon icono= new ImageIcon("C:\\Users\\Oscar Luna\\OneDrive\\Imágenes\\agua.jpg");
+                    boton.setIcon(icono);
+                    v.add(boton);
+                    setSize(50,50);
+                }else if(celdas[a].getTipoDeSuelo()=="Desierto"){
+                    JButton boton = new JButton(celdas[a].getTipoDeSuelo());
+                    ImageIcon icono= new ImageIcon("C:\\Users\\Oscar Luna\\OneDrive\\Imágenes\\Desiertos.png");
+                    boton.setIcon(icono);
+                    v.add(boton);
+                    setSize(50,50);
+                }
+
             }
 
         }
