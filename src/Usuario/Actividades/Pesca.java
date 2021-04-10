@@ -4,6 +4,7 @@ import Granja.Enum.EstadoAgua;
 import Granja.TiposDeCelda.Agua;
 import Usuario.Ventanas.DatosUsuario;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Pesca extends Thread {
@@ -52,54 +53,23 @@ public class Pesca extends Thread {
 
     //Declaro Accion Para llenar la celda de agua de nuevo
     public void LlenarDePeces()throws InterruptedException{
-        System.out.println("\n\nQuitar el Barco?");
+
+        int ApariciónDePeces= ((segundos/100)*2);
         do{
-            System.out.println("1.SI");
-            System.out.println("2.NO");
-            System.out.print("Ingrese su elección: ");
-            Scanner barco = new Scanner(System.in);
-            Barco = barco.nextInt();
-
-        }while( Barco < 1 || Barco > 2 );
-
-        switch (Barco){
-            case 1:
-                int ApariciónDePeces= ((segundos/100)*2);
-                do{
-                    System.out.println("Cantidad de Peces en el lago "+agua.getCantidadDePeces());
-                    Thread.sleep(segundos);
-                    int x=agua.getCantidadDePeces();
-                    System.out.println("Llenando, actuales: "+agua.getCantidadDePeces()+"\n");
-                    agua.setCantidadDePeces(agua.getCantidadDePeces()+ApariciónDePeces);
-                    if(agua.getCantidadDePeces()==100){
-                        agua.setEstado(EstadoAgua.CONPECES);
-                        agua.setCantidadDePeces(100);
-                    }
-                }while (agua.getCantidadDePeces()!=100);
-                System.out.println("Cantidad de Peces en el lago "+agua.getCantidadDePeces());
-                agua.CONPECES();
+            JOptionPane.showMessageDialog(null,"Cantidad de Peces en el lago "+agua.getCantidadDePeces());
+            Thread.sleep(segundos);
+            int x=agua.getCantidadDePeces();
+            JOptionPane.showMessageDialog(null,"Llenando, actuales: "+agua.getCantidadDePeces()+"\n");
+            agua.setCantidadDePeces(agua.getCantidadDePeces()+ApariciónDePeces);
+            if(agua.getCantidadDePeces()==100){
+                agua.setEstado(EstadoAgua.CONPECES);
                 agua.setCantidadDePeces(100);
+            }
+        }while (agua.getCantidadDePeces()!=100);
+        JOptionPane.showMessageDialog(null,"Cantidad de Peces en el lago "+agua.getCantidadDePeces());
+        agua.CONPECES();
+        agua.setCantidadDePeces(100);
 
-                //Declaro mi variable para volver a pesacar
-                System.out.println("Volver a pescar?");
-                System.out.println("1.SI");
-                System.out.println("2.NO");
-                System.out.print("Ingrese su elección: ");
-                Scanner pesca = new Scanner(System.in);
-                int Pesca1 = pesca.nextInt();
-                switch (Pesca1){
-                    case 1:
-                        Pesca();
-                        break;
-                    case 2:
-                        System.out.println("Nos vemos");
-                        break;
-                }
-                break;
-            case 2:
-                System.out.println("El estado del agua seguirá igual: "+agua.getEstado());
-                break;
-        }
     }
 
     public static void main(String[] args) throws InterruptedException {

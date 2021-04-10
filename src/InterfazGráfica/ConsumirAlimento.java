@@ -1,5 +1,6 @@
 package InterfazGráfica;
 
+import Hilos.VidaUsuarioHilo;
 import InterfazGráfica.Mercado.Ventana3;
 import Usuario.Ventanas.DatosUsuario;
 
@@ -121,38 +122,55 @@ public class ConsumirAlimento extends JFrame {
         ALIMENTARSE.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(ventana3.chipilin.getCantidad()>0){
-                Ventana3.chipilin.setCantidad(Ventana3.chipilin.getCantidad()-1);
-                    DatosUsuario.setPuntosDeVida(50);
-                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
-                    Producto1.setText("Chipilin: "+ventana3.chipilin.getCantidad());
-                }else if(ventana3.vegetales.getCantidad()>0){
-                    Ventana3.vegetales.setCantidad(Ventana3.vegetales.getCantidad()-1);
-                    DatosUsuario.setPuntosDeVida(50);
-                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
-                    Producto3.setText("Vegetales: "+ventana3.vegetales.getCantidad());
-                }else if(ventana3.nueces.getCantidad()>0){
-                    Ventana3.nueces.setCantidad(Ventana3.nueces.getCantidad()-1);
-                    DatosUsuario.setPuntosDeVida(50);
-                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
-                    Producto11.setText("Nueces: "+ventana3.nueces.getCantidad());
-                }else if(ventana3.frutas.getCantidad()>0){
-                    Ventana3.frutas.setCantidad(Ventana3.frutas.getCantidad()-1);
-                    DatosUsuario.setPuntosDeVida(50);
-                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
-                    Producto22.setText("Frutas: "+ventana3.frutas.getCantidad());
-                }else if(ventana3.carne.getCantidad()>0){
-                    Ventana3.carne.setCantidad(Ventana3.carne.getCantidad()-1);
-                    DatosUsuario.setPuntosDeVida(50);
-                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
-                    Cantidad2.setText("Carne: "+ventana3.carne.getCantidad());
-                }else if(ventana3.huevos.getCantidad()>0){
-                    Ventana3.huevos.setCantidad(Ventana3.huevos.getCantidad()-1);
-                    DatosUsuario.setPuntosDeVida(50);
-                    JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
-                    Cantidad3.setText("Huevos: "+ventana3.huevos.getCantidad());
+                if(DatosUsuario.getPuntosDeVida()==50){
+                    JOptionPane.showMessageDialog(null, "EL USUARIO TIENE LA VIDA COMPLETA");
+
                 }else{
-                    JOptionPane.showMessageDialog(null, "Comida Insuficiente");
+                    if(ventana3.chipilin.getCantidad()>0){
+                        Ventana3.chipilin.setCantidad(Ventana3.chipilin.getCantidad()-1);
+                        DatosUsuario.setPuntosDeVida(50);
+                        JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                        DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
+                        Producto1.setText("Chipilin: "+ventana3.chipilin.getCantidad());
+
+                    }else if(ventana3.vegetales.getCantidad()>0){
+                        Ventana3.vegetales.setCantidad(Ventana3.vegetales.getCantidad()-1);
+                        DatosUsuario.setPuntosDeVida(50);
+                        JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                        DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
+                        Producto3.setText("Vegetales: "+ventana3.vegetales.getCantidad());
+
+                    }else if(ventana3.nueces.getCantidad()>0){
+                        Ventana3.nueces.setCantidad(Ventana3.nueces.getCantidad()-1);
+                        DatosUsuario.setPuntosDeVida(50);
+                        JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                        Producto11.setText("Nueces: "+ventana3.nueces.getCantidad());
+                        DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
+
+                    }else if(ventana3.frutas.getCantidad()>0){
+                        Ventana3.frutas.setCantidad(Ventana3.frutas.getCantidad()-1);
+                        DatosUsuario.setPuntosDeVida(50);
+                        JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                        Producto22.setText("Frutas: "+ventana3.frutas.getCantidad());
+                        DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
+
+                    }else if(ventana3.carne.getCantidad()>0){
+                        Ventana3.carne.setCantidad(Ventana3.carne.getCantidad()-1);
+                        DatosUsuario.setPuntosDeVida(50);
+                        JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                        Cantidad2.setText("Carne: "+ventana3.carne.getCantidad());
+                        DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
+
+                    }else if(ventana3.huevos.getCantidad()>0){
+                        Ventana3.huevos.setCantidad(Ventana3.huevos.getCantidad()-1);
+                        DatosUsuario.setPuntosDeVida(50);
+                        JOptionPane.showMessageDialog(null, "La vida del Granjero se ha restablecido");
+                        Cantidad3.setText("Huevos: "+ventana3.huevos.getCantidad());
+                        DatosUsuario.setAlimentoConsumido(DatosUsuario.getAlimentoConsumido()+1);
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Comida Insuficiente");
+                    }
                 }
             }
         });

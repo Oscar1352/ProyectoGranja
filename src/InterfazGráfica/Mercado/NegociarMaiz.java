@@ -1,5 +1,7 @@
 package InterfazGráfica.Mercado;
 
+import Granja.Plantas.PlantasReporte;
+import Granja.TiposDeCelda.CaracteristicasDeLaGranja;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
 import InterfazGráfica.Ventana4;
@@ -109,6 +111,7 @@ public class NegociarMaiz extends JFrame{
                     JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO, GASTO "+Total+" DE ORO");
                     datosUsuario.setOro(datosUsuario.getOro()-Total);
                     Ventana3.maiz.setCantidadDeSemillas(ventana3.maiz.getCantidadDeSemillas()+x);
+                    PlantasReporte.setCantidadDeSemillasCompradas(PlantasReporte.getCantidadDeSemillasCompradas()+x);
                     CantidadActual.setText("Unidades actuales: "+ventana3.maiz.getCantidadDeSemillas());
                     Oro.setText("Oro:"+datosUsuario.getOro());
                     introducir.setText("");

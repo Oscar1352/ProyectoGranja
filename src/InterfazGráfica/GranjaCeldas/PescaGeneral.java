@@ -1,9 +1,15 @@
-package InterfazGráfica;
+package InterfazGráfica.GranjaCeldas;
 
-import Granja.Animales.AnimalesReporte;
-import Granja.TiposDeCelda.CaracteristicasDeLaGranja;
-import Granja.Plantas.PlantasReporte;
+import Controladores.ControladorAgua;
+import Controladores.ControladorGrama;
+import Granja.Enum.EstadoGrama;
+import Hilos.LlenarDePecesHilos;
+import Hilos.PescaHilos;
+import Hilos.VidaManzanoHilos;
 import InterfazGráfica.Mercado.Ventana3;
+import InterfazGráfica.Ventana1;
+import InterfazGráfica.Ventana2;
+import InterfazGráfica.Ventana4;
 import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
@@ -14,7 +20,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana4 extends JFrame {
+public class PescaGeneral extends JFrame {
+    //Declaro mis clases
+    DatosUsuario datosUsuario= new DatosUsuario();
 
     //Declaro mis JDialog
     private JDialog ventana11;
@@ -23,15 +31,14 @@ public class Ventana4 extends JFrame {
     private JDialog ventana14;
     private JDialog ventana21;
 
-
     //Declaro mis ventanas
     private Ventana1 ventana1;
     private Ventana2 ventana2;
     private Ventana3 ventana3;
     private Ventana4 ventana4;
-    private Ventana5 ventana5;
+    private InterfazGráfica.Ventana5 ventana5;
 
-    public Ventana4() {
+    public PescaGeneral(){
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -40,123 +47,118 @@ public class Ventana4 extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(gbl);
         //Declaro un margen estético a mi ventana
-        Border bordejpanel = new TitledBorder(new EtchedBorder(), "REPORTE");
+        Border bordejpanel = new TitledBorder(new EtchedBorder(), "PESCA GENERAL");
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
-        JLabel RP =         new JLabel(" Resumen de Partida  ");
-        JLabel Nombre =     new JLabel(" Nombre:  "+DatosUsuario.getNombre());
-        JLabel DP =         new JLabel(" Duración de partida: "+CaracteristicasDeLaGranja.getDuraciónDePartida());
-        JLabel AG =         new JLabel(" Alimento Generado: "+CaracteristicasDeLaGranja.getAlimento());
-        JLabel OG =         new JLabel(" Oro Generado: "+DatosUsuario.getOro());
-        JLabel AC =         new JLabel(" Alimento Consumido: "+ DatosUsuario.getAlimentoConsumido());
-        JLabel CC =         new JLabel(" Celdas compradas: "+CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas());
+        int a = 50;
+        JLabel Manual = new JLabel("PESCA GENERAL");
+        JLabel texto = new JLabel(".........");
 
-        JLabel Espacio1=     new JLabel("    ");
-        JLabel Espacio2=     new JLabel("    ");
-
-        JLabel RA = new JLabel(" Reporte de Animales");
-        JLabel CriasC = new JLabel(" Crias Compradas: "+AnimalesReporte.getCriasCompradas());
-        JLabel AD = new JLabel(" Animales Destozados: "+AnimalesReporte.getUnidadesDestazadas());
-
-        JLabel RPlantas = new JLabel(" Reporte de Plantas ");
-        JLabel SP = new JLabel(" Semillas Compradas: "+PlantasReporte.getCantidadDeSemillasCompradas());
-        JLabel CC2 =         new JLabel(" Celdas compradas: "+CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas());
+        // crear las partes del formulario
+        JLabel GENERAL =                     new JLabel("PESCA GENERAL");
+        JLabel CantidadActual =              new JLabel("Cantidad actuales de celdas disponibles "+ ControladorAgua.getCantidad());
+        JLabel Barco =                       new JLabel("Posee un barco? "+DatosUsuario.getPosesionDeBarco());
+        JLabel comprarBarco=                 new JLabel("Comprar Barco a un costo de: 50 monedas de Oro");
+        JButton ComprarBarco=                new JButton("COMPRAR");
+        JButton LLENAR=                     new JButton("LLENAR DE PECES DE NUEVO");
+        JButton PESCAR=                     new JButton("PESCAR");
 
 
-        //Muestra el Resumen de Partida
+        // Creando MenuBar y agregando componentes
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+
+        //Muestra el Titulo
         gbc.gridx = 3;
         gbc.gridy = 0;
-        gbl.setConstraints(RP, gbc);
-        panel.add(RP);
-        //Muestra el Nombre
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        gbl.setConstraints(Nombre, gbc);
-        panel.add(Nombre);
-        //Muestra La duración de Partida
-        gbc.gridx = 2;
-        gbc.gridy = 2;
-        gbl.setConstraints(DP, gbc);
-        panel.add(DP);
-        //Muestra Oro Generado
-        gbc.gridx = 3;
-        gbc.gridy = 2;
-        gbl.setConstraints(OG, gbc);
-        panel.add(OG);
-        //Muestra ALimento Generado
+        gbl.setConstraints(GENERAL, gbc);
+        panel.add(GENERAL);
+        //Muestra el Cantidad
         gbc.gridx = 4;
-        gbc.gridy = 2;
-        gbl.setConstraints(AG, gbc);
-        panel.add(AG);
-        //Muestra Alimento Consumido
-        gbc.gridx = 5;
-        gbc.gridy = 2;
-        gbl.setConstraints(AC, gbc);
-        panel.add(AC);
-        //Muestra Celdas Compradas
-        gbc.gridx = 6;
-        gbc.gridy = 2;
-        gbl.setConstraints(CC, gbc);
-        panel.add(CC);
-
-
-        //Espacio
+        gbc.gridy = 4;
+        gbl.setConstraints(CantidadActual, gbc);
+        panel.add(CantidadActual);
+        //Muestra Cantidad
         gbc.gridx = 3;
         gbc.gridy = 3;
-        gbl.setConstraints(Espacio1, gbc);
-        panel.add(Espacio1);
-
-
-        //Muestra el Reporte de Animales
-        gbc.gridx = 3;
+        gbl.setConstraints(Barco, gbc);
+        panel.add(Barco);
+        //Muestra el Maiz
+        gbc.gridx = 2;
         gbc.gridy = 4;
-        gbl.setConstraints(RA, gbc);
-        panel.add(RA);
-        //Muestra Crias Compradas
+        gbl.setConstraints(comprarBarco, gbc);
+        panel.add(comprarBarco);
+        //Muestra el Boton Maiz
         gbc.gridx = 2;
         gbc.gridy = 5;
-        gbl.setConstraints(CriasC, gbc);
-        panel.add(CriasC);
-        //Muestra Animales Destozados
+        gbl.setConstraints(ComprarBarco, gbc);
+        panel.add(ComprarBarco);
+        //Muestra el Boton PESCAR
         gbc.gridx = 3;
         gbc.gridy = 5;
-        gbl.setConstraints(AD, gbc);
-        panel.add(AD);
+        gbl.setConstraints(PESCAR, gbc);
+        panel.add(PESCAR);
+        //Muestra el Boton LLENAR
+        gbc.gridx = 4;
+        gbc.gridy = 5;
+        gbl.setConstraints(LLENAR, gbc);
+        panel.add(LLENAR);
 
 
-        //Espacio
-        gbc.gridx = 3;
-        gbc.gridy = 6;
-        gbl.setConstraints(Espacio2, gbc);
-        panel.add(Espacio2);
 
-        //Muestra el Reporte de Plantas
-        gbc.gridx = 3;
-        gbc.gridy = 7;
-        gbl.setConstraints(RPlantas, gbc);
-        panel.add(RPlantas);
-        //Muestra el Semillas Compradas
-        gbc.gridx = 2;
-        gbc.gridy = 8;
-        gbl.setConstraints(SP, gbc);
-        panel.add(SP);
-        //Muestra Celdas Compradas
-        gbc.gridx = 3;
-        gbc.gridy = 8;
-        gbl.setConstraints(CC2, gbc);
-        panel.add(CC2);
+        //Acciones del Boton
+        ComprarBarco.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(DatosUsuario.getPosesionDeBarco()== Granja.Enum.PosesionDeBarco.SI){
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException interruptedException) {
+                        interruptedException.printStackTrace();
+                    }
+                    JOptionPane.showMessageDialog(null,"USTED ACTUALMENTE YA POSEE UN BARCO");
 
+                }else{
+                    DatosUsuario.setPosesionDeBarco(Granja.Enum.PosesionDeBarco.SI);
+                    DatosUsuario.setOro(DatosUsuario.getOro()-50);
+                    Barco.setText("Posee un barco? "+DatosUsuario.getPosesionDeBarco());
+                    JOptionPane.showMessageDialog(null,"COMPRA REALIZADA CON EXITO, YA POSEE UN BARCO");
+                }
+            }
+        });
+        PESCAR.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(DatosUsuario.getPosesionDeBarco()== Granja.Enum.PosesionDeBarco.SI){
+                    PescaHilos pescaHilos = new PescaHilos();
+                    pescaHilos.start();
+                }else{
+                    JOptionPane.showMessageDialog(null,"USTED NO POSEE NINGUN BARCO");
+                }
+
+            }
+        });
+        LLENAR.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(Ventana3.agua.getCantidadDePeces()==100){
+                    JOptionPane.showMessageDialog(null,"EL AGUA YA ESTÁ LLENA, NO PUEDE LLENARLA");
+                }else{
+                    LlenarDePecesHilos llenarDePecesHilos = new LlenarDePecesHilos();
+                    llenarDePecesHilos.start();
+                }
+            }
+        });
 
         // finalmente pintar todo
-
         frame.add( panel );
         frame.pack();
         frame.setSize(1000,250);
         frame.setVisible( true );
 
 
-        //Delcaro el JMenu
+        //Declaro el JMenu
         JMenuBar mb = new JMenuBar();
         //Agrego mis categorias del menu
         JMenu m1 = new JMenu("TIPOS DE JUEGO");
@@ -238,7 +240,7 @@ public class Ventana4 extends JFrame {
                 ventana21.setSize(350, 250);
                 ventana21.setLocationRelativeTo(null);
                 ventana21.setLayout(new BorderLayout());
-                Ventana5 aux = new Ventana5();//Creamos una nueva
+                InterfazGráfica.Ventana5 aux = new InterfazGráfica.Ventana5();//Creamos una nueva
                 ventana21.add(aux, BorderLayout.NORTH);
                 ventana21.setVisible(true);
             }
@@ -246,5 +248,9 @@ public class Ventana4 extends JFrame {
 
     }
 
-}
+    public static void main(String[] args) {
+        PescaGeneral pescaGeneral= new PescaGeneral();
+    }
 
+
+}

@@ -9,10 +9,12 @@ import Granja.Enum.EstadoGrama;
 import Granja.Enum.EstadoPlanta;
 import Granja.Enum.FertibilidadSuelo;
 import Granja.TiposDeCelda.Agua;
+import Granja.TiposDeCelda.CaracteristicasDeLaGranja;
 import Granja.TiposDeCelda.Desierto;
 import Granja.TiposDeCelda.Grama;
 import Hilos.CosechaMaizHilos;
 import Hilos.CosechaManzanoHilos;
+import InterfazGráfica.GranjaCeldas.PescaGeneral;
 import InterfazGráfica.GranjaCeldas.SiembraGeneral;
 import InterfazGráfica.Mercado.Ventana3;
 
@@ -139,8 +141,10 @@ public class Granja extends JPanel{
         b3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Comprar Celdas");
+                JOptionPane.showMessageDialog(null,"Se ha comprado una Casilla más");
+                JOptionPane.showMessageDialog(null,"Ahora Tiene la cantidad de: "+CantidadDeCeldas.getCantidadDeCeldas()+"Celdas");
                 CantidadDeCeldas.setCantidadDeCeldas(CantidadDeCeldas.getCantidadDeCeldas()+1);
+                CaracteristicasDeLaGranja.setCantidadDeCeldasCompradas(CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas()+1);
                 JOptionPane.showMessageDialog(null,"Se ha comprado una Casilla más ahora tiene: "+CantidadDeCeldas.getCantidadDeCeldas());
                 new Granja();
             }
@@ -148,7 +152,13 @@ public class Granja extends JPanel{
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"La cantidad de celdas para la pezca son: "+ ControladorAgua.getCantidad());
+                ventana11 = new JDialog();
+                ventana11.setSize(300, 300);
+                ventana11.setLocationRelativeTo(null);
+                ventana11.setLayout(new BorderLayout());
+                PescaGeneral aux = new PescaGeneral();//Creamos una nueva
+                ventana11.add(aux, BorderLayout.NORTH);
+                ventana11.setVisible(true);
 
             }
         });

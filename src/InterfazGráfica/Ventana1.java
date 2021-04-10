@@ -130,6 +130,8 @@ public class Ventana1 extends JFrame {
         ALIMENTAR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                VidaUsuarioHilo vidaUsuarioHilo= new VidaUsuarioHilo();
+                vidaUsuarioHilo.stop();
                 ventana11 = new JDialog();
                 ventana11.setSize(400, 400);
                 ventana11.setLocationRelativeTo(null);
@@ -137,6 +139,7 @@ public class Ventana1 extends JFrame {
                 ConsumirAlimento aux = new ConsumirAlimento();//Creamos una nueva
                 ventana11.add(aux, BorderLayout.NORTH);
                 ventana11.setVisible(true);
+                vidaUsuarioHilo.start();
             }
         });
         //Delcaro el JMenu

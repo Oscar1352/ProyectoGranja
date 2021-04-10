@@ -2,6 +2,7 @@ package Usuario.Ventanas;
 
 import Granja.Enum.EstadoAgua;
 import Granja.Enum.EstadoUsuario;
+import Granja.Enum.PosesionDeBarco;
 
 public class DatosUsuario {
 
@@ -9,9 +10,10 @@ public class DatosUsuario {
     private static String Nombre=" Oscar";
     private static String Nickname=" Black";
     private static int PuntosDeVida=50;
-    private static int AlimentoConsumido=50;
+    private static int AlimentoConsumido=0;
     private static EstadoUsuario estadoUsuario;
     private static int Oro=100;
+    private static PosesionDeBarco posesionDeBarco= PosesionDeBarco.NO;
 
     //Variables de Actividades
     private static int PecesPescados=0;
@@ -26,6 +28,14 @@ public class DatosUsuario {
 
     public static EstadoUsuario getEstadoUsuario() {
         return estadoUsuario;
+    }
+
+    public static PosesionDeBarco getPosesionDeBarco() {
+        return posesionDeBarco;
+    }
+
+    public static void setPosesionDeBarco(PosesionDeBarco posesionDeBarco) {
+        DatosUsuario.posesionDeBarco = posesionDeBarco;
     }
 
     public  void setEstadoUsuario(EstadoUsuario estadoUsuario) {

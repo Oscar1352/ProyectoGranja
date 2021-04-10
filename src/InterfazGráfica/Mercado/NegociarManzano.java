@@ -1,6 +1,7 @@
 package InterfazGráfica.Mercado;
 
 
+import Granja.Plantas.PlantasReporte;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
 import InterfazGráfica.Ventana4;
@@ -109,6 +110,7 @@ public class NegociarManzano extends JFrame{
                 if(datosUsuario.getOro()>=Total){
                     JOptionPane.showMessageDialog(null, "COMPRA REALIZADA CON EXITO, GASTO "+Total+" DE ORO");
                     datosUsuario.setOro(datosUsuario.getOro()-Total);
+                    PlantasReporte.setCantidadDeSemillasCompradas(PlantasReporte.getCantidadDeSemillasCompradas()+x);
                     Ventana3.manzano.setCantidadDeSemillas(ventana3.manzano.getCantidadDeSemillas()+x);
                     CantidadActual.setText("Unidades actuales: "+ventana3.manzano.getCantidadDeSemillas());
                     Oro.setText("Oro:"+datosUsuario.getOro());

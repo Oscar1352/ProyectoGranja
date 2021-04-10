@@ -1,10 +1,8 @@
 package InterfazGráfica.Mercado;
 import Granja.Animales.Gallina;
+import Granja.Animales.Peces;
 import Granja.Animales.Vaca;
-import Granja.Enum.EstadoAnimal;
-import Granja.Enum.EstadoGrama;
-import Granja.Enum.EstadoPlanta;
-import Granja.Enum.FertibilidadSuelo;
+import Granja.Enum.*;
 import Granja.Fertilizantes.Alta;
 import Granja.Fertilizantes.Basica;
 import Granja.Fertilizantes.Media;
@@ -20,6 +18,7 @@ import Granja.TiposDeAlimento.Herviboros.Vegetales;
 import Granja.TiposDeAlimento.Omnivoros.Frutas;
 import Granja.TiposDeAlimento.Omnivoros.Insectos;
 import Granja.TiposDeAlimento.Omnivoros.Nueces;
+import Granja.TiposDeCelda.Agua;
 import Granja.TiposDeCelda.Grama;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
@@ -53,7 +52,8 @@ public class Ventana3 extends JFrame {
     private NegociarMercado negociarMercado;
 
     //CeldaGrama
-    public static Grama grama=          new Grama("Grama","Siembra",40,25, EstadoGrama.DISPONIBLE,FertibilidadSuelo.BASICA);
+    public static Grama grama=                  new Grama("Grama","Siembra",40,25, EstadoGrama.DISPONIBLE,FertibilidadSuelo.BASICA);
+    public static Agua agua=                    new Agua("Agua","Pesca",35,25, EstadoAgua.CONPECES);
 
     //PlantasHerviboros
     public static Chipilin chipilin=          new Chipilin("Herviboro","Chipilin",5,5);
@@ -74,7 +74,7 @@ public class Ventana3 extends JFrame {
     //Animales
     public static Gallina gallina =           new Gallina("Galiina",50,"Omnivoro",0.5,3,25,50,"Carne",false,EstadoAnimal.VIVO);
     public static Vaca vaca =                 new Vaca("Vaca",50,"Hervibvoro",2,2,50,50,"Carne y Leche",true, EstadoAnimal.VIVO);
-
+    public static Peces peces =               new Peces("Peces",50,"herviboro",0.5,0,25,"Carne",50,false,EstadoAnimal.VIVO);
 
     //Fertilizantes
     public static Basica basica = new Basica(FertibilidadSuelo.BASICA,1,2, 15);

@@ -1,5 +1,6 @@
 package InterfazGráfica;
 
+import Granja.Animales.Peces;
 import InterfazGráfica.Mercado.Ventana3;
 
 import javax.swing.*;
@@ -56,6 +57,9 @@ public class Ventana2 extends JFrame {
         JLabel Plantas =                   new JLabel("Plantas");
         JLabel planta1 =                    new JLabel("Maiz: "+ventana3.maiz.getCantidadDeSemillas());
         JLabel planta2 =                    new JLabel("Manzano: "+ventana3.manzano.getCantidadDeSemillas());
+        JLabel PESCA =                    new JLabel("Pesca ");
+        JLabel Peces =                    new JLabel("Peces "+ Ventana3.peces.getCantidad());
+
 
 
         // Creando MenuBar y agregando componentes
@@ -147,6 +151,17 @@ public class Ventana2 extends JFrame {
         gbc.gridy = 9;
         gbl.setConstraints(planta2, gbc);
         panel.add(planta2);
+
+        //Muestra los peces
+        gbc.gridx = 3;
+        gbc.gridy = 10;
+        gbl.setConstraints(PESCA, gbc);
+        panel.add(PESCA);
+        //Muestra el Cantidad2
+        gbc.gridx = 3;
+        gbc.gridy = 11;
+        gbl.setConstraints(Peces, gbc);
+        panel.add(Peces);
 
         // finalmente pintar todo
 
