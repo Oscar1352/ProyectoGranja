@@ -110,5 +110,13 @@ public abstract class Animales extends SerVivo{
         setEstado(EstadoAnimal.VIVO);
         System.out.println("El estado de "+this.getNombre()+ " es: "+getEstado());
     }
+    public void COSECHADO(){
+        setEstado(EstadoAnimal.COSECHADO);
+        System.out.println("El estado de "+this.getNombre()+ " es: "+getEstado());
+    }
+    public void COSECHAPERDIDA(){
+        setEstado(EstadoAnimal.COSECHAPERDIDA);
+        System.out.println("El estado de "+this.getNombre()+ " es: "+getEstado());
+    }
 
 }

@@ -72,9 +72,9 @@ public class Ventana3 extends JFrame {
     public static Lana lana =                 new Lana("Lana",5,15);
 
     //Animales
-    public static Gallina gallina =           new Gallina("Galiina",50,"Omnivoro",0.5,3,25,50,"Carne",false,EstadoAnimal.VIVO);
-    public static Vaca vaca =                 new Vaca("Vaca",50,"Hervibvoro",2,2,50,50,"Carne y Leche",true, EstadoAnimal.VIVO);
-    public static Peces peces =               new Peces("Peces",50,"herviboro",0.5,0,25,"Carne",50,false,EstadoAnimal.VIVO);
+    public static Gallina gallina =           new Gallina("Galiina",10,"Omnivoro",0.5,3,25,50,"Carne",false,EstadoAnimal.VIVO);
+    public static Vaca vaca =                 new Vaca("Vaca",10,"Hervibvoro",2,2,50,50,"Carne y Leche",true, EstadoAnimal.VIVO);
+    public static Peces peces =               new Peces("Peces",10,"herviboro",0.5,0,25,"Carne",50,false,EstadoAnimal.VIVO);
 
     //Fertilizantes
     public static Basica basica = new Basica(FertibilidadSuelo.BASICA,1,2, 15);

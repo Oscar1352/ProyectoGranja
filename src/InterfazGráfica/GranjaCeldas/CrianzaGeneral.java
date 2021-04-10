@@ -3,8 +3,10 @@ package InterfazGráfica.GranjaCeldas;
 
 import Controladores.ControladorGrama;
 import Granja.Enum.EstadoGrama;
+import Hilos.VidaGallinaHilos;
 import Hilos.VidaMaizHilos;
 import Hilos.VidaManzanoHilos;
+import Hilos.VidaVacaHilos;
 import InterfazGráfica.Mercado.Ventana3;
 import InterfazGráfica.Ventana1;
 import InterfazGráfica.Ventana2;
@@ -19,7 +21,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SiembraGeneral extends JFrame {
+public class CrianzaGeneral extends JFrame {
     //Declaro mis clases
     DatosUsuario datosUsuario= new DatosUsuario();
 
@@ -37,7 +39,7 @@ public class SiembraGeneral extends JFrame {
     private Ventana4 ventana4;
     private InterfazGráfica.Ventana5 ventana5;
 
-    public SiembraGeneral(){
+    public CrianzaGeneral(){
         // Crear el gridbag layout y su constraints
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -46,22 +48,24 @@ public class SiembraGeneral extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(gbl);
         //Declaro un margen estético a mi ventana
-        Border bordejpanel = new TitledBorder(new EtchedBorder(), "SIEMBRA GENERAL");
+        Border bordejpanel = new TitledBorder(new EtchedBorder(), "CRIANZA GENERAL");
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Manual = new JLabel("SIEMBRA GENERAL");
+        JLabel Manual = new JLabel("CRIANZA GENERAL");
         JLabel texto = new JLabel(".........");
 
         // crear las partes del formulario
-        JLabel GENERAL =                     new JLabel("SIEMBRA GENERAL");
-        JLabel CantidadActual =              new JLabel("Cantidad actuales de celdas disponibles "+ ControladorGrama.getCantidad());
-        JLabel Producto =                    new JLabel("Producto que desea Sembrar");
-        JLabel CantidadMaiz=                 new JLabel("Cantidad Disponible de Maiz :"+Ventana3.maiz.getCantidadDeSemillas());
-        JLabel CantidadManzano=                 new JLabel("Cantidad Disponible de Manzano :"+Ventana3.manzano.getCantidadDeSemillas());
-        JButton Maiz=                        new JButton("MAIZ");
-        JButton Manzano=                        new JButton("MANZANO");
+        JLabel GENERAL =                     new JLabel("CRIANZA GENERAL");
+        JLabel vacas =                          new JLabel("VACAS");
+        JLabel gallinas =                       new JLabel("GALLINAS");
+        JLabel celdas =                    new JLabel("CANTIDAD DE CELDAS DISPONIBLES "+ControladorGrama.getCantidad());
+        JLabel Producto =                    new JLabel("QUE ANIMAL DESEA CRIAR?");
+        JLabel CantidadActualVacas =         new JLabel("Cantidad actuales de Vacas disponibles "+ Ventana3.vaca.getCantidad());
+        JLabel CantidadActualGallinas =      new JLabel("Cantidad actuales de Gallinas disponibles "+ Ventana3.gallina.getCantidad());
+        JButton VACAS=                        new JButton("VACAS");
+        JButton GALLINA=                     new JButton("GALLINAS");
 
 
         // Creando MenuBar y agregando componentes
@@ -73,90 +77,98 @@ public class SiembraGeneral extends JFrame {
         gbc.gridy = 0;
         gbl.setConstraints(GENERAL, gbc);
         panel.add(GENERAL);
-        //Muestra el Cantidad
+        //Muestra el Controlador
         gbc.gridx = 3;
         gbc.gridy = 2;
-        gbl.setConstraints(CantidadActual, gbc);
-        panel.add(CantidadActual);
-        //Muestra Cantidad
+        gbl.setConstraints(celdas, gbc);
+        panel.add(celdas);
+        //Muestra las Gallinas
+        gbc.gridx = 2;
+        gbc.gridy = 4;
+        gbl.setConstraints(gallinas, gbc);
+        panel.add(gallinas);
+        //Muestra el vacas
+        gbc.gridx = 4;
+        gbc.gridy = 4;
+        gbl.setConstraints(vacas, gbc);
+        panel.add(vacas);
+        //Muestra Producto
         gbc.gridx = 3;
         gbc.gridy = 3;
         gbl.setConstraints(Producto, gbc);
         panel.add(Producto);
-        //Muestra el Maiz
-        gbc.gridx = 2;
-        gbc.gridy = 4;
-        gbl.setConstraints(CantidadMaiz, gbc);
-        panel.add(CantidadMaiz);
-        //Muestra el Manzano
-        gbc.gridx = 4;
-        gbc.gridy = 4;
-        gbl.setConstraints(CantidadManzano, gbc);
-        panel.add(CantidadManzano);
-        //Muestra el Boton Maiz
+        //Muestra el Gallinas
         gbc.gridx = 2;
         gbc.gridy = 5;
-        gbl.setConstraints(Maiz, gbc);
-        panel.add(Maiz);
-        //Muestra el Boton Manzano
+        gbl.setConstraints(CantidadActualGallinas, gbc);
+        panel.add(CantidadActualGallinas);
+        //Muestra el Vacas
         gbc.gridx = 4;
         gbc.gridy = 5;
-        gbl.setConstraints(Manzano, gbc);
-        panel.add(Manzano);
+        gbl.setConstraints(CantidadActualVacas, gbc);
+        panel.add(CantidadActualVacas);
+        //Muestra el Boton Vacas
+        gbc.gridx = 4;
+        gbc.gridy = 6;
+        gbl.setConstraints(VACAS, gbc);
+        panel.add(VACAS);
+        //Muestra el Boton Gallinas
+        gbc.gridx = 2;
+        gbc.gridy = 6;
+        gbl.setConstraints(GALLINA, gbc);
+        panel.add(GALLINA);
 
 
         //Acciones del Boton
-        Maiz.addActionListener(new ActionListener(){
+        VACAS.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(Ventana3.vaca.getCantidad()<ControladorGrama.getCantidad()){
+                    JOptionPane.showMessageDialog(null,"NO POSEE LA CANTIDAD NECESARIA");
+
+                }else{
                 if(Ventana3.grama.getEstadoGrama()==EstadoGrama.OCUPADA){
                     JOptionPane.showMessageDialog(null,"YA HAY UNA ACTIVIDAD EN CURSO");
 
-                }else{;
-                    if(ventana3.maiz.getCantidadDeSemillas()<ControladorGrama.getCantidad()){
-                        JOptionPane.showMessageDialog(null,"No posee la cantidad de Semillas Suficientes para Su siembra");
-                    }else{
-                        Ventana3.grama.setEstadoGrama(EstadoGrama.OCUPADA);
-                        ventana3.maiz.setSemillasSembradas(ControladorGrama.getCantidad());
-                        ventana3.maiz.setCantidadDeSemillas(ventana3.maiz.getCantidadDeSemillas()-ControladorGrama.getCantidad());
-                        JOptionPane.showMessageDialog(null,"La Plantación Fue hecha con éxito, esté atento");
-                        CantidadActual.setText("Cantidad actuales de celdas disponibles "+ ControladorGrama.getCantidad());
-                        CantidadMaiz.setText("Cantidad Disponible de Maiz :"+Ventana3.maiz.getCantidadDeSemillas());
-                        VidaMaizHilos vidaMaizHilos= new VidaMaizHilos();
-                        vidaMaizHilos.start();
-                    }
+                }else{
+                    Ventana3.grama.setEstadoGrama(EstadoGrama.OCUPADA);
+                    ventana3.vaca.setCantidad(ventana3.vaca.getCantidad()-ControladorGrama.getCantidad());
+                    JOptionPane.showMessageDialog(null,"La Crianza fue hecha con éxito, esté atento");
+                    CantidadActualVacas.setText("Cantidad Disponible de Vacas :"+Ventana3.vaca.getCantidad());
+                    VidaVacaHilos vidaVacaHilos= new VidaVacaHilos();
+                    vidaVacaHilos.start();
+                }
                 }
 
             }
         });
-        Manzano.addActionListener(new ActionListener() {
+        GALLINA.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {;
-                if(Ventana3.grama.getEstadoGrama()==EstadoGrama.OCUPADA){
-                    JOptionPane.showMessageDialog(null,"YA HAY UNA PLANTACIÓN EN CURSO");
+            public void actionPerformed(ActionEvent e) {
+                if(Ventana3.gallina.getCantidad()<ControladorGrama.getCantidad()){
+                    JOptionPane.showMessageDialog(null,"NO POSEE LA CANTIDAD NECESARIA");
 
                 }else{
-                    if(ventana3.manzano.getCantidadDeSemillas()<ControladorGrama.getCantidad()){
-                        JOptionPane.showMessageDialog(null,"No posee la cantidad de Semillas Suficientes para Su siembra");
-                    }else{
-                        ventana3.manzano.setSemillasSembradas(ControladorGrama.getCantidad());
-                        ventana3.manzano.setCantidadDeSemillas(ventana3.manzano.getCantidadDeSemillas()-ControladorGrama.getCantidad());
-                        ControladorGrama.setCantidad(0);
-                        JOptionPane.showMessageDialog(null,"La Plantación Fue hecha con éxito, esté atento");
-                        CantidadActual.setText("Cantidad actuales de celdas disponibles "+ ControladorGrama.getCantidad());
-                        CantidadManzano.setText("Cantidad Disponible de Manzano :"+Ventana3.manzano.getCantidadDeSemillas());
-                        VidaManzanoHilos vidaManzanoHilos= new VidaManzanoHilos();
-                        vidaManzanoHilos.start();
-                    }
+                    if(Ventana3.grama.getEstadoGrama()==EstadoGrama.OCUPADA){
+                        JOptionPane.showMessageDialog(null,"YA HAY UNA ACTIVIDAD EN CURSO");
 
+                    }else{
+                        Ventana3.grama.setEstadoGrama(EstadoGrama.OCUPADA);
+                        ventana3.gallina.setCantidad(ventana3.gallina.getCantidad()-ControladorGrama.getCantidad());
+                        JOptionPane.showMessageDialog(null,"La Crianza fue hecha con éxito, esté atento");
+                        CantidadActualGallinas.setText("Cantidad Disponible de Vacas :"+Ventana3.gallina.getCantidad());
+                        VidaGallinaHilos vidaGallinaHilos= new VidaGallinaHilos();
+                        vidaGallinaHilos.start();
+                    }
                 }
+
             }
         });
 
         // finalmente pintar todo
         frame.add( panel );
         frame.pack();
-        frame.setSize(800,250);
+        frame.setSize(1000,250);
         frame.setVisible( true );
 
 
@@ -251,7 +263,7 @@ public class SiembraGeneral extends JFrame {
     }
 
     public static void main(String[] args) {
-        SiembraGeneral siembraGeneral= new SiembraGeneral();
+        CrianzaGeneral crianzaGeneral= new CrianzaGeneral();
     }
 
 

@@ -2,5 +2,5 @@ package Granja.Enum;
 
 public enum EstadoAnimal
 {
-    VIVO, LISTOPARACOSECHA, MUERTO
+    VIVO, LISTOPARACOSECHA,COSECHADO,COSECHAPERDIDA, MUERTO
 }

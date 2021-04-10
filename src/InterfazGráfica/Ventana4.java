@@ -61,7 +61,7 @@ public class Ventana4 extends JFrame {
 
         JLabel RPlantas = new JLabel(" Reporte de Plantas ");
         JLabel SP = new JLabel(" Semillas Compradas: "+PlantasReporte.getCantidadDeSemillasCompradas());
-        JLabel CC2 =         new JLabel(" Celdas compradas: "+CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas());
+        JLabel CC2 =         new JLabel(" Celdas compradas "+CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas());
 
 
         //Muestra el Resumen de Partida

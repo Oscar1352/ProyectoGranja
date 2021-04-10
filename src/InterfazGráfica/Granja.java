@@ -4,16 +4,13 @@ import Controladores.CantidadDeCeldas;
 import Controladores.ControladorAgua;
 import Controladores.ControladorGrama;
 import Granja.Clases.Celdas;
-import Granja.Enum.EstadoAgua;
-import Granja.Enum.EstadoGrama;
-import Granja.Enum.EstadoPlanta;
-import Granja.Enum.FertibilidadSuelo;
+import Granja.Enum.*;
 import Granja.TiposDeCelda.Agua;
 import Granja.TiposDeCelda.CaracteristicasDeLaGranja;
 import Granja.TiposDeCelda.Desierto;
 import Granja.TiposDeCelda.Grama;
-import Hilos.CosechaMaizHilos;
-import Hilos.CosechaManzanoHilos;
+import Hilos.*;
+import InterfazGráfica.GranjaCeldas.CrianzaGeneral;
 import InterfazGráfica.GranjaCeldas.PescaGeneral;
 import InterfazGráfica.GranjaCeldas.SiembraGeneral;
 import InterfazGráfica.Mercado.Ventana3;
@@ -90,11 +87,13 @@ public class Granja extends JPanel{
         JButton b3= new JButton("COMPRAR CELDAS");
         JButton b4= new JButton("PESCA");
         JButton b5= new JButton("LIMPIAR");
+        JButton b6= new JButton("CRIANZA");
         v.add(b1);
         v.add(b2);
         v.add(b3);
         v.add(b4);
         v.add(b5);
+        v.add(b6);
         v.pack();
         v.setVisible(true);
         v.setSize(800,600);
@@ -123,14 +122,28 @@ public class Granja extends JPanel{
                     cosechaMaizHilos.start();
 
                 }else if(Ventana3.maiz.getEstadoPlanta()== EstadoPlanta.COSECHADA){
-                    JOptionPane.showMessageDialog(null,"LA PLANTA YA FUE COSECHADA POR FAVOR PLANTAR DE NUEVO");
+                    JOptionPane.showMessageDialog(null, "LA CELDA YA FUE COSECHADA POR FAVOR PLANTAR O CRIAR DE NUEVO");
 
                 } else if(Ventana3.manzano.getEstadoPlanta()== EstadoPlanta.PENDIENTEDECOSECHA){
                     CosechaManzanoHilos cosechaManzanoHilos= new CosechaManzanoHilos();
                     cosechaManzanoHilos.start();
 
                 } else if(Ventana3.manzano.getEstadoPlanta()== EstadoPlanta.COSECHADA){
-                    JOptionPane.showMessageDialog(null,"LA PLANTA YA FUE COSECHADA POR FAVOR PLANTAR DE NUEVO");
+                    JOptionPane.showMessageDialog(null, "LA CELDA YA FUE COSECHADA POR FAVOR PLANTAR O CRIAR DE NUEVO");
+
+                }else if(Ventana3.vaca.getEstado()== EstadoAnimal.LISTOPARACOSECHA){
+                    CosechaVacasHilos cosechaVacasHilos= new CosechaVacasHilos();
+                    cosechaVacasHilos.start();
+
+                }else if(Ventana3.vaca.getEstado()== EstadoAnimal.COSECHADO) {
+                    JOptionPane.showMessageDialog(null, "LA CELDA YA FUE COSECHADA POR FAVOR PLANTAR O CRIAR DE NUEVO");
+
+                }else if(Ventana3.gallina.getEstado()== EstadoAnimal.LISTOPARACOSECHA){
+                    CosechaGallinasHilos cosechaGallinasHilos= new CosechaGallinasHilos();
+                    cosechaGallinasHilos.start();
+
+                }else if(Ventana3.gallina.getEstado()== EstadoAnimal.COSECHADO) {
+                    JOptionPane.showMessageDialog(null, "LA CELDA YA FUE COSECHADA POR FAVOR PLANTAR O CRIAR DE NUEVO");
 
                 }else{
                     JOptionPane.showMessageDialog(null,"NO HAY NINGUNA COSECHA PENDIENTE");
@@ -165,7 +178,20 @@ public class Granja extends JPanel{
         b5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                LimpiezaHilos limpiezaHilos= new LimpiezaHilos();
+                limpiezaHilos.start();
+            }
+        });
+        b6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ventana11 = new JDialog();
+                ventana11.setSize(300, 300);
+                ventana11.setLocationRelativeTo(null);
+                ventana11.setLayout(new BorderLayout());
+                CrianzaGeneral aux = new CrianzaGeneral();//Creamos una nueva
+                ventana11.add(aux, BorderLayout.NORTH);
+                ventana11.setVisible(true);
             }
         });
 
