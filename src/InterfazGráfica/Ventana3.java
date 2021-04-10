@@ -22,6 +22,7 @@ import Granja.TiposDeCelda.Agua;
 import Granja.TiposDeCelda.Grama;
 import Hilos.VidaUsuarioHilos;
 import InterfazGráfica.Mercado.NegociarMercado;
+import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -97,7 +98,7 @@ public class Ventana3 extends JFrame {
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
-        int a = 50;
+        JLabel Oro =            new JLabel("Oro: "+ DatosUsuario.getOro());
         JLabel Productos =          new JLabel("Productos");
         JLabel Alimento1 =          new JLabel("Alimento Herviboros ");
         JLabel Producto1 =          new JLabel("Chipilin: "+chipilin.getCantidad());
@@ -129,6 +130,11 @@ public class Ventana3 extends JFrame {
         gbc.gridy = 0;
         gbl.setConstraints(Productos, gbc);
         panel.add(Productos);
+        //Muestra el Oro
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbl.setConstraints(Oro, gbc);
+        panel.add(Oro);
         //Muestra el Herviboros
         gbc.gridx = 3;
         gbc.gridy = 1;

@@ -53,6 +53,7 @@ public class PescaGeneral extends JFrame {
 
         // crear las partes del formulario
         JLabel GENERAL =                     new JLabel("PESCA GENERAL");
+        JLabel Oro =                        new JLabel("Oro: "+datosUsuario.getOro());
         JLabel CantidadActual =              new JLabel("Cantidad actuales de celdas disponibles "+ ControladorAgua.getCantidad());
         JLabel Barco =                       new JLabel("Posee un barco? "+DatosUsuario.getPosesionDeBarco());
         JLabel comprarBarco=                 new JLabel("Comprar Barco a un costo de: 50 monedas de Oro");
@@ -70,6 +71,11 @@ public class PescaGeneral extends JFrame {
         gbc.gridy = 0;
         gbl.setConstraints(GENERAL, gbc);
         panel.add(GENERAL);
+        //Muestra el Oro
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbl.setConstraints(Oro, gbc);
+        panel.add(Oro);
         //Muestra el Cantidad
         gbc.gridx = 4;
         gbc.gridy = 4;
@@ -118,6 +124,7 @@ public class PescaGeneral extends JFrame {
                 }else{
                     DatosUsuario.setPosesionDeBarco(PosesionDeBarco.SI);
                     DatosUsuario.setOro(DatosUsuario.getOro()-50);
+                    Oro.setText("Oro: "+DatosUsuario.getOro());
                     Barco.setText("Posee un barco? "+DatosUsuario.getPosesionDeBarco());
                     JOptionPane.showMessageDialog(null,"COMPRA REALIZADA CON EXITO, YA POSEE UN BARCO");
                 }

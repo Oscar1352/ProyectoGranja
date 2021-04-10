@@ -183,6 +183,7 @@ public class Granja extends JPanel{
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"La cantidad de celdas para la Pesca son: "+ ControladorAgua.getCantidad());
                 ventana11 = new JDialog();
                 ventana11.setSize(300, 300);
                 ventana11.setLocationRelativeTo(null);
