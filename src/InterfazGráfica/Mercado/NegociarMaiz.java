@@ -45,7 +45,7 @@ public class NegociarMaiz extends JFrame{
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Chipilin =                     new JLabel("COMPRAR EN EL MERCADO");
+        JLabel Maiz =                     new JLabel("COMPRAR EN EL MERCADO");
         JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.maiz.getCantidadDeSemillas()+" c/u");
         JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.maiz.getPrecioDeSemillas());
         JLabel Oro =                         new JLabel("Oro:  "+datosUsuario.getOro());
@@ -61,8 +61,8 @@ public class NegociarMaiz extends JFrame{
         //Muestra el Titulo
         gbc.gridx = 3;
         gbc.gridy = 0;
-        gbl.setConstraints(Chipilin, gbc);
-        panel.add(Chipilin);
+        gbl.setConstraints(Maiz, gbc);
+        panel.add(Maiz);
         //Muestra el Cantidad
         gbc.gridx = 2;
         gbc.gridy = 2;

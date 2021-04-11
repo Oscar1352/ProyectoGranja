@@ -172,15 +172,15 @@ public class Ventana4 extends JFrame {
 
 
         //Declaro mis categorias del menu prindipal, TIPOS DE JUEGO
-        JMenuItem m11 = new JMenuItem("GRANJA");
-        JMenuItem m12 = new JMenuItem("BODEGA");
-        JMenuItem m13 = new JMenuItem("MERCADO");
-        JMenuItem m14 = new JMenuItem("REPORTES");
-        m1.add(m11);
-        m1.add(m12);
-        m1.add(m13);
-        m1.add(m14);
-        m11.addActionListener(new ActionListener() {
+        JMenuItem granja = new JMenuItem("GRANJA");
+        JMenuItem bodega = new JMenuItem("BODEGA");
+        JMenuItem mercado = new JMenuItem("MERCADO");
+        JMenuItem reportes = new JMenuItem("REPORTES");
+        m1.add(granja);
+        m1.add(bodega);
+        m1.add(mercado);
+        m1.add(reportes);
+        granja.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 ventana11 = new JDialog();
@@ -193,7 +193,7 @@ public class Ventana4 extends JFrame {
 
             }
         });
-        m12.addActionListener(new ActionListener() {
+        bodega.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 ventana12 = new JDialog();
@@ -206,7 +206,7 @@ public class Ventana4 extends JFrame {
                 dispose();
             }
         });
-        m13.addActionListener(new ActionListener() {
+        mercado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 ventana13 = new JDialog();
@@ -220,7 +220,7 @@ public class Ventana4 extends JFrame {
 
             }
         });
-        m14.addActionListener(new ActionListener() {
+        reportes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 ventana14 = new JDialog();
@@ -234,9 +234,9 @@ public class Ventana4 extends JFrame {
         });
 
         //Declaro mis categorias del submenu, AYUDA
-        JMenuItem m21= new JMenuItem("MANUAL DE USUARIO");
-        m2.add(m21);
-        m21.addActionListener(new ActionListener() {
+        JMenuItem manual= new JMenuItem("MANUAL DE USUARIO");
+        m2.add(manual);
+        manual.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 ventana21 = new JDialog();
@@ -250,9 +250,9 @@ public class Ventana4 extends JFrame {
         });
         panel.add(mb);
 
-        JMenuItem m31= new JMenuItem("ALIMENTARSE");
-        m3.add(m31);
-        m31.addActionListener(new ActionListener() {
+        JMenuItem alimentarse= new JMenuItem("ALIMENTARSE");
+        m3.add(alimentarse);
+        alimentarse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 VidaUsuarioHilos vidaUsuarioHilo= new VidaUsuarioHilos();
@@ -267,6 +267,10 @@ public class Ventana4 extends JFrame {
                 vidaUsuarioHilo.start();
             }
         });
+    }
+
+    public static void main(String[] args) {
+        Ventana4 ventana4= new Ventana4();
     }
 
 }

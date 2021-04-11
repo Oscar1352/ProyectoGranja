@@ -39,7 +39,6 @@ public class ConsumirAlimento extends JFrame {
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
-        int a = 50;
         JLabel Productos =          new JLabel("Productos");
         JLabel PV =                  new JLabel("La Vida Actual del granjeto es: "+DatosUsuario.getPuntosDeVida());
         JLabel Alimento1 =          new JLabel("Alimento Herviboros ");

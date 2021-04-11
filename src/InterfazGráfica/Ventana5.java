@@ -37,7 +37,6 @@ public class Ventana5 extends JFrame {
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
-        int a = 50;
         JLabel Manual = new JLabel("MANUAL DE USUARIO.........");
         JLabel texto = new JLabel(".........");
 

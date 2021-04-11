@@ -13,6 +13,7 @@ import Hilos.*;
 import InterfazGráfica.GranjaCeldas.CrianzaGeneral;
 import InterfazGráfica.GranjaCeldas.PescaGeneral;
 import InterfazGráfica.GranjaCeldas.SiembraGeneral;
+import Usuario.Ventanas.DatosUsuario;
 
 import javax.swing.*;
 import java.awt.*;
@@ -100,25 +101,25 @@ public class Granja extends JPanel{
             }
 
         }
-        JButton b1= new JButton("SEMBRAR");
-        JButton b2= new JButton("COSECHAR");
-        JButton b3= new JButton("COMPRAR CELDAS");
-        JButton b4= new JButton("PESCA");
-        JButton b5= new JButton("LIMPIAR");
-        JButton b6= new JButton("CRIANZA");
-        v.add(b1);
-        v.add(b2);
-        v.add(b3);
-        v.add(b4);
-        v.add(b5);
-        v.add(b6);
+        JButton sembrar= new JButton("SEMBRAR");
+        JButton cosechar= new JButton("COSECHAR");
+        JButton comprarCeldas= new JButton("COMPRAR CELDAS");
+        JButton pesca= new JButton("PESCA");
+        JButton limpiar= new JButton("LIMPIAR");
+        JButton crianza= new JButton("CRIANZA");
+        v.add(sembrar);
+        v.add(cosechar);
+        v.add(comprarCeldas);
+        v.add(pesca);
+        v.add(limpiar);
+        v.add(crianza);
         v.pack();
         v.setVisible(true);
         v.setSize(800,600);
         v.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         //Declaro las Acciones de los botones
-        b1.addActionListener(new ActionListener() {
+        sembrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null,"La cantidad de celdas para la siembra son: "+ ControladorGrama.getCantidad());
@@ -132,7 +133,7 @@ public class Granja extends JPanel{
 
             }
         });
-        b2.addActionListener(new ActionListener() {
+        cosechar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(Ventana3.maiz.getEstadoPlanta()== EstadoPlanta.PENDIENTEDECOSECHA){
@@ -169,18 +170,23 @@ public class Granja extends JPanel{
                 }
             }
         });
-        b3.addActionListener(new ActionListener() {
+        comprarCeldas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"Costo de Celda: 75");
+                if(DatosUsuario.getOro()<75){
+                    JOptionPane.showMessageDialog(null,"Oro Insufienciente para comprar Celdas");
+                }else{
                 JOptionPane.showMessageDialog(null,"Se ha comprado una Casilla más");
-                JOptionPane.showMessageDialog(null,"Ahora Tiene la cantidad de: "+CantidadDeCeldas.getCantidadDeCeldas()+"Celdas");
+                DatosUsuario.setOro(DatosUsuario.getOro()-75);
                 CantidadDeCeldas.setCantidadDeCeldas(CantidadDeCeldas.getCantidadDeCeldas()+1);
                 CaracteristicasDeLaGranja.setCantidadDeCeldasCompradas(CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas()+1);
                 JOptionPane.showMessageDialog(null,"Se ha comprado una Casilla más ahora tiene: "+CantidadDeCeldas.getCantidadDeCeldas());
                 new Granja();
+                }
             }
         });
-        b4.addActionListener(new ActionListener() {
+        pesca.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null,"La cantidad de celdas para la Pesca son: "+ ControladorAgua.getCantidad());
@@ -194,14 +200,14 @@ public class Granja extends JPanel{
 
             }
         });
-        b5.addActionListener(new ActionListener() {
+        limpiar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 LimpiezaHilos limpiezaHilos= new LimpiezaHilos();
                 limpiezaHilos.start();
             }
         });
-        b6.addActionListener(new ActionListener() {
+        crianza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ventana11 = new JDialog();

@@ -47,11 +47,6 @@ public class PescaGeneral extends JFrame {
         panel.setBorder(bordejpanel);
 
         // crear las partes del formulario
-        int a = 50;
-        JLabel Manual = new JLabel("PESCA GENERAL");
-        JLabel texto = new JLabel(".........");
-
-        // crear las partes del formulario
         JLabel GENERAL =                     new JLabel("PESCA GENERAL");
         JLabel Oro =                        new JLabel("Oro: "+datosUsuario.getOro());
         JLabel CantidadActual =              new JLabel("Cantidad actuales de celdas disponibles "+ ControladorAgua.getCantidad());

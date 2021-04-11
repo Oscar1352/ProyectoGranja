@@ -44,7 +44,7 @@ public class NegociarFrutas extends JFrame{
 
         // crear las partes del formulario
         int a = 50;
-        JLabel Chipilin =                     new JLabel("COMPRAR EN EL MERCADO");
+        JLabel Frutas =                     new JLabel("COMPRAR EN EL MERCADO");
         JLabel CantidadActual =              new JLabel("Unidades actuales: "+ventana3.frutas.getCantidad()+" c/u");
         JLabel Cantidad =                    new JLabel("Unidades deseadas a un costo de: "+ventana3.frutas.getPrecio());
         JLabel Oro =                         new JLabel("Oro:  "+datosUsuario.getOro());
@@ -60,8 +60,8 @@ public class NegociarFrutas extends JFrame{
         //Muestra el Titulo
         gbc.gridx = 3;
         gbc.gridy = 0;
-        gbl.setConstraints(Chipilin, gbc);
-        panel.add(Chipilin);
+        gbl.setConstraints(Frutas, gbc);
+        panel.add(Frutas);
         //Muestra el Cantidad
         gbc.gridx = 2;
         gbc.gridy = 2;
