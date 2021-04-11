@@ -171,7 +171,7 @@ public class NegociarPasto extends JFrame {
                 ventana11.setSize(300, 300);
                 ventana11.setLocationRelativeTo(null);
                 ventana11.setLayout(new BorderLayout());
-                Ventana1 aux = new Ventana1();//Creamos una nueva
+                Granja aux = new Granja();//Creamos una nueva
                 ventana11.add(aux, BorderLayout.NORTH);
                 ventana11.setVisible(true);
 
