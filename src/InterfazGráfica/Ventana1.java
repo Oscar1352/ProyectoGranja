@@ -167,8 +167,7 @@ public class Ventana1 extends JFrame {
                 ventana11.setLocationRelativeTo(null);
                 ventana11.setLayout(new BorderLayout());
                 Granja aux = new Granja();//Creamos una nueva
-                ventana11.add(aux, BorderLayout.NORTH);
-                ventana11.setVisible(true);
+
 
             }
         });
@@ -253,10 +252,6 @@ public class Ventana1 extends JFrame {
     public static void main(String[] args) throws InterruptedException {
         Ventana1 ventana1= new Ventana1();
         ventana1.Ventana1();
-
-        //Declaro mi hilo
-        VidaUsuarioHilos vidaUsuarioHilo= new VidaUsuarioHilos();
-        vidaUsuarioHilo.start();
     }
 
 

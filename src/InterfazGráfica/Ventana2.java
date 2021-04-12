@@ -208,8 +208,7 @@ public class Ventana2 extends JFrame {
                 ventana11.setSize(300, 300);
                 ventana11.setLocationRelativeTo(null);
                 ventana11.setLayout(new BorderLayout());
-                Granja aux = new Granja();//Creamos una nueva                ventana11.add(aux, BorderLayout.NORTH);
-                ventana11.setVisible(false);
+                Granja aux = new Granja();//Creamos una nueva
 
             }
         });

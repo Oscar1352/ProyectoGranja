@@ -180,8 +180,6 @@ public class NegociarManzano extends JFrame{
                 ventana11.setLocationRelativeTo(null);
                 ventana11.setLayout(new BorderLayout());
                 Granja aux = new Granja();//Creamos una nueva
-                ventana11.add(aux, BorderLayout.NORTH);
-                ventana11.setVisible(true);
 
             }
         });
