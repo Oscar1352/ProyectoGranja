@@ -46,11 +46,11 @@ public class Ventana4 extends JFrame {
         // crear las partes del formulario
         JLabel RP =         new JLabel(" Resumen de Partida  ");
         JLabel Nombre =     new JLabel(" Nombre:  "+DatosUsuario.getNombre());
-        JLabel DP =         new JLabel(" Duración de partida: "+CaracteristicasDeLaGranja.getDuraciónDePartida());
-        JLabel AG =         new JLabel(" Alimento Generado: "+CaracteristicasDeLaGranja.getAlimento());
-        JLabel OG =         new JLabel(" Oro Generado: "+DatosUsuario.getOro());
-        JLabel AC =         new JLabel(" Alimento Consumido: "+ DatosUsuario.getAlimentoConsumido());
-        JLabel CC =         new JLabel(" Celdas compradas: "+CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas());
+        JLabel DP =         new JLabel("    Duración de partida: "+CaracteristicasDeLaGranja.getDuraciónDePartida());
+        JLabel AG =         new JLabel("    Alimento Generado:   "+CaracteristicasDeLaGranja.getAlimento());
+        JLabel OG =         new JLabel("    Oro Generado:   "+DatosUsuario.getOro());
+        JLabel AC =         new JLabel("    Alimento Consumido:   "+ DatosUsuario.getAlimentoConsumido());
+        JLabel CC =         new JLabel("    Celdas compradas:   "+CaracteristicasDeLaGranja.getCantidadDeCeldasCompradas());
 
         JLabel Espacio1=     new JLabel("    ");
         JLabel Espacio2=     new JLabel("    ");
@@ -119,7 +119,7 @@ public class Ventana4 extends JFrame {
         gbl.setConstraints(CriasC, gbc);
         panel.add(CriasC);
         //Muestra Animales Destozados
-        gbc.gridx = 3;
+        gbc.gridx = 4;
         gbc.gridy = 5;
         gbl.setConstraints(AD, gbc);
         panel.add(AD);
@@ -142,7 +142,7 @@ public class Ventana4 extends JFrame {
         gbl.setConstraints(SP, gbc);
         panel.add(SP);
         //Muestra Celdas Compradas
-        gbc.gridx = 3;
+        gbc.gridx = 4;
         gbc.gridy = 8;
         gbl.setConstraints(CC2, gbc);
         panel.add(CC2);
@@ -152,7 +152,7 @@ public class Ventana4 extends JFrame {
 
         frame.add( panel );
         frame.pack();
-        frame.setSize(1000,250);
+        frame.setSize(1100,250);
         frame.setVisible( true );
 
 

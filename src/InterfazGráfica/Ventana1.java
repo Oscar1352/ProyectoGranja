@@ -252,6 +252,8 @@ public class Ventana1 extends JFrame {
     public static void main(String[] args) throws InterruptedException {
         Ventana1 ventana1= new Ventana1();
         ventana1.Ventana1();
+        VidaUsuarioHilos vidaUsuarioHilos= new VidaUsuarioHilos();
+        vidaUsuarioHilos.start();
     }
 
 
